@@ -1,1 +1,40 @@
-tdaefh
+== Git Clone
+To clone this project to your directory, type in
+  git clone <repo-http-link>
+
+== Create New Branch To Work On
+  git checkout -b "<Your_Name>_work"
+  git checkout master
+  git reset --hard
+  git checkout <Your_Name>_work
+
+== To Submit Your Work To Github
+  git branch 
+  * Check if you are on the <Your_Name>_work branch or not?
+  git add .
+  git commit -am "some names meaningful for this commit"
+  git checkout master
+  git pull origin master
+  git checkout <Your_Name>_work
+  git merge master
+  * if it says fast-forward, you are done
+  * else, fix all conflicts and use
+    git add .
+    git commit
+  git push origin master
+  
+== If You Want To Update Your Branch To The Latest Master Do
+  git branch
+  * Check if you are on the <Your_Name>_work branch or not?
+  git status 
+  * if there is any changes do
+    git add .
+    git commit -am "working"
+  git checkout master
+  git pull origin master
+  git checkout <Your_Name>_work
+  git merge master
+  * if it says fast-forward, you are done
+  * else, fix all conflicts and use
+    git add .
+    git commit
