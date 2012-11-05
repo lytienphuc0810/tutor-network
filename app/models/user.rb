@@ -12,10 +12,10 @@ class User < ActiveRecord::Base
   has_one :location
   has_one :rate
   belongs_to :rate
-  has_one :user, :throught => :rate
+  has_one :user, :through => :rate
   has_many :tutor_post
   has_many :customer_post
   has_many :recipe
-  has_one :user, :throught => :recipe
+  has_one :user, :through => :recipe
   belongs_to :recipe
 end
