@@ -17,7 +17,6 @@ gem 'haml', '3.1.7'
 gem 'devise', '2.1.2'
 gem 'jquery-rails', '2.1.2'
 gem 'will_paginate', '~> 3.0'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
