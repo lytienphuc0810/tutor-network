@@ -8,10 +8,6 @@ group :development do
   gem 'mysql2'
 end
 
-group :production do
-  gem 'pg'
-end
-
 gem "heroku"
 gem 'haml', '3.1.7'
 gem 'devise', '2.1.2'
