@@ -38,4 +38,3 @@ To clone this project to your directory, type in
   * else, fix all conflicts and use
     git add .
     git commit
-
