@@ -1,0 +1,35 @@
+- Home Page
+  + Tab home: 
+  	hien thi index tat ca cac post cua gia su
+  + Tab FAQ + Contact:
+    Lam bang Content management system
+
+- Admin Page
+  + Tab User:
+    hien thi index tat ca cac hang cua user
+    o page co mot tac vu create
+    o moi hang cua bang user co 3 tac vu: show, edit, delete
+    o trang show co: 
+    	. login as ...
+  - Tutor Page
+  + Tab Post:
+    quan ly post cua gia su
+    o page index cua bang post co mot tac vu create de tao post 
+    o moi hang cua bang post co 3 tac vu: show, edit, delete
+  + Tab home: 
+    hien thi index tat ca cac post cua phu huynh
+  + Tab Search
+    thuc hien cac chuc nang search post cua phu huynh
+  + Tab FAQ + Contact:
+    Lam bang Content management system
+- User Page
+  + Tab Post:
+    quan ly post cua phu huynh
+    o page index cua bang post co mot tac vu create de tao post 
+    o moi hang cua bang post co 3 tac vu: show, edit, delete
+  + Tab home: 
+    hien thi index tat ca cac post cua gia su
+  + Tab Search
+    thuc hien cac chuc nang search post cua gia su
+  + Tab FAQ + Contact: 
+    Lam bang Content management system
