@@ -1,0 +1,112 @@
+body  {
+	font-family: Helvetica;
+	margin: 0px;
+}
+.body-container {
+	background-image: url("pattern.png");
+	background-repeat: repeat;
+	height: auto;
+	padding: 15px;
+}
+
+#header-container {
+	height: auto;
+	width: 926px;
+	background-color: #00BCD1; 	
+	margin: 0 auto;
+	border-radius: 5px;
+	padding: 12px 18px 12px 18px;
+	#header-theme {
+		height: 80px;
+		width: auto;
+		padding: 10px;
+		background-color: #FEF9F0;
+		border-radius: 5px;
+		margin: 0 auto;
+		a {
+			font-family: Helvetica;
+			font-size: 15px;
+			text-decoration: none;
+			color: #76D3DE;
+		}
+		a:hover {
+			color: #00BCD1;
+		}
+	}
+	#hcmut-logo {
+		margin-left: 10px;
+	}
+	#hcmut-name{
+		color: #00BCD1;
+		font-family: helvetica;
+		font-size: 50px;
+		font-weight: bold;
+		margin-left: 40px;
+		margin-top: 20px;
+	}
+
+	#login-info {
+		margin-right: 15px;
+	}
+	#menu-bar {
+		height: 45px;
+		width: auto;
+		background-color: #FEF9F0;
+		border-radius: 5px;
+		margin-top: 12px;
+		#menu-link {
+			margin-top: 10px; 
+			margin-left: 45px;
+			a {
+				font-family: Helvetica;
+				font-weight: bold;
+				font-size: 20px;
+				text-decoration: none;
+				color: white;
+				padding: 5px;
+				background-color: #76D3DE;
+				border-radius: 5px;	
+			}
+			a:hover {
+				color: #FEF9F0;
+				background-color: #00BCD1;
+				border-radius: 5px;	
+			}
+		}
+	}
+}
+
+#main {
+	height: auto;
+	width: 938px;
+	background-color: #76D3DE; 	
+	margin: 0 auto;
+	margin-top: 15px;
+	border-radius: 5px;
+	padding: 12px;
+	.interesting-stuff {
+		height: 300px;
+		width: auto;
+		background-color: #FEF9F0;
+		margin-bottom: 10px;
+	}
+	.container {
+		height: auto;
+		width: auto;
+		min-height: 671px;
+		border-radius: 5px;
+		background-color: #FEF9F0;
+	}
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.clearboth {
+	clear: both;
+}
