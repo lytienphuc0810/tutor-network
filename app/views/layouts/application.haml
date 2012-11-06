@@ -1,0 +1,31 @@
+!!!
+%html
+	%head
+		%title Buffalo-Kids
+		= stylesheet_link_tag    "application", :media => "all"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+	%body
+		.body-container
+			#header
+				#header-container
+					#header-theme
+						#login-info.right
+							- if current_user
+								= "Welcome #{current_user.username}"
+								&nbsp | &nbsp
+								= link_to "Signout", destroy_user_session_path, :method => :delete
+							- else
+								= link_to "Signin", new_user_session_path
+						#hcmut-logo.left= link_to image_tag("hcmut_logo.png", :size => "80x80"), "/"
+						#hcmut-name.left= "HCMUT TUTOR NETWORK"
+					.clearboth
+					#menu-bar
+						#menu-link.left= link_to "FAQ", ""
+						#menu-link.left= link_to "CONTACT", ""
+			#main{:class => controller_name}
+				/ .interesting-stuff
+				.container
+					= yield
+			#footer
+				#footer-container
