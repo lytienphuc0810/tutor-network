@@ -20,6 +20,11 @@
 		border-radius: 5px;
 	}
 
+	.error {
+		color: red;
+		font-size: 12px;
+	}
+
 	.form-content {
 		display: inline-block;
 		padding: 20px 40px 20px 40px;
@@ -31,71 +36,139 @@
 		font-size: 14px;
 		font-weight: 15px;
 
-		label {
-			min-width: 90px;
-			margin-top: 10px
+		.field_with_errors {
+			display: block;
+			height: auto;
 		}
 
-		input, #book_description {
-			margin-top: 8px;
+		.small-error #error_explanation{
+			width: auto;
+		}
+
+		.h1 {
+			font-size: 20px;
+			font-weight: bold;
+			//color:	green;
+		}
+
+		#error_explanation {
+			text-align: left;
+			margin-top: 10px;
+			border: solid 1px red;
+			border-radius: 3px;
+			text-align: left;
+			padding-left: 10px;
+			color: red;
+			h2 {
+				font-size: 14px;
+				font-weight: thinner;
+			}
+		}
+
+		label {
+			margin-top: 10px;
+			margin-right: 20px;
+			float: left;
+			//color: green;
 		}
 
 		#book_description {
 			height: 75px;
 			width: 208px;
-			margin-left: 2px;
+			margin-right: 2px;
 		}
 
-		label, input, #book_description {
-			float: left;
+  	input, #book_description {
+		 	float: right;
+		 	margin-top: 8px;
+			//background-color : lightyellow;
+			//border: 1px solid #008000;
+			width: 230px;
+		}
+
+  	select, #book_description {
+		 	float: right;
+		 	margin-top: 8px;
+			//background-color : lightyellow;
+			//border: 1px solid #008000;
+			width: 235px;
 		}
 
 		.submit_btn {
-			float: left;
-			margin-left: 220px;
+			float: right;
 			margin-top: 10px;
+			//border: 1px solid #008000;
+			width: auto;
 		}
 	}
 
 	.devise-content {
+		display: inline-block;
 		padding: 20px 40px 20px 40px;
 		margin: 14px;
-		height: auto;
-		width: 290px;
+		min-height: 120px;
 		background-color: #D3D3D3;
 		border-radius: 5px;
 		font-size: 14px;
 		font-weight: 15px;
 
-		.email-label {
-			margin: 15px 34px 0px 0px;
+		.field_with_errors {
+			display: block;
+			height: auto;
 		}
-		.email-field {
-			margin: 12px 0px 0px 0px;
+
+		.small-error #error_explanation{
+			width: 285px;
 		}
-		.password-label {
-			margin: 15px 07px 0px 0px;
+
+		#error_explanation {
+			text-align: left;
+			margin-top: 10px;
+			border: solid 1px red;
+			border-radius: 3px;
+			text-align: left;
+			padding-left: 10px;
+			color: red;
+			h2 {
+				font-size: 14px;
+				font-weight: thinner;
+			}
 		}
-		.password-field {
-			margin: 12px 0px 0px 0px;
+
+
+		label {
+			margin-top: 10px;
+			margin-right: 20px;
+			float: left;
 		}
-		.remember-checkbox {
-			margin: 17px 8px 0px 0px;
-		}
+
 		.remember-label {
-			margin: 16px 5px 0px 0px;
-		}				
+			margin-right: 0;
+		}
+
+		.remember-checkbox {
+			float: left;
+			margin-top: 11px;
+		}
+
+		input {
+			margin-top: 8px;
+			float: right;
+		}
+
 		.submit {
-			width: 70px;
+			height: 28px;
+			margin-top: 10px;
+		}
+		.submit2 {
+			width: 230px;
 			height: 28px;
 			margin: 10px 5px 0px 0px;
 		}
 		.links-block {
+			display: inline-block;
 			margin: 10px 8px 0px 0px;
 			font-size: 13px;
-			span {
-				margin-right: 10px;
-			}
 			a, a:visited {
 				font-style: italic;
 				color: blue;
@@ -162,7 +235,6 @@
 }
 
 .pagination {
-  background: white;
   cursor: default;
   /* self-clearing method: */ }
   .pagination a, .pagination span, .pagination em {
@@ -171,21 +243,22 @@
     float: left;
     margin-right: 1px; }
   .pagination .disabled {
-    color: #999999;
-    border: 1px solid #dddddd; }
+  	font-size: 85%;
+    font-weight: bold;
+    color: #999999; }
   .pagination .current {
-    font-style: normal;
+  	font-size: 85%;
     font-weight: bold;
     background: #2e6ab1;
-    color: white;
-    border: 1px solid #2e6ab1; }
+    color: white; }
   .pagination a {
+  	font-size: 85%;
+    font-weight: bold;
     text-decoration: none;
-    color: #105cb6;
-    border: 1px solid #9aafe5; }
+    color: #105cb6; }
     .pagination a:hover, .pagination a:focus {
-      color: #000033;
-      border-color: #000033; }
+    	font-style: italic;
+      background-color: #D0D0D0; }
   .pagination .page_info {
     background: #2e6ab1;
     color: white;
