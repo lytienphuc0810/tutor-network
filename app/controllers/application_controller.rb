@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 	def after_sign_in_path_for(user)
 		case user.role
 			when "admin"
-				"/users/index/1"
-			when "user"
-				"/tutor_posts/index/1"
+				"/"
+			when "tutor"
+				"/tutor_homes/index_customer_post"
 		end
 	end
 end
