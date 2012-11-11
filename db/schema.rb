@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
 
   create_table "customer_posts", :force => true do |t|
     t.string   "content"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
     t.string   "address"
     t.string   "ward"
     t.string   "city_district"
+    t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
 
   create_table "tutor_posts", :force => true do |t|
     t.string   "content"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
