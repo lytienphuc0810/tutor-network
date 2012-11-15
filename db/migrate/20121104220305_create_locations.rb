@@ -4,6 +4,7 @@ class CreateLocations < ActiveRecord::Migration
     	t.string :address
     	t.string :ward
     	t.string :city_district
+    	t.integer :user_id
       t.timestamps
     end
   end

@@ -1,12 +1,26 @@
-<h2>Forgot your password?</h2>
+<div class="big-content">
+	<div class="title">FORGOT YOUR PASSWORD?</div>
+	<div class="devise-content">
+		<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+		  <%= f.label :email, "Enter Email" %>
+		  <%= f.email_field :email %>
+		  <div class="clearboth"></div>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+		  <%= f.submit "Submit", :class => " submit" %>
+		  <div class="clearboth"></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+		  <div class="links-block">
+  			<span><%= link_to "Sign in", new_session_path(resource_name), :class => ""%></span>
+  			<span>|</span>
+  			<span><%= link_to "Sign up", new_registration_path(resource_name), :class => ""%></span>
+  			<span>|</span>
+  			<span><%= link_to "Resend confirmation email", new_confirmation_path(resource_name), :class => "" %></span>
+		  </div>
+		  <div class="clearboth"></div>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+		  <div class="small-error">
+		  	<%= devise_error_messages! %>
+		  </div>
+		<% end %>
+	</div>
+</div>

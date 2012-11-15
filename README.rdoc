@@ -1,5 +1,5 @@
-== Our Test Site 
-  http://tutor-network.herokuapp.com/
+== Our Test Site
+  http://buffalokids.herokuapp.com/
 
 == Git Clone
 To clone this project to your directory, type in
@@ -24,7 +24,7 @@ To clone this project to your directory, type in
   * else, fix all conflicts and use
     git add .
     git commit
-  git push origin master
+  git push origin <Your_Name>_work
   
 == If You Want To Update Your Branch To The Latest Master Do
   git branch
@@ -33,6 +33,7 @@ To clone this project to your directory, type in
   * if there is any changes do
     git add .
     git commit -am "working"
+    ra 1 dong gi gi do, bam ":" roi "q" roi "enter"
   git checkout master
   git pull origin master
   git checkout <Your_Name>_work
@@ -41,4 +42,3 @@ To clone this project to your directory, type in
   * else, fix all conflicts and use
     git add .
     git commit
-
