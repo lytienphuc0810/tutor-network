@@ -1,0 +1,35 @@
+.big-content	
+	.header-link.left.inactive= link_to "CREATE", "/tutor_posts/new"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "TUTORS", "/customer_homes/index_tutor_post/1"
+	.divider.left= "|"
+	.header-link.left.active= link_to "NEW RECIPE", "/customer_homes/create_recipe"
+	.clearboth
+	.form-content
+		.h1= "NEW RECIPE"
+		.form
+			= form_for :recipe, :url => "/books/create" do |f|
+				= f.label "#{t 'welcome.librarian.book_form.title'}"
+				= f.text_field :title, :id => "title", :placeholder => "Input book title", :autocomplete => "off"
+				.clearboth
+				= f.label "#{t 'welcome.librarian.book_form.code'}"
+				= f.text_field :book_code, :id => "book_code", :placeholder => "Input book code", :autocomplete => "off"
+				.clearboth
+				= f.label "#{t 'welcome.librarian.book_form.author'}"
+				= f.text_field :author, :id => "book_author", :placeholder => "Input book desciption"
+				.clearboth
+				= f.label "#{t 'welcome.librarian.book_form.image'}"
+				= f.text_field :image_url, :id => "image_url", :placeholder => "Input image url"
+				.clearboth
+				= f.label "#{t 'welcome.librarian.book_form.description'}"
+				= f.text_area :description, :id => "book_description", :placeholder => "Input book desciption"
+				.clearboth
+				= f.submit "#{t 'welcome.librarian.book_form.create_button'}", :id => "submit_btn", :class => "submit_btn"
+				.clearboth
+				.right.error
+		-if @book.errors.any?
+			#error_explanation
+				%h2.errors= pluralize(@book.errors.count, "error") + " prohibited this book from being saved:"
+				%ul.errors
+					-@book.errors.full_messages.each do |msg|
+						%li.errors= msg
