@@ -1,0 +1,15 @@
+.big-content
+	.header-link.left.inactive= link_to "CREATE", "/tutor_posts/new"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "CUSTOMERS", "/tutor_homes/index_customer_post/1"
+	.divider.left= "|"
+	.header-link.left.active= link_to "#{@customer_post.user.username.truncate(20).upcase}", "/tutor_homes/show_customer_post/#{@customer_post.id}"
+	.clearboth
+	.content
+		.h2= @customer_post.user.username
+		.h2= @customer_post.user.email
+		.h2= @customer_post.user.gender
+		.h2= @customer_post.user.subject
+		.h2= @customer_post.user.location.address
+		.h2= @customer_post.user.rate
+		.h2= @customer_post.content
