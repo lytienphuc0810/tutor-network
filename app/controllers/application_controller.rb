@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 				"/"
 			when "tutor"
 				"/tutor_homes/index_customer_post"
+			when "customer"
+				"/customer_homes/index_tutor_post/1"
 		end
 	end
 end

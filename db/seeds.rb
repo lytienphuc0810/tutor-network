@@ -33,11 +33,11 @@ user2 =	User.create( :email => "tutoragain@example.com",
 					 :gender => true, 
 					 :role => "tutor",
 					 :subject => "physics")
-user3 = User.create( :email => "user@gmail.com", 
+user3 = User.create( :email => "customer@gmail.com", 
 					 :password => "123456", 
-					 :username => "user", 
+					 :username => "customer", 
 					 :gender => false, 
-					 :role => "user")
+					 :role => "customer")
 
 loc0 =  Location.create( :address => "123 Ly Thuong Kiet", 
 			             :ward => "10", 
@@ -58,6 +58,7 @@ loc3 =	Location.create( :address => "89 Nguyen Thi Thap",
 cpost0 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho con de cua anh ay")
 
 tpost0 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2")
+tpost1 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl")
 
 
 #==========================================================================================
@@ -70,4 +71,5 @@ user2.location = loc2
 user3.location = loc3
 
 user2.tutor_posts = [tpost0]
+user1.tutor_posts = [tpost1]
 user3.customer_posts = [cpost0]
