@@ -1,7 +1,10 @@
 TutorNetwork::Application.routes.draw do
   get "customer_homes/index_tutor_post/:page" => "customer_homes#index_tutor_post"
+  get "customer_homes/index_recipe/:page" => "customer_homes#index_recipe"
   get "customer_homes/show_tutor_post/:tutor_post_id" => "customer_homes#show_tutor_post"
-  get "customer_homes/create_recipe/:tutor_id/:customer_id" => "customer_homes#create_recipe"
+  get "customer_homes/create_recipe/:tutor_id" => "customer_homes#create_recipe"
+  get "customer_homes/show_recipe/:recipe_id" => "customer_homes#show_recipe"
+  get "customer_homes/delete_recipe/:recipe_id" => "customer_homes#delete_recipe"
 
   # get "customer_homes_controller/create_recipe" => ""
 

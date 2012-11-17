@@ -1,0 +1,11 @@
+.big-content
+  .header-link.left.active= link_to "RECEIPTS", "/customer_homes/index_recipe/1"
+  .clearboth
+  - @recipes.each do |recipe|
+    .small-content.left
+      .text-content-left.left
+        .h1.link= link_to "#{recipe.id}", "/customer_homes/show_recipe/#{recipe.id}"
+        .h2= recipe.tutor.username
+        .h2= recipe.customer.username
+  .clearboth
+  .paginate.right= will_paginate @recipes
