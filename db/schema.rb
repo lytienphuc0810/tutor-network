@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20121104220532) do
 
   create_table "customer_posts", :force => true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -36,9 +36,11 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
   end
 
   create_table "recipes", :force => true do |t|
-    t.boolean  "poster_confirmation",    :null => false
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.boolean  "poster_confirmation"
+    t.integer  "customer_id"
+    t.integer  "tutor_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "tutor_posts", :force => true do |t|
