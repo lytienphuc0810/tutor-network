@@ -36,14 +36,16 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
   end
 
   create_table "recipes", :force => true do |t|
-    t.boolean  "tutor_confirmation"
-    t.boolean  "customer_confirmation"
+    t.boolean  "poster_confirmation",    :null => false
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
   end
 
   create_table "tutor_posts", :force => true do |t|
     t.string   "content"
+    t.string   "subject"
+    t.string   "experience"
+    t.string   "tutor_fee"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -53,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
     t.string   "username"
     t.boolean  "gender"
     t.string   "role"
-    t.string   "subject"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false

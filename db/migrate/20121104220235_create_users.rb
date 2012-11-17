@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
     	t.string 		:username
     	t.boolean  	:gender
     	t.string		:role
-    	t.string 		:subject
       t.timestamps  
     end
   end
