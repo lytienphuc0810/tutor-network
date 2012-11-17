@@ -4,4 +4,9 @@ class Recipe < ActiveRecord::Base
   has_one :user
   belongs_to :tutor, :class_name => 'User', :foreign_key => :tutor_id
   belongs_to :customer, :class_name => 'User', :foreign_key => :customer_id
+
+  # Lam nhu the nay de gan
+  # r =  Recipe.find....
+  # r.tutor = User.find...
+  # r.save, phai co
 end
