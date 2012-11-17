@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 			when "admin"
 				"/"
 			when "tutor"
-				"/tutor_homes/index_customer_post"
+				"/tutor_homes/index_customer_post/1"
 			when "customer"
 				"/customer_homes/index_tutor_post/1"
 		end
