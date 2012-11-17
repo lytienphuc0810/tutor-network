@@ -39,19 +39,23 @@ user3 = User.create( :email => "customer@gmail.com",
 
 loc0 =  Location.create( :address => "123 Ly Thuong Kiet", 
 			             :ward => "10", 
-			             :city_district => "Quan 10, Ho Chi Minh")
+			             :district => "10",
+			             :city_province => "Ho Chi Minh")
 
 loc1 =	Location.create( :address => "1 Nguyen Trai", 
 			             :ward => "5", 
-			             :city_district => "Quan 5, Ho Chi Minh")
+			             :district => "5",
+			             :city_province => "Ho Chi Minh")
 
 loc2 =	Location.create( :address => "57 Tran Hung Dao", 
 			             :ward => "6", 
-			             :city_district => "Quan 1, Ho Chi Minh")
+			             :district => "1",
+			             :city_province => "Ho Chi Minh")
 
 loc3 =	Location.create( :address => "89 Nguyen Thi Thap", 
 			             :ward => "Tan Phong", 
-			             :city_district => "Quan 7, Ho Chi Minh")
+			             :district => "7",
+			             :city_province => "Ho Chi Minh")
 
 cpost0 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho con de cua anh ay")
 cpost1 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay")

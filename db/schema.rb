@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
   create_table "locations", :force => true do |t|
     t.string   "address"
     t.string   "ward"
-    t.string   "city_district"
+    t.string   "district"
+    t.string   "city_province"
     t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
