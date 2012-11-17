@@ -1,0 +1,13 @@
+.big-content
+	.header-link.left.inactive= link_to "CREATE", "/users/new"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "USERS", "/users/index/1"
+	.divider.left= "|"
+	.header-link.left.active= link_to "#{@user.username.truncate(20).upcase}", "/users/show/#{@user.id}"
+	.clearboth
+	.content
+		.h1= @user.username
+		.h2= @user.email
+		.h2= @user.role.capitalize
+		.h2.link= link_to "Edit this user", "/users/edit/#{@user.id}"
+		.h2.link= link_to "Delete this user", "/users/delete/#{@user.id}", :method => "post", :data => {:confirm => "Are you sure?"}

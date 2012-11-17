@@ -1,0 +1,13 @@
+.big-content
+  .header-link.left.inactive= link_to "CREATE", "/users/new"
+  .divider.left= "|"
+  .header-link.left.active= link_to "USERS", "/users/index/1"
+  .clearboth
+  - @users.each do |user|
+    .small-content.left
+      .text-content.left
+        .h1.link= link_to "#{user.username.upcase}", "/users/show/#{user.id}"
+        .h2= user.email
+        .h2= user.role.capitalize
+  .clearboth
+  .paginate.right= will_paginate @books

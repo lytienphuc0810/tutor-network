@@ -17,6 +17,14 @@ TutorNetwork::Application.routes.draw do
 
   get "tutor_homes/show_customer_post/:customer_post_id" => "tutor_homes#show_customer_post"
 
+  get "users/index/:page" => "users#index"
+  get "users/show/:user_id" => "users#show"
+  get "users/new" => "users#new"
+  post "users/create" => "users#create"
+  post "users/update/:user_id" => "users#update"
+  get "users/edit/:user_id" => "users#edit"
+  post "users/delete/:user_id" => "users#delete"
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

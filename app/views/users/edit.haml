@@ -1,0 +1,30 @@
+.big-content	
+	.header-link.left.active= link_to "EDOT", "/users/edit/#{@user.id}"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "USERS", "/users/index/1"
+	.clearboth
+	.form-content
+		.h1= "EDIT A USER"
+		.form
+			= form_for :user, :url => "/users/update/#{@user.id}" do |f|
+				= f.label "Username"
+				= f.text_field :username, :id => "username", :placeholder => "Input username", :autocomplete => "off"
+				.clearboth
+
+				= f.label "Email"
+				= f.text_field :email, :id => "email", :placeholder => "Input email"
+				.clearboth
+
+				= f.label "Role"
+				= f.select :role, [['User','user'],['Librarian','librarian'],['Admin','admin']], :id => "role"
+				.clearboth
+
+				= f.submit "Submit", :id => "submit_btn", :class => "submit_btn"
+				.clearboth
+				.right.error
+		-if @user.errors.any?
+			#error_explanation
+				%h2.errors= pluralize(@user.errors.count, "error") + " prohibited this user from being updated:"
+				%ul.errors
+					-@user.errors.full_messages.each do |msg|
+						%li.errors= msg

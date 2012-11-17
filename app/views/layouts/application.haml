@@ -21,8 +21,17 @@
 						#hcmut-name.left= "HCMUT TUTOR NETWORK"
 					.clearboth
 					#menu-bar
-						#menu-link.left= link_to "FAQ", ""
-						#menu-link.left= link_to "CONTACT", ""
+						- if current_user
+							- if current_user.customer?	
+								#menu-link.left= link_to "CUSTOMER HOME", "/customer_homes/index_tutor_post/1"
+								#menu-link.left= link_to "CUSTOMER POSTS", "/customer_posts/index_customer_post/1"
+							- if current_user.tutor?
+								#menu-link.left= link_to "TUTOR HOME", "/tutor_homes/index_customer_post/1"
+								#menu-link.left= link_to "TUTOR POSTS", "/tutor_posts/index_tutor_post/1"
+							- if current_user.admin?
+								#menu-link.left= link_to "USERS", "/users/index/1"
+						#menu-link.left= link_to "FAQ", "/faq"
+						#menu-link.left= link_to "CONTACT", "/contact"
 			#main{:class => controller_name}
 				/ .interesting-stuff
 				.container
