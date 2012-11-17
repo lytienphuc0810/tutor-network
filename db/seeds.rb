@@ -25,14 +25,12 @@ user1 =	User.create( :email => "tutor@gmail.com",
 					 :password => "123456",
 					 :username => "tutor1", 
 					 :gender => false, 
-					 :role => "tutor",
-					 :subject => "math")
+					 :role => "tutor")
 user2 =	User.create( :email => "tutoragain@example.com", 
 					 :password => "123456",
 					 :username => "tutor2", 
 					 :gender => true, 
-					 :role => "tutor",
-					 :subject => "physics")
+					 :role => "tutor")
 user3 = User.create( :email => "customer@gmail.com", 
 					 :password => "123456", 
 					 :username => "customer", 

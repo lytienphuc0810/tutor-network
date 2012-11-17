@@ -1,14 +1,12 @@
 .big-content	
-	.header-link.left.inactive= link_to "CREATE", "/tutor_posts/new"
+	.header-link.left.active= link_to "CREATE", "/tutor_posts/new"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "TUTORS", "/customer_homes/index_tutor_post/1"
-	.divider.left= "|"
-	.header-link.left.active= link_to "NEW RECIPE", "/customer_homes/create_recipe"
+	.header-link.left.inactive= link_to "TUTORS", "/tutor_posts/index/1"
 	.clearboth
 	.form-content
-		.h1= "NEW RECIPE"
+		.h1= "CREATE TUTOR POST"
 		.form
-			= form_for :recipe, :url => "/books/create" do |f|
+			= form_for :tutor_post, :url => "/tutor_posts/create" do |f|
 				= f.label "#{t 'welcome.librarian.book_form.title'}"
 				= f.text_field :title, :id => "title", :placeholder => "Input book title", :autocomplete => "off"
 				.clearboth

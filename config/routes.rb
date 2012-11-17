@@ -1,7 +1,7 @@
 TutorNetwork::Application.routes.draw do
   get "customer_homes/index_tutor_post/:page" => "customer_homes#index_tutor_post"
-
   get "customer_homes/show_tutor_post/:tutor_post_id" => "customer_homes#show_tutor_post"
+  get "customer_homes/create_recipe/:tutor_id/:customer_id" => "customer_homes#create_recipe"
 
   # get "customer_homes_controller/create_recipe" => ""
 
@@ -10,6 +10,11 @@ TutorNetwork::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
   get "/tutor_homes/index_customer_post" => "tutor_homes#index_customer_post"
+
+
+
+  get "tutor_posts/index_tutor_post/:page" => "tutor_posts#index_tutor_post"
+  get "tutor_posts/show_tutor_post/:tutor_post_id" => "tutor_posts#show_tutor_post"
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
