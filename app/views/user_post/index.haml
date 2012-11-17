@@ -1,0 +1,23 @@
+.big-content
+	.header-link.left.inactive= link_to "CREATE", "/users/new"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "userS", "/users/index/1"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "#{@user.title.truncate(20).upcase}", "/users/show/#{@user.id}"
+	.divider.left= "|"
+	.header-link.left.active= link_to "INSTANCES", "/customer_posts/index/#{@user.id}/1"
+	.clearboth
+	- i = 0
+	- @customer_posts.each do |customer_post|
+		- i = i + 1
+		.small-content.left
+			.img.left= image_tag @user.image_url, :size => "60x60"
+			.text-content.left
+				.h1.link= link_to "#{@user.title}", "/users/show/#{@user.id}"
+				.h2= customer_post.customer_post_code
+				.h2= link_to "Edit", "/customer_posts/edit/#{customer_post.id}"
+				.h2= link_to "Delete", "/customer_posts/delete/#{customer_post.id}", :method => "post"
+		- if(i % 3 == 0)
+			.clearboth
+	.clearboth
+	.paginate.right= will_paginate @customer_posts
