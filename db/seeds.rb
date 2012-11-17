@@ -16,28 +16,28 @@ TutorPost.delete_all
 #---------------------------------------------------------------------------
 #create data
 #---------------------------------------------------------------------------
-user0 = User.create( :email => "tuan@trinhcao.com", 
+user0 = User.create( :email => "admin@gmail.com", 
 					 :password => "123456",
 					 :username => "tuan", 
 					 :gender => true, 
 					 :role => "admin")
-user1 =	User.create( :email => "tutor@example.com", 
-					 :password => "456789",
+user1 =	User.create( :email => "tutor@gmail.com", 
+					 :password => "123456",
 					 :username => "tutor1", 
 					 :gender => false, 
 					 :role => "tutor",
 					 :subject => "math")
 user2 =	User.create( :email => "tutoragain@example.com", 
-					 :password => "987654",
+					 :password => "123456",
 					 :username => "tutor2", 
 					 :gender => true, 
 					 :role => "tutor",
 					 :subject => "physics")
-user3 = User.create( :email => "mother@example.com", 
-					 :password => "123456789", 
-					 :username => "mother", 
+user3 = User.create( :email => "customer@gmail.com", 
+					 :password => "123456", 
+					 :username => "customer", 
 					 :gender => false, 
-					 :role => "user")
+					 :role => "customer")
 
 loc0 =  Location.create( :address => "123 Ly Thuong Kiet", 
 			             :ward => "10", 
@@ -55,9 +55,10 @@ loc3 =	Location.create( :address => "89 Nguyen Thi Thap",
 			             :ward => "Tan Phong", 
 			             :city_district => "Quan 7, Ho Chi Minh")
 
-cpost0 = CustomerPost.create(:content => "Phuc dan ba dang can tim nguoi day cho con de cua anh ay")
+cpost0 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho con de cua anh ay")
 
 tpost0 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2")
+tpost1 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl")
 
 
 #==========================================================================================
@@ -70,4 +71,5 @@ user2.location = loc2
 user3.location = loc3
 
 user2.tutor_posts = [tpost0]
+user1.tutor_posts = [tpost1]
 user3.customer_posts = [cpost0]

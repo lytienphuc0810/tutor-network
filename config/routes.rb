@@ -1,4 +1,12 @@
 TutorNetwork::Application.routes.draw do
+  get "customer_homes/index_tutor_post/:page" => "customer_homes#index_tutor_post"
+
+  get "customer_homes/show_tutor_post/:tutor_post_id" => "customer_homes#show_tutor_post"
+
+  # get "customer_homes_controller/create_recipe" => ""
+
+  # get "customer_homes_controller/delete_recipe" => ""
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   get "/tutor_homes/index_customer_post" => "tutor_homes#index_customer_post"

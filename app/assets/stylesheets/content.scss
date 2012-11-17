@@ -178,14 +178,22 @@
 	}
 
 	.small-content {
-		width: 230px;
+		width: 800px;
 		height: 90px;
 		background-color: #D3D3D3;
 		border-radius: 5px;
 		padding: 10px;
 		margin: 14px;
 
-		.text-content {
+		.text-content-left {
+			width: 180px;
+			height: 90px;
+			margin-left: 10px;
+		}
+
+		.text-content-right {
+			width: 600px;
+			height: 90px;
 			margin-left: 10px;
 		}
 	}

@@ -1,0 +1,16 @@
+.big-content
+  .header-link.left.active= link_to "CREATE", "/tutor_posts/new"
+  .divider.left= "|"
+  .header-link.left.inactive= link_to "TUTORS", "/customer_homes/index_tutor_post/1"
+  .clearboth
+  - @tutor_posts.each do |tutor_post|
+    .small-content.left
+      .text-content-left.left
+        .h1.link= link_to "#{tutor_post.user.username.upcase}", "/customer_homes/show_tutor_post/#{tutor_post.id}"
+        .h2= tutor_post.user.email
+        .h2= tutor_post.user.location.address
+        .h2= tutor_post.user.rate
+      .text-content-right.left
+        .h2= tutor_post.content.truncate(250)
+  .clearboth
+  .paginate.right= will_paginate @tutor_posts
