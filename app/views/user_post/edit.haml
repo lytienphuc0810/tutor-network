@@ -1,0 +1,19 @@
+.big-content	
+	.header-link.left.inactive= link_to "CREATE", "/users/new"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "USERS", "/users/index/1"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "#{@customer_post.user.title.truncate(20).upcase}", "/users/show/#{@customer_post.user.id}"
+	.divider.left= "|"
+	.header-link.left.active= link_to "EDIT INSTANCE", "/customer_posts/edit/#{@customer_post.id}"
+	.clearboth
+	.form-content
+		.h1= "EDIT A USER POST"
+		.form
+			= form_for :customer_post, :url => "/customer_posts/update/#{@customer_post.id}" do |f|
+				= f.label "customer post code"
+				= f.text_field :customer_post_code, :id => "customer_post_code", :placeholder => "Input customer post code"
+				.clearboth
+				= f.submit "Submit", :id => "submit_btn", :class => "submit_btn"
+				.clearboth
+				.right.error
