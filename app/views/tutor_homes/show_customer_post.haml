@@ -1,7 +1,9 @@
 .big-content
 	.header-link.left.inactive= link_to "CUSTOMERS", "/tutor_homes/index_customer_post/1"
-	.divider.left= "|"
+	.divider.left= ">>"
 	.header-link.left.active= link_to "#{@customer_post.user.username.truncate(20).upcase}", "/tutor_homes/show_customer_post/#{@customer_post.id}"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "RECEIPTS", "/tutor_homes/index_recipe/1"
 	.clearboth
 	.content
 		.h2= @customer_post.user.username
