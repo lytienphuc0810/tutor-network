@@ -20,27 +20,35 @@ user0 = User.create( :email => "admin@gmail.com",
 					 :password => "123456",
 					 :username => "tuan", 
 					 :gender => true, 
-					 :role => "admin")
+					 :role => "admin", 
+					 :confirmed_at => Time.now)
 user1 =	User.create( :email => "tutor@gmail.com", 
 					 :password => "123456",
 					 :username => "tutor1", 
 					 :gender => false, 
-					 :role => "tutor")
+					 :role => "tutor",
+					 :confirmed_at => Time.now)
 user2 =	User.create( :email => "tutoragain@example.com", 
 					 :password => "123456",
 					 :username => "tutor2", 
 					 :gender => true, 
-					 :role => "tutor")
+					 :role => "tutor",
+					 :confirmed_at => Time.now
+					 )
 user3 = User.create( :email => "customer@gmail.com", 
 					 :password => "123456", 
 					 :username => "customer", 
 					 :gender => false, 
-					 :role => "customer")
+					 :role => "customer",
+					 :confirmed_at => Time.now
+					 )
 user4 = User.create( :email => "customer2@gmail.com", 
 					 :password => "123456", 
 					 :username => "customer2", 
 					 :gender => false, 
-					 :role => "customer")
+					 :role => "customer",
+					 :confirmed_at => Time.now
+					 )
 
 loc0 =  Location.create( :address => "123 Ly Thuong Kiet", 
 			             :ward => "10", 
