@@ -1,0 +1,10 @@
+.big-content
+	.header-link.left.inactive= link_to "RECEIPTS", "/tutor_homes/index_recipe/1"
+	.divider.left= "|"
+	.header-link.left.active= link_to "#{@recipe.id}", "/tutor_homes/show_recipe/#{@recipe.id}"
+	.clearboth
+	.content
+		.h2= @recipe.customer.username
+		.h2= @recipe.created_at
+		.h2= @recipe.updated_at
+		.h2= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}"

@@ -26,8 +26,11 @@ TutorNetwork::Application.routes.draw do
   # first created -> highest priority.
 
   get "tutor_homes/index_customer_post/:page" => "tutor_homes#index_customer_post"
-
+  get "tutor_homes/index_recipe/:page" => "tutor_homes#index_recipe"
   get "tutor_homes/show_customer_post/:customer_post_id" => "tutor_homes#show_customer_post"
+  get "tutor_homes/create_recipe/:customer_id" => "tutor_homes#create_recipe"
+  get "tutor_homes/show_recipe/:recipe_id" => "tutor_homes#show_recipe"
+  get "tutor_homes/delete_recipe/:recipe_id" => "tutor_homes#delete_recipe"
 
   get "users/index/:page" => "users#index"
   get "users/show/:user_id" => "users#show"
@@ -36,6 +39,9 @@ TutorNetwork::Application.routes.draw do
   post "users/update/:user_id" => "users#update"
   get "users/edit/:user_id" => "users#edit"
   post "users/delete/:user_id" => "users#delete"
+
+  get "/faq" => "etcs#faq"
+  get "/contact" => "etcs#contact"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
