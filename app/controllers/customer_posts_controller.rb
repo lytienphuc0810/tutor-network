@@ -1,4 +1,10 @@
 class CustomerPostsController < ApplicationController
+	before_filter :authenticate_user!,:authorized_user?
+
+	def authorized_user?
+		redirect_to(root_path) unless current_user && current_user.customer?
+	end
+	
 	def new_customer_post
 		#get method
     @customer_post = CustomerPost.new
@@ -61,7 +67,27 @@ class CustomerPostsController < ApplicationController
 		#post method
 		@recipe=Recipe.find_by_id(params[:recipe_id])
 		if @recipe.nil?
-			redirect_to "/customer_homes/index_recipe/1"
+			redirect_to "/customer_posts/index_recipe/1"
+		end
+	end
+
+	def accept_recipe
+		@recipe=Recipe.find_by_id(params[:recipe_id])
+		@recipe.poster_confirmation=true
+		if @recipe.save
+			redirect_to "/customer_posts/index_recipe/1"
+		else
+			redirect_to "/customer_posts/show_recipe/#{@recipe.id}"
+		end
+	end
+
+	def deny_recipe
+		@recipe=Recipe.find_by_id(params[:recipe_id])
+		@recipe.poster_confirmation=false
+		if @recipe.save
+			redirect_to "/customer_posts/index_recipe/1"
+		else
+			redirect_to "/customer_posts/show_recipe/#{@recipe.id}"
 		end
 	end
 end

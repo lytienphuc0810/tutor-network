@@ -1,4 +1,10 @@
 class CustomerHomesController < ApplicationController
+	before_filter :authenticate_user!,:authorized_user?
+
+	def authorized_user?
+		redirect_to(root_path) unless current_user && current_user.customer?
+	end
+
 	def index_tutor_post
 		#get method
 		@tutor_posts=TutorPost.paginate(:page => params[:page])
@@ -17,7 +23,7 @@ class CustomerHomesController < ApplicationController
 		@recipe=Recipe.find_by_others_id_and_owner_id(params[:tutor_id], current_user.id)
 		
 		if @recipe.nil?
-			@recipe=Recipe.new(:poster_confirmation => false)
+			@recipe=Recipe.new(:poster_confirmation => nil)
 			@recipe.others=User.find_by_id(params[:tutor_id])
 			@recipe.owner=current_user
 
