@@ -86,9 +86,7 @@ user0.location = loc0
 user1.location = loc1
 user2.location = loc2
 user3.location = loc3
-user4.location = loc4
 
 user2.tutor_posts = [tpost0]
 user1.tutor_posts = [tpost1]
 user3.customer_posts = [cpost0, cpost1]
-user4.customer_posts = [cpost2, cpost3]

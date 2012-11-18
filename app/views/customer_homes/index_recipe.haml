@@ -7,6 +7,6 @@
     .small-content.left
       .text-content-left.left
         .h1.link= link_to "#{recipe.id}", "/customer_homes/show_recipe/#{recipe.id}"
-        .h2= recipe.tutor.username
+        .h2= recipe.others.username
   .clearboth
   .paginate.right= will_paginate @recipes

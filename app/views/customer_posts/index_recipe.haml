@@ -1,11 +1,14 @@
 .big-content
+  .header-link.left.inactive= link_to "CREATE A POST", "/customer_posts/new_customer_post"
+  .divider.left= "|"
   .header-link.left.inactive= link_to "MY POSTS", "/customer_posts/index_customer_post/1"
+  .divider.left= "|"
   .header-link.left.active= link_to "MY RECEIPTS", "/customer_posts/index_recipe/1"
   .clearboth
   - @recipes.each do |recipe|
     .small-content.left
       .text-content-left.left
         .h1.link= link_to "#{recipe.id}", "/customer_posts/show_recipe/#{recipe.id}"
-        .h2= recipe.tutor.username
+        .h2= recipe.owner.username
   .clearboth
   .paginate.right= will_paginate @recipes

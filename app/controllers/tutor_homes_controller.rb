@@ -14,23 +14,21 @@ class TutorHomesController < ApplicationController
 
 	def create_recipe
 		#post method
-		@recipe=Recipe.find_by_customer_id_and_tutor_id(params[:customer_id], current_user.id)
+		@recipe=Recipe.find_by_others_id_and_owner_id(params[:customer_id], current_user.id)
 		
 		if @recipe.nil?
 			@recipe=Recipe.new(:poster_confirmation => false)
-			@recipe.customer=User.find_by_id(current_user.id)
-			@customer=User.find_by_id(params[:customer_id])
-			@customer.customer_recipes.push(@recipe)
+			@recipe.others=User.find_by_id(params[:customer_id])
+			@recipe.owner=current_user
 
 			@recipe.save
-			@customer.save
 		end
 
 		redirect_to "/tutor_homes/show_recipe/#{@recipe.id}"
 	end
 
 	def index_recipe
-		@recipes=Recipe.paginate(:page => params[:page]).find_all_by_customer_id(current_user.id)
+		@recipes=current_user.owner_recipes.paginate(:page => params[:page], :per_page => 12)
 	end
 
 	def show_recipe

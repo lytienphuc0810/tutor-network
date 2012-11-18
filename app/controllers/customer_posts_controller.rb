@@ -5,7 +5,7 @@ class CustomerPostsController < ApplicationController
 	end
 			 	
 	def index_customer_post
-		@customer_posts=CustomerPost.paginate(:page => params[:page]).find_all_by_user_id(current_user.id)
+		@customer_posts=current_user.customer_posts.paginate(:page => params[:page], :per_page => 12)
 	end
 
 	def show_customer_post
@@ -34,6 +34,7 @@ class CustomerPostsController < ApplicationController
 	def create_customer_post
 		#post method
     @customer_post = CustomerPost.new(params[:customer_post])
+    @customer_post.user = current_user
     if(@customer_post.save)
       redirect_to "/customer_posts/show_customer_post/#{@customer_post.id}"
     else
@@ -53,7 +54,7 @@ class CustomerPostsController < ApplicationController
 	end
 
 	def index_recipe
-		@recipes=Recipe.paginate(:page => params[:page]).find_all_by_tutor_id()
+		@recipes=current_user.others_recipes.paginate(:page => params[:page], :per_page => 12)
 	end
 
 	def show_recipe
