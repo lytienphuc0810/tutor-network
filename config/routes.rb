@@ -25,8 +25,11 @@ TutorNetwork::Application.routes.draw do
   # first created -> highest priority.
 
   get "tutor_homes/index_customer_post/:page" => "tutor_homes#index_customer_post"
-
+  get "tutor_homes/index_recipe/:page" => "tutor_homes#index_recipe"
   get "tutor_homes/show_customer_post/:customer_post_id" => "tutor_homes#show_customer_post"
+  get "tutor_homes/create_recipe/:customer_id" => "tutor_homes#create_recipe"
+  get "tutor_homes/show_recipe/:recipe_id" => "tutor_homes#show_recipe"
+  get "tutor_homes/delete_recipe/:recipe_id" => "tutor_homes#delete_recipe"
 
   get "users/index/:page" => "users#index"
   get "users/show/:user_id" => "users#show"

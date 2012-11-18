@@ -62,8 +62,16 @@ loc3 =	Location.create( :address => "89 Nguyen Thi Thap",
 			             :district => "7",
 			             :city_province => "Ho Chi Minh")
 
+loc4 =	Location.create( :address => "8 Nguyen Trai", 
+			             :ward => "1", 
+			             :district => "1",
+			             :city_province => "Ho Chi Minh")
+
 cpost0 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho con de cua anh ay", :subject => "Toan")
 cpost1 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay", :subject => "Toan")
+
+cpost2 = CustomerPost.create(:content => "Call me Maybe", :subject => "Ly")
+cpost3 = CustomerPost.create(:content => "Hey, I just met you, And this is crazy, But here's my number, So call me, maybe? It's hard to look right, At you baby, But here's my number, So call me, maybe?", :subject => "Ly")
 
 tpost0 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "Toan")
 tpost1 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl", :subject => "Toan")
@@ -77,7 +85,9 @@ user0.location = loc0
 user1.location = loc1
 user2.location = loc2
 user3.location = loc3
+user4.location = loc4
 
 user2.tutor_posts = [tpost0]
 user1.tutor_posts = [tpost1]
 user3.customer_posts = [cpost0, cpost1]
+user4.customer_posts = [cpost2, cpost3]
