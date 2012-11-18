@@ -12,7 +12,7 @@ TutorNetwork::Application.routes.draw do
   post "customer_posts/create_customer_post/" => "customer_posts#create_customer_post"
   post "customer_posts/delete_customer_post/:customer_post_id" => "customer_posts#delete_customer_post"
   post "customer_posts/update_customer_post/:customer_post_id" => "customer_posts#update_customer_post"
-  get "customer_posts/index_recipe/:page" => "customer_homes#index_recipe"
+  get "customer_posts/index_recipe/:page" => "customer_posts#index_recipe"
   get "customer_posts/show_customer_post/:customer_post_id" => "customer_posts#show_customer_post"
   # get "customer_homes/create_recipe/:tutor_id" => "customer_homes#create_recipe"
   get "customer_homes/show_recipe/:recipe_id" => "customer_homes#show_recipe"

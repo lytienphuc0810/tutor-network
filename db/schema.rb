@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
 
   create_table "recipes", :force => true do |t|
     t.boolean  "poster_confirmation"
-    t.integer  "customer_id"
-    t.integer  "tutor_id"
+    t.integer  "others_id"
+    t.integer  "owner_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

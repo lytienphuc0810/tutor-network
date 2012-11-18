@@ -4,7 +4,7 @@
 	.header-link.left.active= link_to "#{@recipe.id}", "/customer_homes/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.h2= @recipe.tutor.username
+		.h2= @recipe.others.username
 		.h2= @recipe.created_at
 		.h2= @recipe.updated_at
 		.h2= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}"

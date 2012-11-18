@@ -9,15 +9,15 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :gender, :role, :confirmed_at
   # attr_accessible :title, :body
 
-  validates :username, :password, :role, :gender, :presence => true
+  validates :username, :password, :role, :presence => true
   has_one :location
   has_one :rate
   belongs_to :rate
   has_one :user, :through => :rate
   has_many :tutor_posts
   has_many :customer_posts
-  has_many :tutor_recipes, :class_name => "Recipe", :foreign_key => :tutor_id
-  has_many :customer_recipes, :class_name => "Recipe", :foreign_key => :customer_id
+  has_many :owner_recipes, :class_name => "Recipe", :foreign_key => :owner_id
+  has_many :others_recipes, :class_name => "Recipe", :foreign_key => :others_id
   has_one :user, :through => :recipe
   self.per_page = 12
 
