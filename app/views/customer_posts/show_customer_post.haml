@@ -10,5 +10,5 @@
 		.h2= @customer_post.tutor_fee
 		.h2= @customer_post.experience
 		.h1= @customer_post.content
-		.h2.link= link_to "Edit", "/customer_posts/edit/#{@customer_post.id}"
-		.h2.link= link_to "Delete", "/customer_posts/delete/#{@customer_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
+		.h2.link= link_to "Edit", "/customer_posts/edit_customer_post/#{@customer_post.id}"
+		.h2.link= link_to "Delete", "/customer_posts/delete_customer_post/#{@customer_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
