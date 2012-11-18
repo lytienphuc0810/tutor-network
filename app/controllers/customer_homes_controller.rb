@@ -19,11 +19,8 @@ class CustomerHomesController < ApplicationController
 		if @recipe.nil?
 			@recipe=Recipe.new(:poster_confirmation => false)
 			@recipe.customer=User.find_by_id(current_user.id)
-			@tutor=User.find_by_id(params[:tutor_id])
-			@tutor.tutor_recipes.push(@recipe)
-
+			@recipe.tutor=User.find_by_id(params[:tutor_id])
 			@recipe.save
-			@tutor.save
 		end
 
 		redirect_to "/customer_homes/show_recipe/#{@recipe.id}"
