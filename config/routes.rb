@@ -40,6 +40,9 @@ TutorNetwork::Application.routes.draw do
   get "users/edit/:user_id" => "users#edit"
   post "users/delete/:user_id" => "users#delete"
 
+  get "/faq" => "etcs#faq"
+  get "/contact" => "etcs#contact"
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
