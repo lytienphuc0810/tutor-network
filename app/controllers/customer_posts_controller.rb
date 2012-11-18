@@ -1,4 +1,10 @@
 class CustomerPostsController < ApplicationController
+	before_filter :authenticate_user!,:authorized_user?
+
+	def authorized_user?
+		redirect_to(root_path) unless current_user && current_user.customer?
+	end
+	
 	def new_customer_post
 		#get method
     @customer_post = CustomerPost.new

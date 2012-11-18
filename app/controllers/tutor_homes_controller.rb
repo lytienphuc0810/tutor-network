@@ -1,4 +1,10 @@
 class TutorHomesController < ApplicationController
+	before_filter :authenticate_user!,:authorized_user?
+
+	def authorized_user?
+		redirect_to(root_path) unless current_user && current_user.tutor?
+	end
+	
 	def index_customer_post
 		#get method
 		@customer_posts=CustomerPost.paginate(:page => params[:page])
