@@ -3,8 +3,8 @@ class Recipe < ActiveRecord::Base
 
 
   has_one :user
-  belongs_to :tutor, :class_name => 'User'
-  belongs_to :customer, :class_name => 'User'
+  belongs_to :tutor, :class_name => 'User', :foreign_key => :tutor_id
+  belongs_to :customer, :class_name => 'User', :foreign_key => :customer_id
   self.per_page = 12
 
   # Lam nhu the nay de gan
