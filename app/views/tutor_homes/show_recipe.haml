@@ -9,4 +9,4 @@
 		.h2= @recipe.others.username
 		.h2= @recipe.created_at
 		.h2= @recipe.updated_at
-		.h2= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}"
+		.h2.link= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}"
