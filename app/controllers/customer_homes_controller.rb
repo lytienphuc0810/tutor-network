@@ -17,7 +17,7 @@ class CustomerHomesController < ApplicationController
 		@recipe=Recipe.find_by_others_id_and_owner_id(params[:tutor_id], current_user.id)
 		
 		if @recipe.nil?
-			@recipe=Recipe.new(:poster_confirmation => false)
+			@recipe=Recipe.new(:poster_confirmation => nil)
 			@recipe.others=User.find_by_id(params[:tutor_id])
 			@recipe.owner=current_user
 

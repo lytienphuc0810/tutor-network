@@ -8,5 +8,9 @@
       .text-content-left.left
         .h1.link= link_to "#{recipe.id}", "/tutor_homes/show_recipe/#{recipe.id}"
         .h2= recipe.others.username
+        - if recipe.poster_confirmation.nil?
+          .h2 Waiting for confirmation ...
+        - else
+          .h2= recipe.poster_confirmation
   .clearboth
   .paginate.right= will_paginate @recipes

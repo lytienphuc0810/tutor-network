@@ -7,6 +7,10 @@
 	.clearboth
 	.content
 		.h2= @recipe.others.username
+		- if @recipe.poster_confirmation.nil?
+			.h2 Waiting for confirmation ...
+		- else
+			.h2= @recipe.poster_confirmation
 		.h2= @recipe.created_at
 		.h2= @recipe.updated_at
 		.h2= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}"
