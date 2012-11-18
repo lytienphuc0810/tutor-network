@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :gender, :role
   # attr_accessible :title, :body
 
+  validates :username, :password, :role, :gender, :presence => true
   has_one :location
   has_one :rate
   belongs_to :rate

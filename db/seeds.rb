@@ -62,11 +62,11 @@ loc3 =	Location.create( :address => "89 Nguyen Thi Thap",
 			             :district => "7",
 			             :city_province => "Ho Chi Minh")
 
-cpost0 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho con de cua anh ay", :subject => "Toan")
-cpost1 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay", :subject => "Toan")
+cpost0 = CustomerPost.create(:tutor_fee => "200000", :experience => "5 nam", :content => "Phuc thot dang can tim nguoi day cho con de cua anh ay", :subject => "Toan")
+cpost1 = CustomerPost.create(:tutor_fee => "200000", :experience => "5 nam", :content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay", :subject => "Toan")
 
-tpost0 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "Toan")
-tpost1 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl", :subject => "Toan")
+tpost0 = TutorPost.create(:tutor_fee => "200000", :experience => "5 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "Toan")
+tpost1 = TutorPost.create(:tutor_fee => "200000", :experience => "5 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl", :subject => "Toan")
 
 
 #==========================================================================================
