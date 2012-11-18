@@ -6,6 +6,18 @@ TutorNetwork::Application.routes.draw do
   get "customer_homes/show_recipe/:recipe_id" => "customer_homes#show_recipe"
   get "customer_homes/delete_recipe/:recipe_id" => "customer_homes#delete_recipe"
 
+  get "customer_posts/index_customer_post/:page" => "customer_posts#index_customer_post"
+  get "customer_posts/new_customer_post" => "customer_posts#new_customer_post"
+  get "customer_posts/edit_customer_post/:customer_post_id" => "customer_posts#edit_customer_post"
+  post "customer_posts/create_customer_post/" => "customer_posts#create_customer_post"
+  post "customer_posts/delete_customer_post/:customer_post_id" => "customer_posts#delete_customer_post"
+  post "customer_posts/update_customer_post/:customer_post_id" => "customer_posts#update_customer_post"
+  get "customer_posts/index_recipe/:page" => "customer_homes#index_recipe"
+  get "customer_posts/show_customer_post/:customer_post_id" => "customer_posts#show_customer_post"
+  # get "customer_homes/create_recipe/:tutor_id" => "customer_homes#create_recipe"
+  get "customer_homes/show_recipe/:recipe_id" => "customer_homes#show_recipe"
+  # get "customer_homes/delete_recipe/:recipe_id" => "customer_homes#delete_recipe"
+
   # get "customer_homes_controller/create_recipe" => ""
 
   # get "customer_homes_controller/delete_recipe" => ""
@@ -14,8 +26,11 @@ TutorNetwork::Application.routes.draw do
   # first created -> highest priority.
 
   get "tutor_homes/index_customer_post/:page" => "tutor_homes#index_customer_post"
-
+  get "tutor_homes/index_recipe/:page" => "tutor_homes#index_recipe"
   get "tutor_homes/show_customer_post/:customer_post_id" => "tutor_homes#show_customer_post"
+  get "tutor_homes/create_recipe/:customer_id" => "tutor_homes#create_recipe"
+  get "tutor_homes/show_recipe/:recipe_id" => "tutor_homes#show_recipe"
+  get "tutor_homes/delete_recipe/:recipe_id" => "tutor_homes#delete_recipe"
 
   get "users/index/:page" => "users#index"
   get "users/show/:user_id" => "users#show"

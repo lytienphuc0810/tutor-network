@@ -1,78 +1,66 @@
-class UserPostController < ApplicationController
+class CustomerPostsController < ApplicationController
 	def new_customer_post
 		#get method
-		@user = user.find(params[:user_id])
-		if @user.nil?
-			# send error message
-		end
+    @customer_post = CustomerPost.new
 	end
 			 	
 	def index_customer_post
-		#get method
-		@user = user.find(params[:user_id])
-		if @user.nil?
-			# send error message
-		else
-			@customer_posts = @user.customer_posts.paginate(:page => params[:page])
-			if @customer_posts.empty?
-				# error message 
-				redirect_to "/users/show/#{params[:user_id]}"
-			end
-		end
+		@customer_posts=CustomerPost.paginate(:page => params[:page]).find_all_by_user_id(current_user.id)
 	end
 
 	def show_customer_post
 		#get method
+		@customer_post=CustomerPost.find_by_id(params[:customer_post_id])
+		if @customer_post.nil?
+			redirect_to "/customer_posts/index_customer_post/1"
+		end
 	end
 
 	def edit_customer_post
 		#get method
-		@customer_post = userInstance.find(params[:customer_post_id])
-		if @customer_post.nil?
-			# error message
-		end
+	  @customer_post = CustomerPost.find_by_id(params[:customer_post])
 	end
 
 	def update_customer_post
 		#post method
-		customer_post = userInstance.find(params[:customer_post_id])
-		if customer_post.nil?
-			# send error message
-		else
-			if customer_post.update_attributes(params[:customer_post])
-				redirect_to "/user_posts/index/#{customer_post.user.id}/1"
-			else
-				# send error message
-			end
-		end
+    @customer_post = CustomerPost.find_by_id(params[:customer_post_id])
+    if(@customer_post.update_attributes(params[:customer_post]))
+      redirect_to "/customer_posts/show_customer_post/#{@customer_post.id}"
+    else
+      render action: "edit_customer_post"
+    end
 	end
 
 	def create_customer_post
 		#post method
-		customer_post = CustomerPost.create(params[:customer_post])
-		if customer_post.nil?
-			# send error message
-		else
-			user = User.find(params[:user])
-			user.customer_posts = user.customer_posts << customer_post
-			if user.save
-				redirect_to "/user_post/index/#{user.id}/1"
-			else
-				# send error message
-			end
-		end
+    @customer_post = CustomerPost.new(params[:customer_post])
+    if(@customer_post.save)
+      redirect_to "/customer_posts/show_customer_post/#{@customer_post.id}"
+    else
+      render action: "new_customer_post"
+    end
 	end
 
 	def delete_customer_post
 		#post method
 		customer_post = CustomerPost.find(params[:customer_post_id])
-		if customer_post.nil?
-			# send error message
-		else
+		if !customer_post.nil?
 			user_id = customer_post.user.id
 			customer_post.destroy
-			redirect_to "/user_posts/index/#{user_id}/1"
 		end
+
+		redirect_to "/customer_posts/index_customer_post/1"
 	end
+
+	def index_recipe
+		@recipes=Recipe.paginate(:page => params[:page]).find_all_by_tutor_id()
+	end
+
+	def show_recipe
+		#post method
+		@recipe=Recipe.find_by_id(params[:recipe_id])
+		if @recipe.nil?
+			redirect_to "/customer_homes/index_recipe/1"
+		end
 	end
 end
