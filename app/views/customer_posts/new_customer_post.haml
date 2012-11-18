@@ -6,7 +6,7 @@
 	.form-content
 		.h1= "NEW POST"
 		.form
-			= form_for :customer_post, :url => "/customer_posts/create_customer_post" do |f|
+			= form_for :customer_post, :url => "/customer_posts/create_customer_post/#{@customer_post}" do |f|
 				= f.label "Subject"
 				= f.text_field :subject, :id => "subject", :placeholder => "Input subject", :autocomplete => "off"
 				.clearboth

@@ -44,13 +44,12 @@ class CustomerPostsController < ApplicationController
 	def delete_customer_post
 		#post method
 		customer_post = CustomerPost.find(params[:customer_post_id])
-		if customer_post.nil?
-			# send error message
-		else
+		if !customer_post.nil?
 			user_id = customer_post.user.id
 			customer_post.destroy
-			redirect_to "/user_posts/index/#{user_id}/1"
 		end
+
+		redirect_to "/customer_posts/index_customer_post/1"
 	end
 
 	def index_recipe
