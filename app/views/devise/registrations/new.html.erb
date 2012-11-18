@@ -14,11 +14,15 @@
 	  	<%= f.password_field :password, :class => " password-field" %>
 		  <div class="clearboth"></div>
 
-	  	<%= f.label :password_confirmation, "Re-enter Password", :class => " password-label" %>
+	  	<%= f.label :password_confirmation, "Re-enter Password", :class => "password-label" %>
 	  	<%= f.password_field :password_confirmation, :class => " password-field" %>
 		  <div class="clearboth"></div>
 
-		  <%= f.submit "Sign Up", :class => " submit" %>
+			<%= f.label :role, "Sign up as", :class => "role-label" %>
+		  <%= f.select :role, options_for_select([['Customer', 'customer'], ['Tutor', 'tutor']]), :class => "select-role" %>
+		  <div class="clearboth"></div>
+
+		  <%= f.submit "Sign Up", :class => "submit" %>
 		  <div class="clearboth"></div>
 
 		  <div class="links-block">
