@@ -15,6 +15,9 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
 
   create_table "customer_posts", :force => true do |t|
     t.text     "content"
+    t.string   "subject"
+    t.string   "experience"
+    t.string   "tutor_fee"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

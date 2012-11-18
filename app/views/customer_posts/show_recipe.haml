@@ -1,0 +1,11 @@
+.big-content
+	.header-link.left.inactive= link_to "RECEIPTS", "/customer_posts/index_recipe/1"
+	.divider.left= "|"
+	.header-link.left.active= link_to "#{@recipe.id}", "/customer_posts/show_recipe/#{@recipe.id}"
+	.clearboth
+	.content
+		.h2= @recipe.tutor.username
+		.h2= @recipe.created_at
+		.h2= @recipe.updated_at
+		.h2= link_to "Accept", ""
+		.h2= link_to "Deny", ""

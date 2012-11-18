@@ -36,6 +36,11 @@ user3 = User.create( :email => "customer@gmail.com",
 					 :username => "customer", 
 					 :gender => false, 
 					 :role => "customer")
+user4 = User.create( :email => "customer2@gmail.com", 
+					 :password => "123456", 
+					 :username => "customer2", 
+					 :gender => false, 
+					 :role => "customer")
 
 loc0 =  Location.create( :address => "123 Ly Thuong Kiet", 
 			             :ward => "10", 
@@ -57,11 +62,11 @@ loc3 =	Location.create( :address => "89 Nguyen Thi Thap",
 			             :district => "7",
 			             :city_province => "Ho Chi Minh")
 
-cpost0 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho con de cua anh ay")
-cpost1 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay")
+cpost0 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho con de cua anh ay", :subject => "Toan")
+cpost1 = CustomerPost.create(:content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay", :subject => "Toan")
 
-tpost0 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2")
-tpost1 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl")
+tpost0 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "Toan")
+tpost1 = TutorPost.create(:content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl", :subject => "Toan")
 
 
 #==========================================================================================

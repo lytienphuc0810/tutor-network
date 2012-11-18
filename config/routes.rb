@@ -6,6 +6,17 @@ TutorNetwork::Application.routes.draw do
   get "customer_homes/show_recipe/:recipe_id" => "customer_homes#show_recipe"
   get "customer_homes/delete_recipe/:recipe_id" => "customer_homes#delete_recipe"
 
+  get "customer_posts/index_customer_post/:page" => "customer_posts#index_customer_post"
+  get "customer_posts/new_customer_post" => "customer_posts#new_customer_post"
+  get "customer_posts/edit_customer_post/:customer_post_id" => "customer_posts#edit_customer_post"
+  post "customer_posts/create_customer_post/:customer_post" => "customer_posts#create_customer_post"
+  post "customer_posts/update_customer_post/:customer_post" => "customer_posts#update_customer_post"
+  get "customer_posts/index_recipe/:page" => "customer_homes#index_recipe"
+  get "customer_posts/show_customer_post/:customer_post_id" => "customer_posts#show_customer_post"
+  # get "customer_homes/create_recipe/:tutor_id" => "customer_homes#create_recipe"
+  get "customer_homes/show_recipe/:recipe_id" => "customer_homes#show_recipe"
+  # get "customer_homes/delete_recipe/:recipe_id" => "customer_homes#delete_recipe"
+
   # get "customer_homes_controller/create_recipe" => ""
 
   # get "customer_homes_controller/delete_recipe" => ""

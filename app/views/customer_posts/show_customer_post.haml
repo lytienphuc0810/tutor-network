@@ -1,0 +1,14 @@
+.big-content
+	.header-link.left.inactive= link_to "CREATE", "/customer_posts/new_customer_post"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "MY POSTS", "/customer_posts/index_customer_post/1"
+	.divider.left= "|"
+	.header-link.left.active= link_to "#{@customer_post.subject.upcase}", "/customer_posts/show/#{@customer_post.id}"
+	.clearboth
+	.content
+		.h1= @customer_post.subject
+		.h2= @customer_post.tutor_fee
+		.h2= @customer_post.experience
+		.h1= @customer_post.content
+		.h2.link= link_to "Edit", "/customer_posts/edit/#{@customer_post.id}"
+		.h2.link= link_to "Delete", "/customer_posts/delete/#{@customer_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
