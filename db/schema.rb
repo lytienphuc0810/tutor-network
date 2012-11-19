@@ -17,10 +17,13 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
     t.text     "content"
     t.string   "subject"
     t.string   "experience"
+    t.string   "street"
+    t.string   "district"
+    t.string   "city_province"
     t.string   "tutor_fee"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "locations", :force => true do |t|
@@ -48,18 +51,26 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
   end
 
   create_table "tutor_posts", :force => true do |t|
-    t.string   "content"
+    t.text     "content"
     t.string   "subject"
     t.string   "experience"
+    t.string   "street"
+    t.string   "district"
+    t.string   "city_province"
     t.string   "tutor_fee"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "username"
     t.boolean  "gender"
+    t.string   "address"
+    t.string   "ward"
+    t.string   "street"
+    t.string   "district"
+    t.string   "city_province"
     t.string   "role"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false

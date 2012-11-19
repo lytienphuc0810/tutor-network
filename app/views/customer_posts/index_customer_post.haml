@@ -10,7 +10,7 @@
       .text-content-left.left
         .h1.link= link_to "#{customer_post.subject.upcase}", "/customer_posts/show_customer_post/#{customer_post.id}"
         .h2= customer_post.user.email
-        .h2= customer_post.user.location.address
+        .h2= customer_post.district + ", " + customer_post.city_province
         .h2= customer_post.user.rate
       .text-content-right.left
         .h2= customer_post.content.truncate(250)

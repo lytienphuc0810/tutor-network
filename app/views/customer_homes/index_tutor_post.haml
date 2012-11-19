@@ -8,7 +8,7 @@
       .text-content-left.left
         .h1.link= link_to "#{tutor_post.user.username.upcase}", "/customer_homes/show_tutor_post/#{tutor_post.id}"
         .h2= tutor_post.user.email
-        .h2= tutor_post.user.location.district + ", " + tutor_post.user.location.city_province
+        .h2= tutor_post.district + ", " + tutor_post.city_province
         .h2= tutor_post.user.rate
       .text-content-right.left
         .h2= tutor_post.content.truncate(250)

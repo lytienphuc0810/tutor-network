@@ -8,6 +8,10 @@ class CustomerPostsController < ApplicationController
 	def new_customer_post
 		#get method
     @customer_post = CustomerPost.new
+    @customer_post.user = current_user
+    @customer_post.street = @customer_post.user.street
+    @customer_post.district = @customer_post.user.district
+    @customer_post.city_province = @customer_post.user.city_province
 	end
 			 	
 	def index_customer_post
