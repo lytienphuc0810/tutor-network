@@ -1,0 +1,32 @@
+.big-content	
+	.header-link.left.active= link_to "EDIT A POST", "/customer_posts/edit_customer_post/#{@customer_post.id}"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "MY POSTS", "/customer_posts/index_customer_post/1"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "MY RECEIPTS", "/customer_posts/index_recipe/1"
+	.clearboth
+	.form-content
+		.h1= "EDIT POST"
+		.form
+			= form_for :customer_post, :url => "/customer_posts/update_customer_post/#{@customer_post.id}" do |f|
+				= f.label "Subject"
+				= f.text_field :subject, :id => "subject", :placeholder => "Input subject", :autocomplete => "off"
+				.clearboth
+				= f.label "Tutor fee"
+				= f.text_field :tutor_fee, :id => "tutor_fee", :placeholder => "Input tutor fee", :autocomplete => "off"
+				.clearboth
+				= f.label "Experience"
+				= f.text_field :experience, :id => "experience", :placeholder => "Input experience", :autocomplete => "off"
+				.clearboth
+				= f.label "Content"
+				= f.text_area :content, :id => "content", :placeholder => "Input content", :autocomplete => "off"
+				.clearboth
+				= f.submit "Post", :id => "submit_btn", :class => "submit_btn"
+				.clearboth
+				.right.error
+		-if @customer_post.errors.any?
+			#error_explanation
+				%h2.errors= pluralize(@customer_post.errors.count, "error") + " prohibited this customer post from being saved:"
+				%ul.errors
+					-@customer_post.errors.full_messages.each do |msg|
+						%li.errors= msg
