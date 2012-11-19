@@ -3,7 +3,7 @@
 	.divider.left= ">>"
 	.header-link.left.active= link_to "#{@tutor_post.user.username.truncate(20).upcase}", "/customer_homes/show_tutor_post/#{@tutor_post.id}"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "RECEIPTS", "/customer_homes/index_recipe/1"
+	.header-link.left.inactive= link_to "MY RECEIPTS", "/customer_homes/index_recipe/1"
 	.clearboth
 	.content
 		.h2= @tutor_post.user.username
