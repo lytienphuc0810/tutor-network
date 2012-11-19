@@ -10,7 +10,7 @@
 		.form
 			= form_for :customer_post, :url => "/customer_posts/create_customer_post/#{@customer_post}" do |f|
 				= f.label "Subject"
-				= f.text_field :subject, :id => "subject", :placeholder => "Input subject", :autocomplete => "off"
+				= f.select :subject, [['Physics','physics'],['Math','math'],['Chemistry','chemistry'],['English','english'],['Literature','literature'],['Biology','biology'],['Geography','geography'],['History','history']], :id => "subject"
 				.clearboth
 				= f.label "Tutor fee"
 				= f.text_field :tutor_fee, :id => "tutor_fee", :placeholder => "Input tutor fee", :autocomplete => "off"
