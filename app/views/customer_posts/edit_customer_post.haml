@@ -3,7 +3,7 @@
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY POSTS", "/customer_posts/index_customer_post/1"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "MY RECEIPTS", "/customer_posts/index_recipe/1"
+	.header-link.left.inactive= link_to "PENDING RECEIPTS ...", "/customer_posts/index_recipe/1"
 	.clearboth
 	.form-content
 		.h1= "EDIT POST"
@@ -17,6 +17,15 @@
 				.clearboth
 				= f.label "Experience"
 				= f.text_field :experience, :id => "experience", :placeholder => "Input experience", :autocomplete => "off"
+				.clearboth
+				= f.label "Street"
+				= f.text_field :street, :id => "street", :placeholder => "Input street", :autocomplete => "off"
+				.clearboth
+				= f.label "District"
+				= f.text_field :district, :id => "district", :placeholder => "Input district", :autocomplete => "off"
+				.clearboth
+				= f.label "City/Province"
+				= f.text_field :city_province, :id => "city_province", :placeholder => "Input city/province", :autocomplete => "off"
 				.clearboth
 				= f.label "Content"
 				= f.text_area :content, :id => "content", :placeholder => "Input content", :autocomplete => "off"

@@ -6,6 +6,15 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
+  <div><%= f.label :street %><br />
+  <%= f.text_field :street %></div>
+
+  <div><%= f.label :district %><br />
+  <%= f.text_field :district %></div>
+
+  <div><%= f.label :city_province %><br />
+  <%= f.text_field :city_province %></div>
+
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
