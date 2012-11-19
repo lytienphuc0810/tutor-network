@@ -24,7 +24,7 @@ class CustomerPostsController < ApplicationController
 
 	def edit_customer_post
 		#get method
-	  @customer_post = CustomerPost.find_by_id(params[:customer_post])
+	  @customer_post = CustomerPost.find_by_id(params[:customer_post_id])
 	end
 
 	def update_customer_post
