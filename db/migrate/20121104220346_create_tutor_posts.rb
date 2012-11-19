@@ -4,7 +4,7 @@ class CreateTutorPosts < ActiveRecord::Migration
     	t.text :content
     	t.string :subject
     	t.string :experience
-      t.string :street
+      t.string :address
       t.string :district
       t.string :city_province
     	t.string :tutor_fee

@@ -12,14 +12,14 @@
 				= f.label "Subject"
 				= f.select :subject, [['Physics','physics'],['Math','math'],['Chemistry','chemistry'],['English','english'],['Literature','literature'],['Biology','biology'],['Geography','geography'],['History','history']], :id => "subject"
 				.clearboth
-				= f.label "Tutor fee"
+				= f.label "Offered Salary"
 				= f.text_field :tutor_fee, :id => "tutor_fee", :placeholder => "Input tutor fee", :autocomplete => "off"
 				.clearboth
-				= f.label "Experience"
+				= f.label "Required Experience"
 				= f.text_field :experience, :id => "experience", :placeholder => "Input experience", :autocomplete => "off"
 				.clearboth
-				= f.label "Street"
-				= f.text_field :street, :id => "street", :placeholder => "Input street", :autocomplete => "off"
+				= f.label "Address"
+				= f.text_field :address, :id => "address", :placeholder => "Input address", :autocomplete => "off"
 				.clearboth
 				= f.label "District"
 				= f.text_field :district, :id => "district", :placeholder => "Input district", :autocomplete => "off"

@@ -11,10 +11,10 @@
 		.h2= @customer_post.user.gender
 		.h2= @customer_post.subject
 		.h2= @customer_post.experience
-		.h2= @customer_post.user.location.address
-		.h2= @customer_post.user.location.ward
-		.h2= @customer_post.user.location.district
-		.h2= @customer_post.user.location.city_province
+		.h2= @customer_post.user.address
+		.h2= @customer_post.user.ward
+		.h2= @customer_post.user.district
+		.h2= @customer_post.user.city_province
 		.h2= @customer_post.user.rate
 		.h2= @customer_post.content
 		.h2.link= link_to "Accept", "/tutor_homes/create_recipe/#{@customer_post.user.id}"

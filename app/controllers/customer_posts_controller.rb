@@ -9,7 +9,7 @@ class CustomerPostsController < ApplicationController
 		#get method
     @customer_post = CustomerPost.new
     @customer_post.user = current_user
-    @customer_post.street = @customer_post.user.street
+    @customer_post.address = @customer_post.user.address
     @customer_post.district = @customer_post.user.district
     @customer_post.city_province = @customer_post.user.city_province
 	end

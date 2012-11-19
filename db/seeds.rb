@@ -22,8 +22,7 @@ user0 = User.create( :email => "admin@gmail.com",
 					 :gender => true, 
 					 :role => "admin", 
 					 :confirmed_at => Time.now,
-					 :address => "123",
-					 :street => "Ly Thuong Kiet", 
+					 :address => "123 Ly Thuong Kiet", 
 					 :ward => "10", 
 					 :district => "10",
 					 :city_province => "Ho Chi Minh")
@@ -33,8 +32,7 @@ user1 =	User.create( :email => "tutor@gmail.com",
 					 :gender => false, 
 					 :role => "tutor",
 					 :confirmed_at => Time.now,
-					 :address => "123",
-					 :street => "Ly Thuong Kiet", 
+					 :address => "123 Ly Thuong Kiet", 
 					 :ward => "10", 
 					 :district => "10",
 					 :city_province => "Ho Chi Minh")
@@ -44,8 +42,7 @@ user2 =	User.create( :email => "tutoragain@example.com",
 					 :gender => true, 
 					 :role => "tutor",
 					 :confirmed_at => Time.now,
-					 :address => "123",
-					 :street => "Ly Thuong Kiet", 
+					 :address => "123 Ly Thuong Kiet", 
 					 :ward => "10", 
 					 :district => "10",
 					 :city_province => "Ho Chi Minh"
@@ -56,8 +53,7 @@ user3 = User.create( :email => "customer@gmail.com",
 					 :gender => false, 
 					 :role => "customer",
 					 :confirmed_at => Time.now,
-					 :address => "123", 
-					 :street => "Ly Thuong Kiet",
+					 :address => "123 Ly Thuong Kiet",
 					 :ward => "10", 
 					 :district => "10",
 					 :city_province => "Ho Chi Minh"
@@ -68,8 +64,7 @@ user4 = User.create( :email => "customer2@gmail.com",
 					 :gender => false, 
 					 :role => "customer",
 					 :confirmed_at => Time.now,
-					 :address => "123", 
-					 :street => "Ly Thuong Kiet",
+					 :address => "123 Ly Thuong Kiet",
 					 :ward => "10", 
 					 :district => "10",
 					 :city_province => "Ho Chi Minh"
@@ -99,20 +94,20 @@ loc3 =	Location.create( :address => "89 Nguyen Thi Thap",
 
 
 cpost0 = CustomerPost.create(
-					 :street => "Ly Thuong Kiet",
+					 :address => "123 Ly Thuong Kiet",
 					 :district => "10",
 					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Phuc thot dang can tim nguoi day cho con de cua anh ay", :subject => "Toan")
 cpost1 = CustomerPost.create(
-					 :street => "Ly Thuong Kiet",
+					 :address => "123 Ly Thuong Kiet",
 					 :district => "10",
 					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay", :subject => "Toan")
 
 tpost0 = TutorPost.create(
-					 :street => "Ly Thuong Kiet",
+					 :address => "123 Ly Thuong Kiet",
 					 :district => "10",
 					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "Toan")
 tpost1 = TutorPost.create(
-					 :street => "Ly Thuong Kiet",
+					 :address => "123 Ly Thuong Kiet",
 					 :district => "10",
 					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl", :subject => "Toan")
 

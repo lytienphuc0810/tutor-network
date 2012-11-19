@@ -9,9 +9,9 @@
     .post-content.left
       .text-content-left.left
         .h1.link= link_to "#{customer_post.subject.upcase}", "/customer_posts/show_customer_post/#{customer_post.id}"
-        .h2= customer_post.user.email
-        .h2= customer_post.district + ", " + customer_post.city_province
-        .h2= customer_post.user.rate
+        .h2= "Address: "+customer_post.address
+        .h2= "District: "+customer_post.district
+        .h2= "City(Province): "+customer_post.city_province
       .text-content-right.left
         .h2= customer_post.content.truncate(250)
   .clearboth

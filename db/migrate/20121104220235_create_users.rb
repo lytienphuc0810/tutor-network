@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
     	t.boolean  	:gender
     	t.string		:address
     	t.string		:ward
-    	t.string		:street
     	t.string		:district
     	t.string		:city_province
     	t.string		:role

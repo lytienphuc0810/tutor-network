@@ -13,6 +13,7 @@
 	}
 
 	.content {
+		position: relative;
 		padding: 20px;
 		margin: 14px;
 		height: 500px;
@@ -235,6 +236,7 @@
 	line-height: 15px;
 }
 
+
 .divider {
 	color: #00BCD1;
 	margin-left: 15px;
@@ -308,4 +310,14 @@
     height: 1%; }
   *:first-child + html .pagination {
     overflow: hidden; 
+  }
+  /* Tu duoi nay la cua Tuan them vao */
+  .link_at_the_bottom {
+  	position: absolute;
+  	bottom: 20px
+  } 
+
+  .float {
+  	float:left;
+  	margin-right: 30px
   }
