@@ -32,6 +32,18 @@ TutorNetwork::Application.routes.draw do
   get "tutor_homes/show_recipe/:recipe_id" => "tutor_homes#show_recipe"
   get "tutor_homes/delete_recipe/:recipe_id" => "tutor_homes#delete_recipe"
 
+  get "tutor_posts/index_tutor_post/:page" => "tutor_posts#index_tutor_post"
+  get "tutor_posts/new_tutor_post" => "tutor_posts#new_tutor_post"
+  get "tutor_posts/edit_tutor_post/:tutor_post_id" => "tutor_posts#edit_tutor_post"
+  post "tutor_posts/create_tutor_post/" => "tutor_posts#create_tutor_post"
+  post "tutor_posts/delete_tutor_post/:tutor_post_id" => "tutor_posts#delete_tutor_post"
+  post "tutor_posts/update_tutor_post/:tutor_post_id" => "tutor_posts#update_tutor_post"
+  get "tutor_posts/index_recipe/:page" => "tutor_posts#index_recipe"
+  get "tutor_posts/show_tutor_post/:tutor_post_id" => "tutor_posts#show_tutor_post"
+  get "tutor_posts/show_recipe/:recipe_id" => "tutor_posts#show_recipe"
+  get "tutor_posts/accept_recipe/:recipe_id" => "tutor_posts#accept_recipe"
+  get "tutor_posts/deny_recipe/:recipe_id" => "customer_posts#deny_recipe"
+
   get "users/index/:page" => "users#index"
   get "users/show/:user_id" => "users#show"
   get "users/new" => "users#new"

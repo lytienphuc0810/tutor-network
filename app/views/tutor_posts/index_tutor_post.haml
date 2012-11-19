@@ -1,10 +1,12 @@
 .big-content
-  .header-link.left.inactive= link_to "CREATE", "/tutor_posts/new"
+  .header-link.left.inactive= link_to "CREATE A POST", "/tutor_posts/new_tutor_post"
   .divider.left= "|"
-  .header-link.left.active= link_to "TUTORS", "/tutor_posts/index_tutor_post/1"
+  .header-link.left.active= link_to "MY POSTS", "/tutor_posts/index_tutor_post/1"
+  .divider.left= "|"
+  .header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_posts/index_recipe/1"
   .clearboth
   - @tutor_posts.each do |tutor_post|
-    .small-content.left
+    .post-content.left
       .text-content-left.left
         .h1.link= link_to "#{tutor_post.user.username.upcase}", "/tutor_posts/show_tutor_post/#{tutor_post.id}"
         .h2= tutor_post.user.email

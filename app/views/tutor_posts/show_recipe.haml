@@ -1,0 +1,15 @@
+.big-content
+	.header-link.left.inactive= link_to "CREATE A POST", "/tutor_posts/new_tutor_post"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "MY POSTS", "/tutor_posts/index_tutor_post/1"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_posts/index_recipe/1"
+	.divider.left= ">>"
+	.header-link.left.active= link_to "#{@recipe.id}", "/tutor_posts/show_recipe/#{@recipe.id}"
+	.clearboth
+	.content
+		.h2= @recipe.owner.username
+		.h2= @recipe.created_at
+		.h2= @recipe.updated_at
+		.h2.link= link_to "Accept", "/tutor_posts/accept_recipe/#{@recipe.id}"
+		.h2.link= link_to "Deny", "/tutor_posts/deny_recipe/#{@recipe.id}"

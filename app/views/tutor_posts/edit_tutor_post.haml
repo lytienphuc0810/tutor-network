@@ -1,14 +1,14 @@
 .big-content	
-	.header-link.left.active= link_to "CREATE A POST", "/tutor_posts/new_tutor_post"
+	.header-link.left.active= link_to "EDIT A POST", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY POSTS", "/tutor_posts/index_tutor_post/1"
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_posts/index_recipe/1"
 	.clearboth
 	.form-content
-		.h1= "NEW POST"
+		.h1= "EDIT POST"
 		.form
-			= form_for :tutor_post, :url => "/tutor_posts/create_tutor_post/#{@tutor_post}" do |f|
+			= form_for :tutor_post, :url => "/tutor_posts/update_tutor_post/#{@tutor_post.id}" do |f|
 				= f.label "Subject"
 				= f.select :subject, [['Physics','physics'],['Math','math'],['Chemistry','chemistry'],['English','english'],['Literature','literature'],['Biology','biology'],['Geography','geography'],['History','history']], :id => "subject"
 				.clearboth
@@ -21,7 +21,7 @@
 				= f.label "Content"
 				= f.text_area :content, :id => "content", :placeholder => "Input content", :autocomplete => "off"
 				.clearboth
-				= f.submit "Post", :id => "submit_btn", :class => "submit_btn"
+				= f.submit "Update", :id => "submit_btn", :class => "submit_btn"
 				.clearboth
 				.right.error
 		-if @tutor_post.errors.any?

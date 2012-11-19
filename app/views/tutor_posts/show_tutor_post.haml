@@ -1,15 +1,16 @@
 .big-content
-	.header-link.left.inactive= link_to "CREATE", "/tutor_posts/new"
+	.header-link.left.inactive= link_to "CREATE", "/tutor_posts/new_tutor_post"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "TUTORS", "/tutor_posts/index_tutor_post/1"
+	.header-link.left.inactive= link_to "MY POSTS", "/tutor_posts/index_tutor_post/1"
+	.divider.left= ">>"
+	.header-link.left.active= link_to "#{@tutor_post.subject.upcase}", "/tutor_posts/show/#{@tutor_post.id}"
 	.divider.left= "|"
-	.header-link.left.active= link_to "#{@tutor_post.user.username.truncate(20).upcase}", "/tutor_posts/show_tutor_post/#{@tutor_post.id}"
+	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_posts/index_recipe/1"
 	.clearboth
 	.content
-		.h2= @tutor_post.user.username
-		.h2= @tutor_post.user.email
-		.h2= @tutor_post.user.gender
-		.h2= @tutor_post.user.subject
-		.h2= @tutor_post.user.location.address
-		.h2= @tutor_post.user.rate
-		.h2= @tutor_post.content
+		.h1= @tutor_post.subject
+		.h2= @tutor_post.tutor_fee
+		.h2= @tutor_post.experience
+		.h1= @tutor_post.content
+		.h2.link= link_to "Edit", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
+		.h2.link= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
