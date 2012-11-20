@@ -1,0 +1,28 @@
+.big-content
+  .title= "EDIT YOUR PROFILE"
+  .devise-content
+    = form_for(:user, :url => "/users/self_update") do |f|
+      %div
+        = f.label :email
+        = f.email_field :email
+      .clearboth
+      %div
+        = f.label :address
+        = f.text_field :address
+      .clearboth
+      %div
+        = f.label :district
+        = f.text_field :district
+      .clearboth
+      %div
+        = f.label :city_province
+        = f.text_field :city_province
+      .clearboth
+      %div= f.submit "Update"
+      .clearboth
+    -if @user.errors.any?
+      #error_explanation
+        %h2.errors= pluralize(@user.errors.count, "error") + " prohibited this user from being updated:"
+        %ul.errors
+          -@user.errors.full_messages.each do |msg|
+            %li.errors= msg

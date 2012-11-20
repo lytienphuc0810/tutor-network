@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :gender, :address, :ward, :district, :city_province, :role, :confirmed_at
-  # attr_accessible :title, :body
 
-  validates :username, :password, :address, :ward, :district, :city_province, :role, :presence => true
+  validates_presence_of :username, :address, :ward, :district, :city_province, :role
+  validates_uniqueness_of :username
+  
   has_one :rate
   belongs_to :rate
   has_one :user, :through => :rate
@@ -27,10 +27,8 @@ class User < ActiveRecord::Base
     TUTOR = "tutor"
   ]
 
-  before_validation :default_role
-  # validates :username, :role, :presence => true
-  # validates :username, :uniqueness => true
   validates :role, :inclusion => {:in => ROLES}
+  before_validation :default_role
 
   ROLES.each do |role|
     # for selecting users based on given role
