@@ -4,7 +4,7 @@
 	.header-link.left.inactive= link_to "SEARCH TUTORS", "/searches/customer_tutor"
 	.clearboth
 	.form-content
-		.h1= "SEARCH FOR TUTOR POST"
+		.h1= "SEARCH FOR TUTOR POSTS"
 		= form_tag "/searches/customer"
 		- TutorPost::ATTRS.each do |element|
 			.h2.left= label_tag "#{element}"

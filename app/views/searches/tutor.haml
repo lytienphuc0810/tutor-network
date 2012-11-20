@@ -1,0 +1,13 @@
+.big-content
+	.header-link.left.active= link_to "SEARCH CUSTOMER POSTS", "/searches/tutor"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "SEARCH CUSTOMERS", "/searches/tutor_customer"
+	.clearboth
+	.form-content
+		.h1= "SEARCH FOR CUSTOMER POSTS"
+		= form_tag "/searches/tutor"
+		- CustomerPost::ATTRS.each do |element|
+			.h2.left= label_tag "#{element}"
+			.right= search_field_tag "#{element}", nil, :placeholder => "Input #{element.capitalize}"
+			.clearboth
+		.right= submit_tag "Submit"
