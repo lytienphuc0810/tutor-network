@@ -54,6 +54,10 @@ TutorNetwork::Application.routes.draw do
 
   get "/faq" => "etcs#faq"
   get "/contact" => "etcs#contact"
+  get "/searches/customer" => "searches#customer"
+  post "/searches/customer" => "searches#customer_post"
+  get "/searches/customer_tutor" => "searches#customer_tutor"
+  post "/searches/customer_tutor" => "searches#customer_tutor_post"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

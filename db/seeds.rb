@@ -105,7 +105,7 @@ cpost1 = CustomerPost.create(
 tpost0 = TutorPost.create(
 					 :address => "123 Ly Thuong Kiet",
 					 :district => "10",
-					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "Toan")
+					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "DOTA")
 tpost1 = TutorPost.create(
 					 :address => "123 Ly Thuong Kiet",
 					 :district => "10",

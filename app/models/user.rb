@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   has_many :others_recipes, :class_name => "Recipe", :foreign_key => :others_id
   has_one :user, :through => :recipe
   self.per_page = 12
-
+  
+  ATTRS = [:email, :username, :gender, :address, :ward, :district, :city_province]
   ROLES = [
     ADMIN = "admin",
     CUSTOMER = "customer",
@@ -41,7 +42,27 @@ class User < ActiveRecord::Base
       self.role == role
     end   
   end
-   
+
+  searchable do
+    text :email, :username, :gender, :address, :ward, :district, :city_province, :role
+  end
+
+  def self.mysearch params, role
+    User.reindex
+    User.search do
+      fulltext role do
+        fields(:role)
+      end
+      ATTRS.each do |element|
+        if params[element]
+          fulltext params[element] do
+            fields(element)
+          end
+        end
+      end
+    end.results
+  end 
+
   private
     def default_role
       self.role = CUSTOMER if self.role.blank?
