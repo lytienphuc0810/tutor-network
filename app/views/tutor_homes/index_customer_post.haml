@@ -12,7 +12,7 @@
         .h2= "City(Province): "+customer_post.city_province
         -if !customer_post.user.rate.nil?
           .h2= customer_post.user.rate
-        .h2.link= link_to "Accept", "/tutor_homes/create_recipe/#{customer_post.user.id}"
+        .h2.link= link_to "Accept", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
       .text-content-right.left
         .h2= customer_post.content.truncate(250)
   .clearboth

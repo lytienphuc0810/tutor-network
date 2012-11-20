@@ -3,18 +3,19 @@
 	.divider.left= ">>"
 	.header-link.left.active= link_to "#{@customer_post.user.username.truncate(20).upcase}", "/tutor_homes/show_customer_post/#{@customer_post.id}"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "RECEIPTS", "/tutor_homes/index_recipe/1"
+	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_homes/index_recipe/1"
 	.clearboth
 	.content
-		.h2= @customer_post.user.username
-		.h2= @customer_post.user.email
-		.h2= @customer_post.user.gender
-		.h2= @customer_post.subject
-		.h2= @customer_post.experience
-		.h2= @customer_post.user.address
-		.h2= @customer_post.user.ward
-		.h2= @customer_post.user.district
-		.h2= @customer_post.user.city_province
-		.h2= @customer_post.user.rate
-		.h2= @customer_post.content
-		.h2.link= link_to "Accept", "/tutor_homes/create_recipe/#{@customer_post.user.id}"
+		.h1= "Customer's Name: "+@customer_post.user.username
+		.h1= "Email: "+@customer_post.user.email
+		.h1= "Gender: "+@customer_post.user.gender.to_s
+		.h1= "Subject: "+@customer_post.subject
+		-if !@customer_post.experience.nil?
+			.h1= "Required Experience: "+@customer_post.experience
+		-if !@customer_post.tutor_fee.nil?
+			.h1= "Offered Salary: "+@customer_post.tutor_fee
+		.h1= "Address: "+@customer_post.address+", district: "+@customer_post.district+", city/drovince: "+@customer_post.city_province+"."
+		.h1= @customer_post.user.rate
+		%br
+		%i.h1= @customer_post.content
+		.h1.link.link_at_the_bottom= link_to "Accept", "/tutor_homes/create_recipe/#{@customer_post.user.id}/#{@customer_post.id}", :method => "post"

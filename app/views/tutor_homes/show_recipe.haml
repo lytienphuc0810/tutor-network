@@ -1,16 +1,32 @@
 .big-content
 	.header-link.left.inactive= link_to "CUSTOMERS", "/tutor_homes/index_customer_post/1"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "RECEIPTS", "/tutor_homes/index_recipe/1"
+	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_homes/index_recipe/1"
 	.divider.left= ">>"
-	.header-link.left.active= link_to "#{@recipe.id}", "/tutor_homes/show_recipe/#{@recipe.id}"
+	.header-link.left.active= link_to "#{@recipe.others.username.upcase}", "/tutor_homes/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.h2= @recipe.others.username
+		.h1= "Customer: "+@recipe.others.username
 		- if @recipe.poster_confirmation.nil?
-			.h2 Waiting for confirmation ...
-		- else
-			.h2= @recipe.poster_confirmation
-		.h2= @recipe.created_at
-		.h2= @recipe.updated_at
-		.h2.link= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}"
+			.h1= "Waiting for "+@recipe.others.username+ "'s confirmation ..."
+		- elsif @recipe.poster_confirmation
+			.h1= "Confirmed by "+@recipe.others.username
+		-	else
+			.h1= "Denied by "+@recipe.others.username
+		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h1= "You("+@recipe.owner.username+") have accepted"+@recipe.others.username+"'s following post:"
+		.post_sampple
+			.h2= "Customer's Name: "+@recipe.customer_post.user.username
+			.h2= "Email: "+@recipe.customer_post.user.email
+			.h2= "Gender: "+@recipe.customer_post.user.gender.to_s
+			.h2= "Subject: "+@recipe.customer_post.subject
+			-if !@recipe.customer_post.experience.nil?
+				.h2= "Required Experience: "+@recipe.customer_post.experience
+			-if !@recipe.customer_post.tutor_fee.nil?
+				.h2= "Offered Salary: "+@recipe.customer_post.tutor_fee
+			.h2= "Address: "+@recipe.customer_post.address+", district: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
+			.h2= @recipe.customer_post.user.rate
+			%br
+			%i.h2= @recipe.customer_post.content.truncate(250)
+		.h1.link.link_at_the_bottom= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}"

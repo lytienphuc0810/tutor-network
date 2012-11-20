@@ -3,15 +3,15 @@
   .divider.left= "|"
   .header-link.left.active= link_to "MY POSTS", "/tutor_posts/index_tutor_post/1"
   .divider.left= "|"
-  .header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_posts/index_recipe/1"
+  .header-link.left.inactive= link_to "PENDING RECEIPTS", "/tutor_posts/index_recipe/1"
   .clearboth
   - @tutor_posts.each do |tutor_post|
     .post-content.left
       .text-content-left.left
         .h1.link= link_to "#{tutor_post.user.username.upcase}", "/tutor_posts/show_tutor_post/#{tutor_post.id}"
-        .h2= tutor_post.user.email
-        .h2= tutor_post.user.location.address
-        .h2= tutor_post.user.rate
+        .h2= "Address: "+tutor_post.address
+        .h2= "District: "+tutor_post.district
+        .h2= "City(Province): "+tutor_post.city_province
       .text-content-right.left
         .h2= tutor_post.content.truncate(250)
   .clearboth

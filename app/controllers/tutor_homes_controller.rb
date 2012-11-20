@@ -26,7 +26,7 @@ class TutorHomesController < ApplicationController
 			@recipe=Recipe.new(:poster_confirmation => nil)
 			@recipe.others=User.find_by_id(params[:customer_id])
 			@recipe.owner=current_user
-
+			@recipe.customer_post=CustomerPost.find_by_id(params[:customer_post_id])
 			@recipe.save
 		end
 

@@ -14,10 +14,8 @@
 			.h1= "Experience: "+@tutor_post.experience
 		-if !@tutor_post.tutor_fee.nil?
 			.h1= "Expected Salary: "+@tutor_post.tutor_fee
-		.h1= "Address: "+@tutor_post.address
-		.h1= "District: "+@tutor_post.district
-		.h1= "City/Province: "+@tutor_post.city_province
+		.h1= "Address: "+@tutor_post.address+", district: "+@tutor_post.district+", city/crovince: "+@tutor_post.city_province+"."
 		.h1= @tutor_post.user.rate
 		%br
 		%i.h1= @tutor_post.content
-		.h1.link_at_the_bottom= link_to "Accept", "/customer_homes/create_recipe/#{@tutor_post.user.id}"
+		.h1.link.link_at_the_bottom= link_to "Accept", "/customer_homes/create_recipe/#{@tutor_post.user.id}/#{@tutor_post.id}", :method => "post" 

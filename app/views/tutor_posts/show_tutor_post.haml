@@ -1,16 +1,22 @@
 .big-content
-	.header-link.left.inactive= link_to "CREATE", "/tutor_posts/new_tutor_post"
+	.header-link.left.inactive= link_to "CREATE A POST", "/tutor_posts/new_tutor_post"
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY POSTS", "/tutor_posts/index_tutor_post/1"
 	.divider.left= ">>"
-	.header-link.left.active= link_to "#{@tutor_post.subject.upcase}", "/tutor_posts/show/#{@tutor_post.id}"
+	.header-link.left.active= link_to "#{@tutor_post.subject.upcase}", "/tutor_posts/show_tutor_post/#{@tutor_post.id}"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_posts/index_recipe/1"
+	.header-link.left.inactive= link_to "PENDING RECEIPTS", "/tutor_posts/index_recipe/1"
 	.clearboth
 	.content
-		.h1= @tutor_post.subject
-		.h2= @tutor_post.tutor_fee
-		.h2= @tutor_post.experience
-		.h1= @tutor_post.content
-		.h2.link= link_to "Edit", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
-		.h2.link= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
+		.h1 You have created a post with following infomations. It is being shown in public.
+		%br
+		%br
+		.h1= "Subject: "+@tutor_post.subject
+		.h1= "Expected Salary: "+@tutor_post.tutor_fee
+		.h1= "Experience: "+@tutor_post.experience
+		.h1= "Address: "+@tutor_post.address+", district: "+@tutor_post.district+", city/province: "+@tutor_post.city_province+"."
+		%br
+		%i.h1= @tutor_post.content
+		.link_at_the_bottom
+			.h1.link.float= link_to "Edit", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
+			.h1.link.float= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}

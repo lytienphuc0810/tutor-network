@@ -2,7 +2,7 @@ TutorNetwork::Application.routes.draw do
   get "customer_homes/index_tutor_post/:page" => "customer_homes#index_tutor_post"
   get "customer_homes/index_recipe/:page" => "customer_homes#index_recipe"
   get "customer_homes/show_tutor_post/:tutor_post_id" => "customer_homes#show_tutor_post"
-  get "customer_homes/create_recipe/:tutor_id" => "customer_homes#create_recipe"
+  post "customer_homes/create_recipe/:tutor_id/:tutor_post_id" => "customer_homes#create_recipe"
   get "customer_homes/show_recipe/:recipe_id" => "customer_homes#show_recipe"
   get "customer_homes/delete_recipe/:recipe_id" => "customer_homes#delete_recipe"
 
@@ -28,7 +28,7 @@ TutorNetwork::Application.routes.draw do
   get "tutor_homes/index_customer_post/:page" => "tutor_homes#index_customer_post"
   get "tutor_homes/index_recipe/:page" => "tutor_homes#index_recipe"
   get "tutor_homes/show_customer_post/:customer_post_id" => "tutor_homes#show_customer_post"
-  get "tutor_homes/create_recipe/:customer_id" => "tutor_homes#create_recipe"
+  post "tutor_homes/create_recipe/:customer_id/:customer_post_id" => "tutor_homes#create_recipe"
   get "tutor_homes/show_recipe/:recipe_id" => "tutor_homes#show_recipe"
   get "tutor_homes/delete_recipe/:recipe_id" => "tutor_homes#delete_recipe"
 

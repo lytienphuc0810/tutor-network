@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
     t.boolean  "poster_confirmation"
     t.integer  "others_id"
     t.integer  "owner_id"
+    t.integer  "tutor_post_id"
+    t.integer  "customer_post_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

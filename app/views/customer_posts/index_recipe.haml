@@ -9,6 +9,14 @@
     .small-content.left
       .text-content-left.left
         .h1.link= link_to "#{recipe.owner.username}", "/customer_posts/show_recipe/#{recipe.id}"
-        .h2= recipe.owner.username
+        .h2= recipe.owner.email
+        .h2= recipe.owner.gender
+        .h2= recipe.customer_post.subject
+        - if recipe.poster_confirmation.nil?
+          .h2 Waiting for your confirmation ...
+        - elsif recipe.poster_confirmation
+          .h2= "Confirmed"
+        - else
+          .h2= "Denied"
   .clearboth
   .paginate.right= will_paginate @recipes
