@@ -51,9 +51,21 @@ TutorNetwork::Application.routes.draw do
   post "users/update/:user_id" => "users#update"
   get "users/edit/:user_id" => "users#edit"
   post "users/delete/:user_id" => "users#delete"
+  get "users/self_edit" => "users#self_edit"
+  post "users/self_update" => "users#self_update"
 
   get "/faq" => "etcs#faq"
   get "/contact" => "etcs#contact"
+
+  get "/searches/customer" => "searches#customer"
+  post "/searches/customer" => "searches#customer_post"
+  get "/searches/customer_tutor" => "searches#customer_tutor"
+  post "/searches/customer_tutor" => "searches#customer_tutor_post"
+
+  get "/searches/tutor" => "searches#tutor"
+  post "/searches/tutor" => "searches#tutor_post"
+  get "/searches/tutor_customer" => "searches#tutor_customer"
+  post "/searches/tutor_customer" => "searches#tutor_customer_post"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

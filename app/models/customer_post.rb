@@ -6,4 +6,22 @@ class CustomerPost < ActiveRecord::Base
   belongs_to :user
   has_one :recipe
 
+	ATTRS = [:subject, :experience, :address, :district, :city_province, :tutor_fee]
+	
+	searchable do
+    text :subject, :experience, :address, :district, :city_province, :tutor_fee 
+  end
+
+	def self.mysearch params
+		CustomerPost.reindex
+		CustomerPost.search do
+      ATTRS.each do |element|
+        if params[element]
+          fulltext params[element] do
+            fields(element)
+          end
+        end
+      end
+		end.results
+	end  
 end
