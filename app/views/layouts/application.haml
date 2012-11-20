@@ -12,7 +12,7 @@
 					#header-theme
 						#login-info.right
 							- if current_user
-								= link_to "Welcome #{current_user.username}", edit_user_registration_path
+								= link_to "Welcome #{current_user.role.capitalize} #{current_user.username}", edit_user_registration_path
 								&nbsp | &nbsp
 								= link_to "Signout", destroy_user_session_path, :method => :delete
 							- else
@@ -23,12 +23,12 @@
 					#menu-bar
 						- if current_user
 							- if current_user.customer?	
-								#menu-link.left= link_to "CUSTOMER HOME", "/customer_homes/index_tutor_post/1"
-								#menu-link.left= link_to "CUSTOMER POSTS", "/customer_posts/index_customer_post/1"
+								#menu-link.left= link_to "HOME", "/customer_homes/index_tutor_post/1"
+								#menu-link.left= link_to "POSTS", "/customer_posts/index_customer_post/1"
 								#menu-link.left= link_to "SEARCH", "/searches/customer"
 							- if current_user.tutor?
-								#menu-link.left= link_to "TUTOR HOME", "/tutor_homes/index_customer_post/1"
-								#menu-link.left= link_to "TUTOR POSTS", "/tutor_posts/index_tutor_post/1"
+								#menu-link.left= link_to "HOME", "/tutor_homes/index_customer_post/1"
+								#menu-link.left= link_to "POSTS", "/tutor_posts/index_tutor_post/1"
 								#menu-link.left= link_to "SEARCH", "/searches/tutor"
 							- if current_user.admin?
 								#menu-link.left= link_to "USERS", "/users/index/1"

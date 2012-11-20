@@ -1,4 +1,5 @@
 class EtcsController < ApplicationController
+	before_filter :authenticate_user!
 	def faq 
 		
 	end
