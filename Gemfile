@@ -30,13 +30,14 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-# group :test, :development do
-#   gem 'debugger', '1.2.0'
-# end
+group :test, :development do
+  gem 'debugger', '1.2.0'
+end
 
 group :test do
   gem 'rspec', '2.11.0'
   gem 'rspec-rails', '2.11.0'
+  gem "webrat"
   gem 'capybara', '1.1.2'
   gem 'factory_girl_rails', '4.0.0'
   gem 'shoulda-matchers', '1.3.0'
