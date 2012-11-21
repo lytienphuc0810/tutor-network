@@ -20,7 +20,7 @@ class CustomerHomesController < ApplicationController
 
 	def create_recipe
 		#post method
-		@recipe=Recipe.find_by_others_id_and_owner_id(params[:tutor_id], current_user.id)
+		@recipe=Recipe.find_by_tutor_post_id(params[:tutor_post_id])
 		
 		if @recipe.nil?
 			@recipe=Recipe.new(:poster_confirmation => nil)

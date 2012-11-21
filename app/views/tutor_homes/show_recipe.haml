@@ -15,7 +15,7 @@
 			.h1= "Denied by "+@recipe.others.username
 		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= "You("+@recipe.owner.username+") have accepted"+@recipe.others.username+"'s following post:"
+		.h1= "You ("+@recipe.owner.username+") have accepted"+@recipe.others.username+"'s following post:"
 		.post_sampple
 			.h2= "Customer's Name: "+@recipe.customer_post.user.username
 			.h2= "Email: "+@recipe.customer_post.user.email
@@ -26,7 +26,6 @@
 			-if !@recipe.customer_post.tutor_fee.nil?
 				.h2= "Offered Salary: "+@recipe.customer_post.tutor_fee
 			.h2= "Address: "+@recipe.customer_post.address+", district: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
-			.h2= @recipe.customer_post.user.rate
 			%br
 			%i.h2= @recipe.customer_post.content.truncate(250)
 		.h1.link.link_at_the_bottom= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}"

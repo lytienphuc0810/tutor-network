@@ -77,7 +77,9 @@ class CustomerPostsController < ApplicationController
 
 	def accept_recipe
 		@recipe=Recipe.find_by_id(params[:recipe_id])
-		@recipe.poster_confirmation=true
+		if @recipe.poster_confirmation.nil?
+			@recipe.poster_confirmation=true
+		end
 		if @recipe.save
 			redirect_to "/customer_posts/index_recipe/1"
 		else
@@ -87,7 +89,9 @@ class CustomerPostsController < ApplicationController
 
 	def deny_recipe
 		@recipe=Recipe.find_by_id(params[:recipe_id])
-		@recipe.poster_confirmation=false
+		if @recipe.poster_confirmation.nil?
+			@recipe.poster_confirmation=false
+		end
 		if @recipe.save
 			redirect_to "/customer_posts/index_recipe/1"
 		else

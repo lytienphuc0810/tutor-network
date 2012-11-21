@@ -10,8 +10,12 @@
         .h2= customer_post.user.email
         .h2= "District: "+customer_post.district
         .h2= "City(Province): "+customer_post.city_province
-        .h2.link= link_to "Accept", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
       .text-content-right.left
         .h2= customer_post.content.truncate(250)
+      .clearboth
+      - if customer_post.recipe.nil?
+        .h2.link= link_to "Accept", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
+      - else
+        .h2.link= link_to "Already accepted", "/tutor_homes/show_recipe/#{customer_post.recipe.id}"
   .clearboth
   .paginate.right= will_paginate @customer_posts
