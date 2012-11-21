@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  ajaxful_rater
+  ajaxful_rateable :allow_update => true
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :gender, :address, :ward, :district, :city_province, :role, :confirmed_at
 

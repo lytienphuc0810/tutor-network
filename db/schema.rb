@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104220532) do
+ActiveRecord::Schema.define(:version => 20121121042827) do
 
   create_table "customer_posts", :force => true do |t|
     t.text     "content"
@@ -37,10 +37,17 @@ ActiveRecord::Schema.define(:version => 20121104220532) do
   end
 
   create_table "rates", :force => true do |t|
-    t.integer  "rank"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "stars",         :null => false
+    t.string   "dimension"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
+
+  add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
+  add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
 
   create_table "recipes", :force => true do |t|
     t.boolean  "poster_confirmation"
