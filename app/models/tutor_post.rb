@@ -1,6 +1,7 @@
 class TutorPost < ActiveRecord::Base
-  attr_accessible :content, :experience, :address, :district, :city_province, :tutor_fee, :subject, :user_id
+  attr_accessible :content, :experience, :address, :district, :city_province, :tutor_fee, :subject, :user_id, :allowed
   validates :subject, :content, :tutor_fee, :experience, :presence => true
+  before_validation :default_allowed
 
 	self.per_page = 5
   belongs_to :user
@@ -23,5 +24,9 @@ class TutorPost < ActiveRecord::Base
         end
       end
 		end.results
-	end  
+	end
+
+  def default_allowed
+    self.allowed = false
+  end 
 end
