@@ -55,4 +55,13 @@ class CustomerHomesController < ApplicationController
 
 		redirect_to "/customer_homes/index_tutor_post/1"
 	end
+
+	def rate
+    @user = User.find(params[:tutor_id])
+    @user.rate(params[:stars], current_user, params[:dimension])
+    render :update do |page|
+      page.replace_html @user.wrapper_dom_id(params), ratings_for(@user, params.merge(:wrap => false))
+      page.visual_effect :highlight, @user.wrapper_dom_id(params)
+    end
+  end
 end

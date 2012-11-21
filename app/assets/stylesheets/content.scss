@@ -211,14 +211,16 @@
 
 		.text-content-left {
 			width: 180px;
-			height: 90px;
+			height: auto;
 			margin-left: 10px;
+			padding-bottom: 10px;
 		}
 
 		.text-content-right {
 			width: 600px;
-			height: 90px;
+			height: auto;
 			margin-left: 10px;
+			padding-bottom: 10px;
 		}
 	}
 }

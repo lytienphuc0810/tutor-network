@@ -5,6 +5,7 @@ TutorNetwork::Application.routes.draw do
   post "customer_homes/create_recipe/:tutor_id/:tutor_post_id" => "customer_homes#create_recipe"
   get "customer_homes/show_recipe/:recipe_id" => "customer_homes#show_recipe"
   get "customer_homes/delete_recipe/:recipe_id" => "customer_homes#delete_recipe"
+  post "customer_homes/rate/:tutor_id" => "customer_homes#rate"
 
   get "customer_posts/index_customer_post/:page" => "customer_posts#index_customer_post"
   get "customer_posts/new_customer_post" => "customer_posts#new_customer_post"
