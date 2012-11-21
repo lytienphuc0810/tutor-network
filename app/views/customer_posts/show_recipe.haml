@@ -3,7 +3,7 @@
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY POSTS", "/customer_posts/index_customer_post/1"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "PENDING RECEIPTS ...", "/customer_posts/index_recipe/1"
+	.header-link.left.inactive= link_to "PENDING RECEIPTS", "/customer_posts/index_recipe/1"
 	.divider.left= ">>"
 	.header-link.left.active= link_to "#{@recipe.owner.username.upcase}", "/customer_posts/show_recipe/#{@recipe.id}"
 	.clearboth
@@ -15,9 +15,9 @@
 		- if @recipe.poster_confirmation.nil?
 			.h1 Waiting for your confirmation ...
 		- elsif @recipe.poster_confirmation
-			.h1= Confirmed
+			.h1= "Confirmed"
 		-	else
-			.h1= Denied 
+			.h1= "Denied" 
 		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h1= @recipe.owner.username+"has accepted your("+@recipe.others.username+"'s) following post:"
@@ -31,9 +31,9 @@
 			-if !@recipe.customer_post.tutor_fee.nil?
 				.h2= "Offered Salary: "+@recipe.customer_post.tutor_fee
 			.h2= "Address: "+@recipe.customer_post.address+", district: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
-			.h2= @recipe.customer_post.user.rate
 			%br
 			%i.h2= @recipe.customer_post.content.truncate(250)
-		.link_at_the_bottom
-			.h1.link.float= link_to "Accept", "/customer_posts/accept_recipe/#{@recipe.id}"
-			.h1.link.float= link_to "Deny", "/customer_posts/deny_recipe/#{@recipe.id}"
+		- if @recipe.poster_confirmation.nil?
+			.link_at_the_bottom
+				.h1.link.float= link_to "Accept", "/customer_posts/accept_recipe/#{@recipe.id}"
+				.h1.link.float= link_to "Deny", "/customer_posts/deny_recipe/#{@recipe.id}"
