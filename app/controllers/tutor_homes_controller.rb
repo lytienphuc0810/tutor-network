@@ -20,11 +20,11 @@ class TutorHomesController < ApplicationController
 
 	def create_recipe
 		#post method
-		@recipe=Recipe.find_by_others_id_and_owner_id(params[:customer_id], current_user.id)
+		@recipe=Recipe.find_by_customer_post_id_and_owner_id(params[:customer_post_id], current_user.id)
 		
 		if @recipe.nil?
 			@recipe=Recipe.new(:poster_confirmation => nil)
-			@recipe.others=User.find_by_id(params[:customer_id])
+			@recipe.other=User.find_by_id(params[:customer_id])
 			@recipe.owner=current_user
 			@recipe.customer_post=CustomerPost.find_by_id(params[:customer_post_id])
 			@recipe.save

@@ -20,11 +20,11 @@ class CustomerHomesController < ApplicationController
 
 	def create_recipe
 		#post method
-		@recipe=Recipe.find_by_tutor_post_id(params[:tutor_post_id])
+		@recipe=Recipe.find_by_tutor_post_id_and_owner_id(params[:tutor_post_id], current_user.id)
 		
 		if @recipe.nil?
 			@recipe=Recipe.new(:poster_confirmation => nil)
-			@recipe.others=User.find_by_id(params[:tutor_id])
+			@recipe.other=User.find_by_id(params[:tutor_id])
 			@recipe.owner=current_user
 			@recipe.tutor_post=TutorPost.find_by_id(params[:tutor_post_id])
 			@recipe.save
@@ -40,7 +40,7 @@ class CustomerHomesController < ApplicationController
 	def show_recipe
 		#post method
 		@recipe=Recipe.find_by_id(params[:recipe_id])
-		if @recipe.nil? && current_user.id == @recipe.owner.id 
+		if @recipe.nil?
 			redirect_to "/customer_homes/index_recipe/1"
 		end
 	end

@@ -3,21 +3,21 @@
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/customer_homes/index_recipe/1"
 	.divider.left= ">>"
-	.header-link.left.active= link_to "#{@recipe.others.username.upcase}", "/customer_homes/show_recipe/#{@recipe.id}"
+	.header-link.left.active= link_to "#{@recipe.other.username.upcase}", "/customer_homes/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.h1= "Tutor: "+@recipe.others.username
+		.h1= "Tutor: "+@recipe.other.username
 		- if @recipe.poster_confirmation
-			.h2= ratings_for @recipe.others, :remote_options => {:url => "/customer_homes/rate/#{@recipe.others.id}"}, :show_user => true
+			.h2= ratings_for @recipe.other, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
 		- if @recipe.poster_confirmation.nil?
-			.h1= "Waiting for "+@recipe.others.username+ "'s confirmation ..."
+			.h1= "Waiting for "+@recipe.other.username+ "'s confirmation ..."
 		- elsif @recipe.poster_confirmation
-			.h1= "Confirmed by "+@recipe.others.username
+			.h1= "Confirmed by "+@recipe.other.username
 		-	else
-			.h1= "Denied by "+@recipe.others.username
+			.h1= "Denied by "+@recipe.other.username
 		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= "You ("+@recipe.owner.username+") have accepted "+@recipe.others.username+"'s following post:"
+		.h1= "You ("+@recipe.owner.username+") have accepted "+@recipe.other.username+"'s following post:"
 		.post_sampple
 			.h2= "Tutor's Name: "+@recipe.tutor_post.user.username
 			.h2= "Email: "+@recipe.tutor_post.user.email
@@ -27,7 +27,7 @@
 				.h2= "Experience: "+@recipe.tutor_post.experience
 			-if !@recipe.tutor_post.tutor_fee.nil?
 				.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
-			.h2= "Address: "+@recipe.tutor_post.address+", district: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
+			.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
 			%br
 			%i.h2= @recipe.tutor_post.content.truncate(250)
 		.h1.link.link_at_the_bottom= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}"

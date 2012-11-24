@@ -1,7 +1,7 @@
 .big-content
   .header-link.left.active= link_to "CUSTOMERS", "/tutor_homes/index_customer_post/1"
   .divider.left= "|"
-  .header-link.left.inactive= link_to "RECEIPTS", "/tutor_homes/index_recipe/1"
+  .header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_homes/index_recipe/1"
   .clearboth
   - @customer_posts.each do |customer_post|
     .post-content.left
@@ -13,9 +13,10 @@
       .text-content-right.left
         .h2= customer_post.content.truncate(250)
       .clearboth
-      - if customer_post.recipe.nil?
-        .h2.link.link_at_the_bottom= link_to "Accept", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
-      - else
-        .h2.link.link_at_the_bottom= link_to "Already accepted", "/tutor_homes/show_recipe/#{customer_post.recipe.id}"
+      .text-content-right.left
+        - if my_recipe = customer_post.recipes.find { |recipe| recipe.customer_post.id == customer_post.id }
+          .h2.link= link_to "Already requested", "/tutor_homes/show_recipe/#{my_recipe.id}"
+        - else
+          .h2.link= link_to "Request", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
   .clearboth
   .paginate.right= will_paginate @customer_posts
