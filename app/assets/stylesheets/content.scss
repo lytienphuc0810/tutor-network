@@ -324,7 +324,7 @@
 
   .float {
   	float:left;
-  	margin-right: 30px;
+  	margin-right: 5px;
   }
 
   .post_sampple{
@@ -338,3 +338,63 @@
   	padding: 20px;
   	border-radius: 5px 5px 5px 5px;
   }
+
+  .s3{
+  	font-size: 18px;
+  	margin-right: 5px;
+  	font-weight: bold;
+  	color:  	#DC143C;
+  }
+
+  .s4{
+  	font-size: 25px;
+  	font-weight:  bold;
+  	color: #007FFF;
+  }
+
+  .s5{
+  	font-size: 18px;
+  	font-style:  italic;
+  	margin-right: 5px;
+  	color: #007FFF;
+  }
+
+  .m3{
+  	font-size: 12px;
+  	margin-right: 5px;
+  	font-weight: bold;
+  	color:  	#DC143C;
+  }
+
+  .m4{
+  	font-size: 18px;
+  	font-weight:  bold;
+  	color: #007FFF;
+  }
+
+  .m5{
+  	font-size: 12px;
+  	font-style:  italic;
+  	margin-right: 5px;
+  	color: #007FFF;
+  }
+	
+	.btn {
+			a {
+			font-family: Helvetica;
+			font-weight: bold;
+			font-size: 20px;
+			text-decoration: none;
+			color: #DC143C;
+			padding: 5px;
+			background-color: #76D3DE;
+			border-radius: 5px;	
+		}
+		}
+	.btn:hover {
+			a {
+			color: #FEF9F0;
+			background-color: #00BCD1;
+			border-radius: 5px;	
+			}
+		}

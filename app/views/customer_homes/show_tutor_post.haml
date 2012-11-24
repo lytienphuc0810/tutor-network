@@ -6,16 +6,32 @@
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/customer_homes/index_recipe/1"
 	.clearboth
 	.content
-		.h1= "Tutor's Name: "+@tutor_post.user.username
+		.s4=@tutor_post.user.username.capitalize
 		.h2= ratings_for @tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{@tutor_post.user.id}"}
-		.h1= "Email: "+@tutor_post.user.email
-		.h1= "Gender: "+@tutor_post.user.gender.to_s
-		.h1= "Subject: "+@tutor_post.subject
+		.s3.left= "Email: "
+		.s5.left=@tutor_post.user.email
+		.clearboth
+		.s3.left= "Gender: "
+		.s5.left=@tutor_post.user.gender.to_s
+		.clearboth
+		.s3.left= "Subject: "
+		.s5.left=@tutor_post.subject.capitalize
+		.clearboth
 		-if !@tutor_post.experience.nil?
-			.h1= "Experience: "+@tutor_post.experience
+			.s3.left= "Experience: "
+			.s5.left=@tutor_post.experience
+			.clearboth
 		-if !@tutor_post.tutor_fee.nil?
-			.h1= "Expected Salary: "+@tutor_post.tutor_fee
-		.h1= "Address: "+@tutor_post.address+", district: "+@tutor_post.district+", city/crovince: "+@tutor_post.city_province+"."
+			.s3.left= "Expected Salary: "
+			.s5.left=@tutor_post.tutor_fee
+			.clearboth
+		.s3.left= "Address: "
+		.s5.left=@tutor_post.address
+		.s3.left=", district: "
+		.s5.left=@tutor_post.district
+		.s3.left=", city/crovince: "
+		.s5.left=@tutor_post.city_province+"."
+		.clearboth
 		%br
-		%i.h1= @tutor_post.content
-		.h1.link.link_at_the_bottom= link_to "Accept", "/customer_homes/create_recipe/#{@tutor_post.user.id}/#{@tutor_post.id}", :method => "post" 
+		.s5= @tutor_post.content
+		.btn.link_at_the_bottom= link_to "Accept", "/customer_homes/create_recipe/#{@tutor_post.user.id}/#{@tutor_post.id}", :method => "post" 
