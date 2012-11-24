@@ -26,7 +26,10 @@ class CustomerPost < ActiveRecord::Base
 		end.results
 	end 
 
-  def default_allowed
-    self.allowed = false
-  end 
+  private
+    def default_allowed
+      if self.allowed.nil?
+        self.allowed = "false"
+      end
+    end 
 end
