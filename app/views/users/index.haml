@@ -1,6 +1,7 @@
 .big-content
-  .header-link.left.inactive= link_to "CREATE", "/users/new"
-  .divider.left= "|"
+  - if current_user.admin?
+    .header-link.left.inactive= link_to "CREATE", "/users/new"
+    .divider.left= "|"
   .header-link.left.active= link_to "USERS", "/users/index/1"
   .clearboth
   - @users.each do |user|
