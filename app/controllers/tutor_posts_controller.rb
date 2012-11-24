@@ -60,7 +60,7 @@ class TutorPostsController < ApplicationController
 	end
 
 	def index_recipe
-		@recipes=current_user.others_recipes.paginate(:page => params[:page], :per_page => 12)
+		@recipes=current_user.other_recipes.find_all { |recipe| recipe.poster_confirmation != false }.paginate(:page => params[:page], :per_page => 12)
 	end
 
 	def show_recipe
@@ -86,7 +86,7 @@ class TutorPostsController < ApplicationController
 	def deny_recipe
 		@recipe=Recipe.find_by_id(params[:recipe_id])
 		if @recipe.poster_confirmation.nil?
-			@recipe.poster_confirmation=true
+			@recipe.poster_confirmation=false
 		end
 		if @recipe.save
 			redirect_to "/tutor_posts/index_recipe/1"

@@ -9,7 +9,6 @@ class CustomerPostsController < ApplicationController
 		#get method
     @customer_post = CustomerPost.new
     @customer_post.user = current_user
-    @customer_post.address = @customer_post.user.address
     @customer_post.district = @customer_post.user.district
     @customer_post.city_province = @customer_post.user.city_province
 	end
@@ -64,7 +63,7 @@ class CustomerPostsController < ApplicationController
 	end
 
 	def index_recipe
-		@recipes=current_user.others_recipes.paginate(:page => params[:page], :per_page => 12)
+		@recipes=current_user.other_recipes.find_all { |recipe| recipe.poster_confirmation != false }.paginate(:page => params[:page], :per_page => 12)
 	end
 
 	def show_recipe

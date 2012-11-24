@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :tutor_posts
   has_many :customer_posts
   has_many :owner_recipes, :class_name => "Recipe", :foreign_key => :owner_id
-  has_many :others_recipes, :class_name => "Recipe", :foreign_key => :others_id
+  has_many :other_recipes, :class_name => "Recipe", :foreign_key => :other_id
   has_one :user, :through => :recipe
   self.per_page = 12
   

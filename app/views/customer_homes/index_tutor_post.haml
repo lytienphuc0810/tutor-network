@@ -15,7 +15,7 @@
         .h2= tutor_post.content.truncate(250)
       .clearboth
       .text-content-right.left
-        - if my_recipe = tutor_post.recipes.find { |recipe| recipe.tutor_post.id == tutor_post.id }
+        - if my_recipe = tutor_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
           .h2.link= link_to "Already requested", "/customer_homes/show_recipe/#{my_recipe.id}"
         - else
           .h2.link= link_to "Request", "/customer_homes/create_recipe/#{tutor_post.user.id}/#{tutor_post.id}", :method => "post"

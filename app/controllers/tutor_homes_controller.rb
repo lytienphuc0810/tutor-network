@@ -30,7 +30,7 @@ class TutorHomesController < ApplicationController
 			@recipe.save
 		end
 
-		redirect_to "/tutor_homes/show_recipe/#{@recipe.id}"
+		redirect_to "/tutor_homes/index_customer_post/1"
 	end
 
 	def index_recipe

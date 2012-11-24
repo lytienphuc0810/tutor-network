@@ -30,4 +30,4 @@
 			.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
 			%br
 			%i.h2= @recipe.tutor_post.content.truncate(250)
-		.h1.link.link_at_the_bottom= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}"
+		.h1.link.link_at_the_bottom= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}", :data => {:confirm => "Are you sure?"}

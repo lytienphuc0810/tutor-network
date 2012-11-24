@@ -20,7 +20,7 @@
 			.h1= "Denied" 
 		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= @recipe.owner.username+"has accepted your("+@recipe.others.username+"'s) following post:"
+		.h1= @recipe.owner.username+"has accepted your("+@recipe.other.username+"'s) following post:"
 		.post_sampple
 			.h2= "Customer Name: "+@recipe.customer_post.user.username
 			.h2= "Email: "+@recipe.customer_post.user.email
@@ -30,7 +30,7 @@
 				.h2= "Required Experience: "+@recipe.customer_post.experience
 			-if !@recipe.customer_post.tutor_fee.nil?
 				.h2= "Offered Salary: "+@recipe.customer_post.tutor_fee
-			.h2= "Address: "+@recipe.customer_post.address+", district: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
+			.h2= "District: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
 			%br
 			%i.h2= @recipe.customer_post.content.truncate(250)
 		- if @recipe.poster_confirmation.nil?
