@@ -14,7 +14,7 @@
 			.h1= "Required Experience: "+@customer_post.experience
 		-if !@customer_post.tutor_fee.nil?
 			.h1= "Offered Salary: "+@customer_post.tutor_fee
-		.h1= "Address: "+@customer_post.address+", district: "+@customer_post.district+", city/drovince: "+@customer_post.city_province+"."
+		.h1= "District: "+@customer_post.district+", city/drovince: "+@customer_post.city_province+"."
 		%br
 		%i.h1= @customer_post.content
 		- if my_recipe = @customer_post.recipes.find { |recipe| recipe.customer_post.id == @customer_post.id }
