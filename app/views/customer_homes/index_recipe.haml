@@ -6,9 +6,11 @@
   - @recipes.each do |recipe|
     .small-content.left
       .text-content-left.left
-        .h1.link= link_to "#{recipe.others.username.upcase}", "/customer_homes/show_recipe/#{recipe.id}"
-        .h2= recipe.others.email
-        .h2= recipe.others.gender
+        .h1.link= link_to "#{recipe.other.username.upcase}", "/customer_homes/show_recipe/#{recipe.id}"
+        - if recipe.poster_confirmation
+          .h2= ratings_for recipe.other, :remote_options => {:url => "/customer_homes/rate/#{recipe.other.id}"}, :show_user => true
+        .h2= recipe.other.email
+        .h2= recipe.other.gender
         .h2= recipe.tutor_post.subject
         - if recipe.poster_confirmation.nil?
           .h2 Waiting for confirmation ...

@@ -12,6 +12,7 @@ User.delete_all
 Location.delete_all
 CustomerPost.delete_all
 TutorPost.delete_all
+Recipe.delete_all
 
 #---------------------------------------------------------------------------
 #create data
@@ -94,22 +95,18 @@ loc3 =	Location.create( :address => "89 Nguyen Thi Thap",
 
 
 cpost0 = CustomerPost.create(
-					 :address => "123 Ly Thuong Kiet",
-					 :district => "10",
-					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Phuc thot dang can tim nguoi day cho con de cua anh ay", :subject => "Toan")
+					 :district => "1",
+					 :city_province => "Ho Chi Minh",:tutor_fee => "300000", :experience => "5 nam", :content => "Phuc thot dang can tim nguoi day cho con de cua anh ay", :subject => "Toan")
 cpost1 = CustomerPost.create(
-					 :address => "123 Ly Thuong Kiet",
 					 :district => "10",
-					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay", :subject => "Toan")
+					 :city_province => "Ha Noi",:tutor_fee => "200000", :experience => "4 nam", :content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay", :subject => "Toan")
 
 tpost0 = TutorPost.create(
-					 :address => "123 Ly Thuong Kiet",
-					 :district => "10",
-					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "DOTA")
+					 :district => "5",
+					 :city_province => "Hue",:tutor_fee => "500000", :experience => "2 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "DOTA")
 tpost1 = TutorPost.create(
-					 :address => "123 Ly Thuong Kiet",
-					 :district => "10",
-					 :city_province => "Ho Chi Minh",:tutor_fee => "200000", :experience => "5 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl", :subject => "Toan")
+					 :district => "3",
+					 :city_province => "Ho Chi Minh",:tutor_fee => "400000", :experience => "1 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl", :subject => "Toan")
 
 
 #==========================================================================================

@@ -3,36 +3,21 @@
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/customer_homes/index_recipe/1"
 	.divider.left= ">>"
-	.header-link.left.active= link_to "#{@recipe.others.username.upcase}", "/customer_homes/show_recipe/#{@recipe.id}"
+	.header-link.left.active= link_to "#{@recipe.other.username.upcase}", "/customer_homes/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.s4.left= @recipe.others.username.capitalize
-		.clearboth
+		.h1= "Tutor: "+@recipe.other.username
+		- if @recipe.poster_confirmation
+			.h2= ratings_for @recipe.other, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
 		- if @recipe.poster_confirmation.nil?
-			.s3.left= "Waiting for "
-			.s5.left=@recipe.others.username.capitalize
-			.s3.left="'s confirmation ..."
-			.clearboth
+			.h1= "Waiting for "+@recipe.other.username+ "'s confirmation ..."
 		- elsif @recipe.poster_confirmation
-			.s3.left= "Confirmed by "
-			.s5.left=@recipe.others.username.capitalize
-			.clearboth
+			.h1= "Confirmed by "+@recipe.other.username
 		-	else
-			.s3.left= "Denied by "
-			.s5.left=@recipe.others.username.capitalize
-			.clearboth
-		.s3.left= "Receipt created at: "
-		.s5.left=@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
-		.clearboth
-		.s3.left= "Receipt updated at: "
-		.s5.left=@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		.clearboth
-		.s3.left= "You ("
-		.s5.left=@recipe.owner.username.capitalize
-		.s3.left=") have accepted "
-		.s5.left=@recipe.others.username.capitalize
-		.s3.left="'s following post:"
-		.clearboth
+			.h1= "Denied by "+@recipe.other.username
+		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h1= "You ("+@recipe.owner.username+") have accepted "+@recipe.other.username+"'s following post:"
 		.post_sampple
 			.m4=@recipe.tutor_post.user.username.capitalize
 			.m3.left= "Email: "
@@ -49,16 +34,8 @@
 				.m5.left=@recipe.tutor_post.experience
 				.clearboth
 			-if !@recipe.tutor_post.tutor_fee.nil?
-				.m3.left= "Expected Salary: "
-				.m5.left=@recipe.tutor_post.tutor_fee
-				.clearboth
-			.m3.left= "Address: "
-			.m5.left=@recipe.tutor_post.address
-			.m3.left=", district: "
-			.m5.left=@recipe.tutor_post.district
-			.m3.left=" city/crovince: "
-			.m5.left=@recipe.tutor_post.city_province+"."
-			.clearboth
+				.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
+			.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
 			%br
-			.m5= @recipe.tutor_post.content.truncate(250)
-		.btn.link_at_the_bottom= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}"
+			%i.h2= @recipe.tutor_post.content.truncate(250)
+		.h1.link.link_at_the_bottom= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}", :data => {:confirm => "Are you sure?"}

@@ -29,18 +29,10 @@
 		- elsif @recipe.poster_confirmation
 			.s3= "Confirmed"
 		-	else
-			.s3= "Denied" 
-		.s3.left= "Receipt created at: "
-		.s5.left=@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
-		.clearboth
-		.s3.left= "Receipt updated at: "
-		.s5.left=@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		.clearboth
-		.s5.left= @recipe.owner.username.capitalize
-		.s3.left="has accepted your("
-		.s5.left=@recipe.others.username.capitalize
-		.s3.left="'s) following post:"
-		.clearboth
+			.h1= "Denied" 
+		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h1= @recipe.owner.username+"has accepted your("+@recipe.other.username+"'s) following post:"
 		.post_sampple
 			.m4=@recipe.customer_post.user.username.capitalize
 			.m3.left= "Email: "
@@ -57,15 +49,8 @@
 				.m5.left=@recipe.customer_post.experience
 				.clearboth
 			-if !@recipe.customer_post.tutor_fee.nil?
-				.m3.left= "Offered Salary: "
-				.m5.left=@recipe.customer_post.tutor_fee
-				.clearboth
-			.m3.left="Address: "
-			.m5.left=@recipe.customer_post.address
-			.m3.left=", district: "
-			.m5.left=@recipe.customer_post.district
-			.m3.left=", city/crovince: "
-			.m5.left=@recipe.customer_post.city_province+"."
+				.h2= "Offered Salary: "+@recipe.customer_post.tutor_fee
+			.h2= "District: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
 			%br
 			.m5= @recipe.customer_post.content.truncate(250)
 		- if @recipe.poster_confirmation.nil?
