@@ -1,5 +1,5 @@
 class CustomerPost < ActiveRecord::Base
-  attr_accessible :content, :experience, :district, :city_province, :tutor_fee, :subject, :user_id
+  attr_accessible :content, :experience, :district, :city_province, :tutor_fee, :subject, :user_id, :published
   validates :subject, :content, :tutor_fee, :experience, :presence => true
 
   self.per_page = 5

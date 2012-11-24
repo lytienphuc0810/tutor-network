@@ -44,6 +44,7 @@ class CustomerPostsController < ApplicationController
 		#post method
     @customer_post = CustomerPost.new(params[:customer_post])
     @customer_post.user = current_user
+    @customer_post.published = nil
     if(@customer_post.save)
       redirect_to "/customer_posts/show_customer_post/#{@customer_post.id}"
     else
@@ -78,6 +79,15 @@ class CustomerPostsController < ApplicationController
 		@recipe=Recipe.find_by_id(params[:recipe_id])
 		if @recipe.poster_confirmation.nil?
 			@recipe.poster_confirmation=true
+
+			tutor_recipes=Recipe.find_all_by_customer_post_id(@recipe.customer_post_id)
+			tutor_recipes.each do |tutor_recipe|
+				tutor_recipe.poster_confirmation = false
+				tutor_recipe.save
+			end
+
+			@recipe.customer_post.published=false
+			@recipe.customer_post.save
 		end
 		if @recipe.save
 			redirect_to "/customer_posts/index_recipe/1"

@@ -41,6 +41,7 @@ class TutorPostsController < ApplicationController
 		#post method
     @tutor_post = TutorPost.new(params[:tutor_post])
     @tutor_post.user = current_user
+    @tutor_post.published = nil
     if(@tutor_post.save)
       redirect_to "/tutor_posts/show_tutor_post/#{@tutor_post.id}"
     else
@@ -75,6 +76,15 @@ class TutorPostsController < ApplicationController
 		@recipe=Recipe.find_by_id(params[:recipe_id])
 		if @recipe.poster_confirmation.nil?
 			@recipe.poster_confirmation=true
+
+			customer_recipes=Recipe.find_all_by_tutor_post_id(@recipe.tutor_post_id)
+			customer_recipes.each do |customer_recipe|
+				customer_recipe.poster_confirmation = false
+				customer_recipe.save
+			end
+
+			@recipe.tutor_post.published=false
+			@recipe.tutor_post.save
 		end
 		if @recipe.save
 			redirect_to "/tutor_posts/index_recipe/1"

@@ -8,6 +8,7 @@ class CreateCustomerPosts < ActiveRecord::Migration
       t.string :city_province
     	t.string :tutor_fee
     	t.integer :user_id
+      t.boolean :published
       t.timestamps
     end
   end
