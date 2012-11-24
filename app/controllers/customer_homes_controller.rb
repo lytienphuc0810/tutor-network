@@ -40,7 +40,7 @@ class CustomerHomesController < ApplicationController
 	def show_recipe
 		#post method
 		@recipe=Recipe.find_by_id(params[:recipe_id])
-		if @recipe.nil?
+		if @recipe.nil? && current_user.id == @recipe.owner.id 
 			redirect_to "/customer_homes/index_recipe/1"
 		end
 	end

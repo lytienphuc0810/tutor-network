@@ -17,4 +17,7 @@
 		.h1= "Address: "+@customer_post.address+", district: "+@customer_post.district+", city/drovince: "+@customer_post.city_province+"."
 		%br
 		%i.h1= @customer_post.content
-		.h1.link.link_at_the_bottom= link_to "Accept", "/tutor_homes/create_recipe/#{@customer_post.user.id}/#{@customer_post.id}", :method => "post"
+		- if @customer_post.recipe.nil?
+			.h1.link.link_at_the_bottom= link_to "Accept", "/tutor_homes/create_recipe/#{@customer_post.user.id}/#{@customer_post.id}", :method => "post"
+		- else
+			.h1.link.link_at_the_bottom= "Already accepted"

@@ -14,8 +14,8 @@
         .h2= customer_post.content.truncate(250)
       .clearboth
       - if customer_post.recipe.nil?
-        .h2.link= link_to "Accept", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
+        .h2.link.link_at_the_bottom= link_to "Accept", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
       - else
-        .h2.link= link_to "Already accepted", "/tutor_homes/show_recipe/#{customer_post.recipe.id}"
+        .h2.link.link_at_the_bottom= link_to "Already accepted", "/tutor_homes/show_recipe/#{customer_post.recipe.id}"
   .clearboth
   .paginate.right= will_paginate @customer_posts

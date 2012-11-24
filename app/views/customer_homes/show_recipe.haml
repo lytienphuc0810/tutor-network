@@ -7,6 +7,8 @@
 	.clearboth
 	.content
 		.h1= "Tutor: "+@recipe.others.username
+		- if @recipe.poster_confirmation
+			.h2= ratings_for @recipe.others, :remote_options => {:url => "/customer_homes/rate/#{@recipe.others.id}"}, :show_user => true
 		- if @recipe.poster_confirmation.nil?
 			.h1= "Waiting for "+@recipe.others.username+ "'s confirmation ..."
 		- elsif @recipe.poster_confirmation
