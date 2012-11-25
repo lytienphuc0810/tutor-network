@@ -1,6 +1,7 @@
 class CustomerPost < ActiveRecord::Base
-  attr_accessible :content, :experience, :district, :city_province, :tutor_fee, :subject, :user_id, :published
+  attr_accessible :content, :experience, :district, :city_province, :tutor_fee, :subject, :user_id, :published, :allowed
   validates :subject, :content, :tutor_fee, :experience, :presence => true
+  before_validation :default_allowed
 
   self.per_page = 5
   belongs_to :user
@@ -23,5 +24,12 @@ class CustomerPost < ActiveRecord::Base
         end
       end
 		end.results
-	end  
+	end 
+
+  private
+    def default_allowed
+      if self.allowed.nil?
+        self.allowed = "false"
+      end
+    end 
 end

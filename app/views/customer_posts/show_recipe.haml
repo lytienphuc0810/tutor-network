@@ -8,32 +8,52 @@
 	.header-link.left.active= link_to "#{@recipe.owner.username.upcase}", "/customer_posts/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.h1= "Tutor: "+@recipe.owner.username
-		.h1= "Email: "+@recipe.owner.email
-		.h1= "Gender: "+@recipe.owner.gender.to_s
-		.h1= "Address: "+@recipe.owner.address+", ward: "+@recipe.owner.ward+", disctrict: "+@recipe.owner.district+", city/province: "+@recipe.owner.city_province+"."
+		.s4=@recipe.owner.username.capitalize
+		.s3.left= "Email: "
+		.s5.left=@recipe.owner.email
+		.clearboth
+		.s3.left= "Gender: "
+		.s5.left=@recipe.owner.gender.to_s
+		.clearboth
+		.s3.left= "Address: "
+		.s5.left=@recipe.owner.address
+		.s3.left=", ward: "
+		.s5.left=@recipe.owner.ward
+		.s3.left=", disctrict: "
+		.s5.left=@recipe.owner.district
+		.s3.left=", city/province: "
+		.s5.left=@recipe.owner.city_province+"."
+		.clearboth
 		- if @recipe.poster_confirmation.nil?
-			.h1 Waiting for your confirmation ...
+			.s3 Waiting for your confirmation ...
 		- elsif @recipe.poster_confirmation
-			.h1= "Confirmed"
+			.s3= "Confirmed"
 		-	else
 			.h1= "Denied" 
 		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h1= @recipe.owner.username+"has accepted your("+@recipe.other.username+"'s) following post:"
 		.post_sampple
-			.h2= "Customer Name: "+@recipe.customer_post.user.username
-			.h2= "Email: "+@recipe.customer_post.user.email
-			.h2= "Gender: "+@recipe.customer_post.user.gender.to_s
-			.h2= "Subject: "+@recipe.customer_post.subject
+			.m4=@recipe.customer_post.user.username.capitalize
+			.m3.left= "Email: "
+			.m5.left=@recipe.customer_post.user.email
+			.clearboth
+			.m3.left= "Gender: "
+			.m5.left=@recipe.customer_post.user.gender.to_s
+			.clearboth
+			.m3.left= "Subject: "
+			.m5.left=@recipe.customer_post.subject
+			.clearboth
 			-if !@recipe.customer_post.experience.nil?
-				.h2= "Required Experience: "+@recipe.customer_post.experience
+				.m3.left= "Required Experience: "
+				.m5.left=@recipe.customer_post.experience
+				.clearboth
 			-if !@recipe.customer_post.tutor_fee.nil?
 				.h2= "Offered Salary: "+@recipe.customer_post.tutor_fee
 			.h2= "District: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
 			%br
-			%i.h2= @recipe.customer_post.content.truncate(250)
+			.m5= @recipe.customer_post.content.truncate(250)
 		- if @recipe.poster_confirmation.nil?
 			.link_at_the_bottom
-				.h1.link.float= link_to "Accept", "/customer_posts/accept_recipe/#{@recipe.id}"
-				.h1.link.float= link_to "Deny", "/customer_posts/deny_recipe/#{@recipe.id}"
+				.btn.float= link_to "Accept", "/customer_posts/accept_recipe/#{@recipe.id}"
+				.btn.float= link_to "Deny", "/customer_posts/deny_recipe/#{@recipe.id}"
