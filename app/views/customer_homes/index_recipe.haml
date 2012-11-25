@@ -16,8 +16,8 @@
         - if recipe.poster_confirmation.nil?
           .h2.waiting Waiting for confirmation ...
         - elsif recipe.poster_confirmation
-          .h2.success= "Confirmed"
+          .h2.success Confirmed
         - else
-          .h2.error= "Denied"
+          .h2.error Denied
   .clearboth
   .paginate.right= will_paginate @recipes

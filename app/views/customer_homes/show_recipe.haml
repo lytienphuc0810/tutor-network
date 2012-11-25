@@ -21,7 +21,7 @@
 		- if @recipe.poster_confirmation.nil?
 			= button_to_function "Waiting for confirmation ...", "$('.post-sample').toggle();"
 		- elsif @recipe.poster_confirmation
-			= button_to_function "Your request has been approved", "$('.post-sample').toggle();"
+			= button_to_function "Your request has been accepted", "$('.post-sample').toggle();"
 		-	else
 			= button_to_function "Your request has been denied", "$('.post-sample').toggle();"
 		%br
