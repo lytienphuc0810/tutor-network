@@ -63,10 +63,10 @@
 						%b City/Province: 
 						= @recipe.customer_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief description
 						%br
-						= @recipe.customer_post.content
+						%i= @recipe.customer_post.content
 		- elsif @recipe.poster_confirmation
 			.post-sample
 				.accepted
@@ -100,10 +100,10 @@
 						%b City/Province:
 						= @recipe.customer_post.city_province+"."
 					%br
-					%i.h2
+					.h2
 						%b Brief introduction
 						%br
-						= @recipe.customer_post.content
+						%i= @recipe.customer_post.content
 		- else
 			.post-sample
 				.denied
@@ -137,10 +137,10 @@
 						%b City/Province:
 						= @recipe.customer_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief introduction
 						%br
-						= @recipe.customer_post.content
+						%i= @recipe.customer_post.content
 		%br
 		- if @recipe.poster_confirmation
 			.h2 Rate this tutor
@@ -150,6 +150,6 @@
 			= ratings_for @recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
 		%br
 		- if @recipe.poster_confirmation.nil?
-			.link_at_the_bottom
-				.h2.link= link_to "Accept", "/customer_posts/accept_recipe/#{@recipe.id}"
-				.h2.link= link_to "Deny", "/customer_posts/deny_recipe/#{@recipe.id}"
+			.h2.link= link_to "Accept", "/customer_posts/accept_recipe/#{@recipe.id}"
+			%br
+			.h2.link= link_to "Deny", "/customer_posts/deny_recipe/#{@recipe.id}"
