@@ -61,10 +61,10 @@
 						%b City/Province:
 						= @recipe.customer_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief description
 						%br
-						= @recipe.customer_post.content
+						%i= @recipe.customer_post.content
 		- elsif @recipe.poster_confirmation
 			.post-sample
 				.accepted
@@ -98,10 +98,10 @@
 						%b City/Province:
 						= @recipe.customer_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief description
 						%br
-						= @recipe.customer_post.content
+						%i= @recipe.customer_post.content
 		- else
 			.post-sample
 				.denied
@@ -135,9 +135,12 @@
 						%b City/Province:
 						= @recipe.customer_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief description
 						%br
-						= @recipe.customer_post.content
+						%i= @recipe.customer_post.content
+		%br
+		.h2 Your current rating
+		= ratings_for @recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
 		%br
 		.h2.link= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}", :data => {:confirm => "Are you sure?"}
