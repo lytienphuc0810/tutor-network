@@ -8,52 +8,148 @@
 	.header-link.left.active= link_to "#{@recipe.owner.username.upcase}", "/customer_posts/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.s4=@recipe.owner.username.capitalize
-		.s3.left= "Email: "
-		.s5.left=@recipe.owner.email
-		.clearboth
-		.s3.left= "Gender: "
-		.s5.left=@recipe.owner.gender.to_s
-		.clearboth
-		.s3.left= "Address: "
-		.s5.left=@recipe.owner.address
-		.s3.left=", ward: "
-		.s5.left=@recipe.owner.ward
-		.s3.left=", disctrict: "
-		.s5.left=@recipe.owner.district
-		.s3.left=", city/province: "
-		.s5.left=@recipe.owner.city_province+"."
-		.clearboth
+		.h1 REQUEST
+		%br
+		.h2
+			%b Tutor requested:
+			= @recipe.owner.username
+		.h2
+			%b Subject:
+			= @recipe.customer_post.subject
+		.h2
+			%b Receipt created at:
+			= @recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h2
+			%b Receipt updated at:
+			= @recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
+		%br
 		- if @recipe.poster_confirmation.nil?
-			.s3 Waiting for your confirmation ...
+			= button_to_function "Waiting for your confirmation ...", "$('.post-sample').toggle();"
 		- elsif @recipe.poster_confirmation
-			.s3= "Confirmed"
+			= button_to_function "You've accepted this recipe", "$('.post-sample').toggle();"
 		-	else
-			.h1= "Denied" 
-		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= @recipe.owner.username+"has accepted your("+@recipe.other.username+"'s) following post:"
-		.post_sampple
-			.m4=@recipe.customer_post.user.username.capitalize
-			.m3.left= "Email: "
-			.m5.left=@recipe.customer_post.user.email
-			.clearboth
-			.m3.left= "Gender: "
-			.m5.left=@recipe.customer_post.user.gender.to_s
-			.clearboth
-			.m3.left= "Subject: "
-			.m5.left=@recipe.customer_post.subject
-			.clearboth
-			-if !@recipe.customer_post.experience.nil?
-				.m3.left= "Required Experience: "
-				.m5.left=@recipe.customer_post.experience
-				.clearboth
-			-if !@recipe.customer_post.tutor_fee.nil?
-				.h2= "Offered Salary: "+@recipe.customer_post.tutor_fee
-			.h2= "District: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
-			%br
-			.m5= @recipe.customer_post.content.truncate(250)
+			= button_to_function "You've denied this recipe", "$('.post-sample').toggle();"
+		%br
+		- if @recipe.poster_confirmation.nil?
+			.post-sample
+				.waiting
+					.h1 HERE IS YOUR POST
+					%br
+					.h2
+						%b Customer's Name:
+						= @recipe.customer_post.user.username
+					.h2
+						%b Email:
+						= @recipe.customer_post.user.email
+					.h2
+						%b Subject:
+						= @recipe.customer_post.subject
+					-if !@recipe.customer_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.customer_post.user.gender.to_s
+					-if !@recipe.customer_post.experience.nil?
+						.h2
+							%b Experience:
+							= @recipe.customer_post.experience
+					-if !@recipe.customer_post.tutor_fee.nil?
+						.h2
+							%b Expected Salary:
+							= @recipe.customer_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.customer_post.district
+					.h2
+						%b City/Province: 
+						= @recipe.customer_post.city_province
+					%br
+					%i.h2
+						%b Brief description
+						%br
+						= @recipe.customer_post.content
+		- elsif @recipe.poster_confirmation
+			.post-sample
+				.accepted
+					.h1 HERE IS YOUR POST
+					%br
+					.h2
+						%b Customer's Name:
+						= @recipe.customer_post.user.username
+					.h2
+						%b Email:
+						= @recipe.customer_post.user.email
+					.h2
+						%b Subject:
+						= @recipe.customer_post.subject
+					-if !@recipe.customer_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.customer_post.user.gender.to_s
+					-if !@recipe.customer_post.experience.nil?
+						.h2
+							%b Experience:
+							= @recipe.customer_post.experience
+					-if !@recipe.customer_post.tutor_fee.nil?
+						.h2
+							%b Expected Salary:
+							= @recipe.customer_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.customer_post.district
+					.h2
+						%b City/Province:
+						= @recipe.customer_post.city_province+"."
+					%br
+					%i.h2
+						%b Brief introduction
+						%br
+						= @recipe.customer_post.content
+		- else
+			.post-sample
+				.denied
+					.h1 HERE IS YOUR POST
+					%br
+					.h2
+						%b Customer's Name:
+						= @recipe.customer_post.user.username
+					.h2
+						%b Email:
+						= @recipe.customer_post.user.email
+					.h2
+						%b Subject:
+						= @recipe.customer_post.subject
+					-if !@recipe.customer_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.customer_post.user.gender.to_s
+					-if !@recipe.customer_post.experience.nil?
+						.h2
+							%b Experience:
+							= @recipe.customer_post.experience
+					-if !@recipe.customer_post.tutor_fee.nil?
+						.h2
+							%b Expected Salary:
+							= @recipe.customer_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.customer_post.district
+					.h2
+						%b City/Province:
+						= @recipe.customer_post.city_province
+					%br
+					%i.h2
+						%b Brief introduction
+						%br
+						= @recipe.customer_post.content
+		%br
+		- if @recipe.poster_confirmation
+			.h2 Rate this tutor
+			= ratings_for @recipe.other, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
+		- else
+			.h2 Tutor's rating
+			= ratings_for @recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
+		%br
 		- if @recipe.poster_confirmation.nil?
 			.link_at_the_bottom
-				.btn.float= link_to "Accept", "/customer_posts/accept_recipe/#{@recipe.id}"
-				.btn.float= link_to "Deny", "/customer_posts/deny_recipe/#{@recipe.id}"
+				.h2.link= link_to "Accept", "/customer_posts/accept_recipe/#{@recipe.id}"
+				.h2.link= link_to "Deny", "/customer_posts/deny_recipe/#{@recipe.id}"

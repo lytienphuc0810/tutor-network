@@ -12,7 +12,7 @@
         .h2= "District: "+tutor_post.district
         .h2= "City/Province: "+tutor_post.city_province
       .text-content-right.left
-        .h2= tutor_post.content.truncate(250)
+        .h2= tutor_post.content.truncate(750)
       .clearboth
       .text-content-right.left
         - if my_recipe = tutor_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
