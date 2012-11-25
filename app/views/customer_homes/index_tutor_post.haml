@@ -7,7 +7,7 @@
     .post-content.left
       .text-content-left.left
         .h1.link= link_to "#{tutor_post.user.username.upcase}", "/customer_homes/show_tutor_post/#{tutor_post.id}"
-        .h2= ratings_for tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{tutor_post.user.id}"}
+        = ratings_for tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{tutor_post.user.id}"}
         .h2.link= link_to "#{tutor_post.user.email}", "mailto:tutor_post.user.email"
         .h2= "District: "+tutor_post.district
         .h2= "City/Province: "+tutor_post.city_province

@@ -13,16 +13,101 @@
 	}
 
 	.content {
-		position: relative;
 		padding: 20px;
 		margin: 14px;
-		height: 500px;
+		height: auto;
 		background-color: #D3D3D3;
 		border-radius: 5px;
+
+		.h1 {
+			font-size: 20px;
+			font-weight: bold;
+			color:	#00BCD1;
+		}
+
+		.tit {
+			font-size: 15px;
+			font-weight: bold;
+			padding:  10px 15px 3px 15px;
+		}
+
+		.cont {
+			font-size: 15px;
+			font-style: italic;
+			padding:  3px 15px 10px 15px;
+		}
+		a, a:visited{
+			float: right;
+		}
+		.text-content {
+			width: 500px;
+			padding: 0 30px;
+		}
+
+		.post-sample {
+			display: none;
+
+			.waiting{
+				border-color: #A3FFFF;
+				background-color: #A3FFFF;
+				border-style: solid;
+				border-width: 2px;
+				position: relative;
+				top: auto;
+				bottom: auto;
+				left: auto;
+				right: auto;
+				padding: 20px;
+				border-radius: 5px 5px 5px 5px;
+		  }
+
+			.accepted{
+				border-color: #94FF70;
+				background-color: #94FF70;
+				border-style: solid;
+				border-width: 2px;
+				position: relative;
+				top: auto;
+				bottom: auto;
+				left: auto;
+				right: auto;
+				padding: 20px;
+				border-radius: 5px 5px 5px 5px;
+		  }
+
+			.denied{
+				border-color: #FFA6A6;
+				background-color: #FFA6A6;
+				border-style: solid;
+				border-width: 2px;
+				position: relative;
+				top: auto;
+				bottom: auto;
+				left: auto;
+				right: auto;
+				padding: 20px;
+				border-radius: 5px 5px 5px 5px;
+		  }
+		}
 	}
 
 	.error {
 		color: red;
+		font-size: 12px;
+	}
+
+	.success {
+		color: green;
+		font-size: 12px;
+	}
+
+	.waiting {
+		color: blue;
+		font-size: 12px;
+	}
+
+	.warning {
+		color: orange;
 		font-size: 12px;
 	}
 
@@ -233,7 +318,8 @@
 }
 
 .h1 {
-	font-size: 18px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .h2 {
@@ -267,6 +353,13 @@
 		font-style: italic;
 		text-decoration: none;
 	}
+}
+
+.button{
+	padding: 5px 0px 10px 0px;
+	color: blue;
+	font-style: italic;
+	text-decoration: none;
 }
 
 .pagination {
@@ -315,26 +408,4 @@
     height: 1%; }
   *:first-child + html .pagination {
     overflow: hidden; 
-  }
-  /* Tu duoi nay la cua Tuan them vao */
-  .link_at_the_bottom {
-  	position: absolute;
-  	bottom: 20px;
-  } 
-
-  .float {
-  	float:left;
-  	margin-right: 30px;
-  }
-
-  .post_sampple{
-  	border-style: dashed;
-  	border-width: 2px;
-  	position: absolute;
-  	top: 230px;
-  	bottom: 50px;
-  	left: 150px;
-  	right: 150px;
-  	padding: 20px;
-  	border-radius: 5px 5px 5px 5px;
   }

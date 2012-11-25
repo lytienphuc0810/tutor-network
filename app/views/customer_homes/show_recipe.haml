@@ -6,28 +6,64 @@
 	.header-link.left.active= link_to "#{@recipe.other.username.upcase}", "/customer_homes/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.h1= "Tutor: "+@recipe.other.username
-		- if @recipe.poster_confirmation
-			.h2= ratings_for @recipe.other, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
+		.h1 MY RECEIPT
+		%br
+		.h2= "Tutor: "+@recipe.other.username
+		.h2= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h2= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
+		%br
 		- if @recipe.poster_confirmation.nil?
-			.h1= "Waiting for "+@recipe.other.username+ "'s confirmation ..."
+			.h2.waiting= "Waiting for "+@recipe.other.username+ "'s confirmation ..."
 		- elsif @recipe.poster_confirmation
-			.h1= "Confirmed by "+@recipe.other.username
+			.h2.success= "Confirmed by "+@recipe.other.username
 		-	else
-			.h1= "Denied by "+@recipe.other.username
-		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= "You ("+@recipe.owner.username+") have accepted "+@recipe.other.username+"'s following post:"
-		.post_sampple
-			.h2= "Tutor's Name: "+@recipe.tutor_post.user.username
-			.h2= "Email: "+@recipe.tutor_post.user.email
-			.h2= "Gender: "+@recipe.tutor_post.user.gender.to_s
-			.h2= "Subject: "+@recipe.tutor_post.subject
-			-if !@recipe.tutor_post.experience.nil?
-				.h2= "Experience: "+@recipe.tutor_post.experience
-			-if !@recipe.tutor_post.tutor_fee.nil?
-				.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
-			.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
-			%br
-			%i.h2= @recipe.tutor_post.content.truncate(250)
-		.h1.link.link_at_the_bottom= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}", :data => {:confirm => "Are you sure?"}
+			.h2.error= "Denied by "+@recipe.other.username
+		.button= button_to_function "Show/Hide", "$('.post-sample').toggle();"
+		- if @recipe.poster_confirmation.nil?
+			.post-sample
+				.waiting
+					.h2= "Tutor's Name: "+@recipe.tutor_post.user.username
+					.h2= "Email: "+@recipe.tutor_post.user.email
+					.h2= "Gender: "+@recipe.tutor_post.user.gender.to_s
+					.h2= "Subject: "+@recipe.tutor_post.subject
+					-if !@recipe.tutor_post.experience.nil?
+						.h2= "Experience: "+@recipe.tutor_post.experience
+					-if !@recipe.tutor_post.tutor_fee.nil?
+						.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
+					.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
+					%br
+					%i.h2= @recipe.tutor_post.content.truncate(250)
+		- elsif @recipe.poster_confirmation
+			.post-sample
+				.accepted
+					.h2= "Tutor's Name: "+@recipe.tutor_post.user.username
+					.h2= "Email: "+@recipe.tutor_post.user.email
+					.h2= "Gender: "+@recipe.tutor_post.user.gender.to_s
+					.h2= "Subject: "+@recipe.tutor_post.subject
+					-if !@recipe.tutor_post.experience.nil?
+						.h2= "Experience: "+@recipe.tutor_post.experience
+					-if !@recipe.tutor_post.tutor_fee.nil?
+						.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
+					.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
+					%br
+					%i.h2= @recipe.tutor_post.content.truncate(250)
+		- else
+			.post-sample
+				.denied
+					.h2= "Tutor's Name: "+@recipe.tutor_post.user.username
+					.h2= "Email: "+@recipe.tutor_post.user.email
+					.h2= "Gender: "+@recipe.tutor_post.user.gender.to_s
+					.h2= "Subject: "+@recipe.tutor_post.subject
+					-if !@recipe.tutor_post.experience.nil?
+						.h2= "Experience: "+@recipe.tutor_post.experience
+					-if !@recipe.tutor_post.tutor_fee.nil?
+						.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
+					.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
+					%br
+					%i.h2= @recipe.tutor_post.content.truncate(250)
+		%br
+		- if @recipe.poster_confirmation
+			.h2 Rate this tutor
+			= ratings_for @recipe.other, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
+		%br
+		.h2.link= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}", :data => {:confirm => "Are you sure?"}
