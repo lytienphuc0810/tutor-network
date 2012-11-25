@@ -17,7 +17,7 @@ body  {
 	border-radius: 5px;
 	padding: 12px 18px 12px 18px;
 	#header-theme {
-		height: 80px;
+		height: 90px;
 		width: auto;
 		padding: 10px;
 		background-color: #FEF9F0;
@@ -42,12 +42,19 @@ body  {
 		font-size: 50px;
 		font-weight: bold;
 		margin-left: 40px;
+		margin-top: -3px;
 	}
 
 	#login-info {
-		margin-right: 15px;
-		min-width: 400px;
 		text-align: right;
+		margin-right: 15px;
+		min-width: 400px
+	}
+	#locale-info {
+		a{
+			margin-right: 10px;
+		}
+		min-width: 400px
 	}
 	#menu-bar {
 		height: 45px;
@@ -85,12 +92,6 @@ body  {
 	margin-top: 15px;
 	border-radius: 5px;
 	padding: 12px;
-	.interesting-stuff {
-		height: 300px;
-		width: auto;
-		background-color: #FEF9F0;
-		margin-bottom: 10px;
-	}
 	.container {
 		height: auto;
 		width: auto;
@@ -98,6 +99,7 @@ body  {
 		border-radius: 5px;
 		background-color: #FEF9F0;
 	}
+
 }
 
 .right {

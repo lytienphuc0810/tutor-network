@@ -37,6 +37,11 @@
 						#menu-link.left= link_to "FAQ", "/faq"
 						#menu-link.left= link_to "CONTACT", "/contact"
 			#main{:class => controller_name}
-				/ .interesting-stuff
+				= render "shared/slider"
 				.container
 					= yield
+
+:javascript
+	$(window).load(function() {
+		$('#slider').nivoSlider();
+	});
