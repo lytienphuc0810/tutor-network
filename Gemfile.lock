@@ -94,6 +94,8 @@ GEM
     progress_bar (0.4.0)
       highline (~> 1.6.1)
       options (~> 2.3.0)
+    prototype-rails (3.2.1)
+      rails (~> 3.2)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -166,6 +168,7 @@ DEPENDENCIES
   jquery-rails (= 2.1.2)
   mysql2
   progress_bar
+  prototype-rails
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
   sunspot_rails
