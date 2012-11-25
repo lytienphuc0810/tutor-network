@@ -1,3 +1,4 @@
+// TUTOR-NETWORK
 .big-content {
 	z-index: 1000;	
 	position: relative;
@@ -52,14 +53,6 @@
 				border-color: #FFFFCC;
 				background-color: #FFFFCC;
 				border-style: solid;
-				border-width: 2px;
-				position: relative;
-				top: auto;
-				bottom: auto;
-				left: auto;
-				right: auto;
-				padding: 20px;
-				border-radius: 5px 5px 5px 5px;
 		  }
 
 			.accepted{
@@ -67,20 +60,14 @@
 				border-color: #94FF70;
 				background-color: #94FF70;
 				border-style: solid;
-				border-width: 2px;
-				position: relative;
-				top: auto;
-				bottom: auto;
-				left: auto;
-				right: auto;
-				padding: 20px;
-				border-radius: 5px 5px 5px 5px;
 		  }
 
 			.denied{
 				border-color: #FFA6A6;
 				background-color: #FFA6A6;
 				border-style: solid;
+		  }
+			.denied, .accepted, .waiting {
 				border-width: 2px;
 				position: relative;
 				top: auto;
@@ -89,7 +76,7 @@
 				right: auto;
 				padding: 20px;
 				border-radius: 5px 5px 5px 5px;
-		  }
+			}
 		}
 	}
 
@@ -149,39 +136,30 @@
 			margin-top: 10px;
 			margin-right: 20px;
 			float: left;
-			//color: green;
 		}
 
-		#book_description {
-			height: 75px;
-			width: 208px;
-			margin-right: 2px;
-		}
-
-  	input, #book_description {
+  	input {
 		 	float: right;
 		 	margin-top: 8px;
-			//background-color : lightyellow;
-			//border: 1px solid #008000;
 			width: 230px;
 		}
 
-  	select, #book_description {
+  	select {
 		 	float: right;
 		 	margin-top: 8px;
-			//background-color : lightyellow;
-			//border: 1px solid #008000;
 			width: 235px;
 		}
 
 		.submit_btn {
 			float: right;
 			margin-top: 10px;
-			//border: 1px solid #008000;
-			width: auto;
+			width: 90px;
 		}
 		textarea{
-			float:right;
+			float: right;
+			margin-top: 8px;
+			height: 100px;
+			width: 228px;
 		}
 	}
 
