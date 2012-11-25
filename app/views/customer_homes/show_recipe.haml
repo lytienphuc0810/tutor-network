@@ -35,11 +35,12 @@
 						%b Email:
 						= @recipe.tutor_post.user.email
 					.h2
-						%b Gender:
-						= @recipe.tutor_post.user.gender.to_s
-					.h2
 						%b Subject:
 						= @recipe.tutor_post.subject
+					-if !@recipe.tutor_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.tutor_post.user.gender.to_s
 					-if !@recipe.tutor_post.experience.nil?
 						.h2
 							%b Experience:
@@ -58,7 +59,7 @@
 					%i.h2
 						%b Brief description
 						%br
-						= @recipe.tutor_post.content.truncate(250)
+						= @recipe.tutor_post.content
 		- elsif @recipe.poster_confirmation
 			.post-sample
 				.accepted
@@ -69,11 +70,12 @@
 						%b Email:
 						= @recipe.tutor_post.user.email
 					.h2
-						%b Gender:
-						= @recipe.tutor_post.user.gender.to_s
-					.h2
 						%b Subject:
 						= @recipe.tutor_post.subject
+					-if !@recipe.tutor_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.tutor_post.user.gender.to_s
 					-if !@recipe.tutor_post.experience.nil?
 						.h2
 							%b Experience:
@@ -92,7 +94,7 @@
 					%i.h2
 						%b Brief introduction
 						%br
-						= @recipe.tutor_post.content.truncate(250)
+						= @recipe.tutor_post.content
 		- else
 			.post-sample
 				.denied
@@ -103,11 +105,12 @@
 						%b Email:
 						= @recipe.tutor_post.user.email
 					.h2
-						%b Gender:
-						= @recipe.tutor_post.user.gender.to_s
-					.h2
 						%b Subject:
 						= @recipe.tutor_post.subject
+					-if !@recipe.tutor_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.tutor_post.user.gender.to_s
 					-if !@recipe.tutor_post.experience.nil?
 						.h2
 							%b Experience:
@@ -126,7 +129,7 @@
 					%i.h2
 						%b Brief introduction
 						%br
-						= @recipe.tutor_post.content.truncate(250)
+						= @recipe.tutor_post.content
 		%br
 		- if @recipe.poster_confirmation
 			.h2 Rate this tutor

@@ -6,7 +6,7 @@
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/customer_homes/index_recipe/1"
 	.clearboth
 	.content
-		.h1.link= @tutor_post.user.username.upcase
+		.h1= @tutor_post.user.username.upcase
 		= ratings_for @tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{@tutor_post.user.id}"}
 		%br
 		.h2

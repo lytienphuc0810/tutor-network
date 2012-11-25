@@ -8,7 +8,6 @@
       .text-content-left.left
         .h1.link= link_to "#{tutor_post.user.username.upcase}", "/customer_homes/show_tutor_post/#{tutor_post.id}"
         = ratings_for tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{tutor_post.user.id}"}
-        %br
         .h2= tutor_post.user.email
         .h2= "District: "+tutor_post.district
         .h2= "City/Province: "+tutor_post.city_province
@@ -18,11 +17,11 @@
       .text-content-right.left
         - if my_recipe = tutor_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
           - if my_recipe.poster_confirmation.nil?
-            .h2.waiting= "Already requested"
+            .h2.waiting= "Requested and waiting ..."
           - elsif my_recipe.poster_confirmation
-            .h2.success= "Already requested"
+            .h2.success= "Requested and accepted!"
           - else
-            .h2.error= "Already requested"
+            .h2.error= "Requested and denied"
         - else
           .h2.link= link_to "Request", "/customer_homes/create_recipe/#{tutor_post.user.id}/#{tutor_post.id}", :method => "post"
   .clearboth
