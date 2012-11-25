@@ -8,62 +8,131 @@
 	.content
 		.h1 MY RECEIPT
 		%br
-		.h2= "Tutor: "+@recipe.other.username
-		.h2= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h2= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h2
+			%b Tutor requested:
+			= @recipe.other.username
+		.h2
+			%b Receipt created at:
+			= @recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h2
+			%b Receipt updated at:
+			= @recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
 		%br
 		- if @recipe.poster_confirmation.nil?
-			.h2.waiting= "Waiting for "+@recipe.other.username+ "'s confirmation ..."
+			= button_to_function "Waiting for confirmation ...", "$('.post-sample').toggle();"
 		- elsif @recipe.poster_confirmation
-			.h2.success= "Confirmed by "+@recipe.other.username
+			= button_to_function "Your request has been approved", "$('.post-sample').toggle();"
 		-	else
-			.h2.error= "Denied by "+@recipe.other.username
-		.button= button_to_function "Show/Hide", "$('.post-sample').toggle();"
+			= button_to_function "Your request has been denied", "$('.post-sample').toggle();"
+		%br
 		- if @recipe.poster_confirmation.nil?
 			.post-sample
 				.waiting
-					.h2= "Tutor's Name: "+@recipe.tutor_post.user.username
-					.h2= "Email: "+@recipe.tutor_post.user.email
-					.h2= "Gender: "+@recipe.tutor_post.user.gender.to_s
-					.h2= "Subject: "+@recipe.tutor_post.subject
+					.h2
+						%b Tutor's Name:
+						= @recipe.tutor_post.user.username
+					.h2
+						%b Email:
+						= @recipe.tutor_post.user.email
+					.h2
+						%b Gender:
+						= @recipe.tutor_post.user.gender.to_s
+					.h2
+						%b Subject:
+						= @recipe.tutor_post.subject
 					-if !@recipe.tutor_post.experience.nil?
-						.h2= "Experience: "+@recipe.tutor_post.experience
+						.h2
+							%b Experience:
+							= @recipe.tutor_post.experience
 					-if !@recipe.tutor_post.tutor_fee.nil?
-						.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
-					.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
+						.h2
+							%b Expected Salary:
+							= @recipe.tutor_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.tutor_post.district
+					.h2
+						%b City/Province: 
+						= @recipe.tutor_post.city_province
 					%br
-					%i.h2= @recipe.tutor_post.content.truncate(250)
+					%i.h2
+						%b Brief description
+						%br
+						= @recipe.tutor_post.content.truncate(250)
 		- elsif @recipe.poster_confirmation
 			.post-sample
 				.accepted
-					.h2= "Tutor's Name: "+@recipe.tutor_post.user.username
-					.h2= "Email: "+@recipe.tutor_post.user.email
-					.h2= "Gender: "+@recipe.tutor_post.user.gender.to_s
-					.h2= "Subject: "+@recipe.tutor_post.subject
+					.h2
+						%b Tutor's Name:
+						= @recipe.tutor_post.user.username
+					.h2
+						%b Email:
+						= @recipe.tutor_post.user.email
+					.h2
+						%b Gender:
+						= @recipe.tutor_post.user.gender.to_s
+					.h2
+						%b Subject:
+						= @recipe.tutor_post.subject
 					-if !@recipe.tutor_post.experience.nil?
-						.h2= "Experience: "+@recipe.tutor_post.experience
+						.h2
+							%b Experience:
+							= @recipe.tutor_post.experience
 					-if !@recipe.tutor_post.tutor_fee.nil?
-						.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
-					.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
+						.h2
+							%b Expected Salary:
+							= @recipe.tutor_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.tutor_post.district
+					.h2
+						%b City/Province:
+						= @recipe.tutor_post.city_province+"."
 					%br
-					%i.h2= @recipe.tutor_post.content.truncate(250)
+					%i.h2
+						%b Brief introduction
+						%br
+						= @recipe.tutor_post.content.truncate(250)
 		- else
 			.post-sample
 				.denied
-					.h2= "Tutor's Name: "+@recipe.tutor_post.user.username
-					.h2= "Email: "+@recipe.tutor_post.user.email
-					.h2= "Gender: "+@recipe.tutor_post.user.gender.to_s
-					.h2= "Subject: "+@recipe.tutor_post.subject
+					.h2
+						%b Tutor's Name:
+						= @recipe.tutor_post.user.username
+					.h2
+						%b Email:
+						= @recipe.tutor_post.user.email
+					.h2
+						%b Gender:
+						= @recipe.tutor_post.user.gender.to_s
+					.h2
+						%b Subject:
+						= @recipe.tutor_post.subject
 					-if !@recipe.tutor_post.experience.nil?
-						.h2= "Experience: "+@recipe.tutor_post.experience
+						.h2
+							%b Experience:
+							= @recipe.tutor_post.experience
 					-if !@recipe.tutor_post.tutor_fee.nil?
-						.h2= "Expected Salary: "+@recipe.tutor_post.tutor_fee
-					.h2= "District: "+@recipe.tutor_post.district+" city/crovince: "+@recipe.tutor_post.city_province+"."
+						.h2
+							%b Expected Salary:
+							= @recipe.tutor_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.tutor_post.district
+					.h2
+						%b City/Province:
+						= @recipe.tutor_post.city_province
 					%br
-					%i.h2= @recipe.tutor_post.content.truncate(250)
+					%i.h2
+						%b Brief introduction
+						%br
+						= @recipe.tutor_post.content.truncate(250)
 		%br
 		- if @recipe.poster_confirmation
 			.h2 Rate this tutor
 			= ratings_for @recipe.other, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
+		- else
+			.h2 Tutor's rating
+			= ratings_for @recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
 		%br
 		.h2.link= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}", :data => {:confirm => "Are you sure?"}
