@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20121121042827) do
     t.string   "district"
     t.string   "city_province"
     t.string   "tutor_fee"
+    t.boolean  "allowed"
     t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20121121042827) do
     t.string   "district"
     t.string   "city_province"
     t.string   "tutor_fee"
+    t.boolean  "allowed"
     t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
