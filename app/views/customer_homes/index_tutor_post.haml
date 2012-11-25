@@ -17,7 +17,12 @@
       .clearboth
       .text-content-right.left
         - if my_recipe = tutor_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
-          .h2.link= link_to "Already requested", "/customer_homes/show_recipe/#{my_recipe.id}"
+          - if my_recipe.poster_confirmation.nil?
+            .h2.waiting= "Already requested"
+          - elsif my_recipe.poster_confirmation
+            .h2.success= "Already requested"
+          - else
+            .h2.error= "Already requested"
         - else
           .h2.link= link_to "Request", "/customer_homes/create_recipe/#{tutor_post.user.id}/#{tutor_post.id}", :method => "post"
   .clearboth
