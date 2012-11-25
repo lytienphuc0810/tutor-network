@@ -24,11 +24,11 @@
 			= @recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
 		%br
 		- if @recipe.poster_confirmation.nil?
-			= button_to_function "Waiting for your confirmation ...", "$('.post-sample').toggle();"
+			= button_to_function "Waiting for your confirmation ...", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
 		- elsif @recipe.poster_confirmation
-			= button_to_function "You've accepted this recipe", "$('.post-sample').toggle();"
+			= button_to_function "You've accepted this recipe", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
 		-	else
-			= button_to_function "You've denied this recipe", "$('.post-sample').toggle();"
+			= button_to_function "You've denied this recipe", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
 		%br
 		- if @recipe.poster_confirmation.nil?
 			.post-sample
