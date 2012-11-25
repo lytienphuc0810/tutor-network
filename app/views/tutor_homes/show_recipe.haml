@@ -3,29 +3,135 @@
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_homes/index_recipe/1"
 	.divider.left= ">>"
-	.header-link.left.active= link_to "#{@recipe.others.username.upcase}", "/tutor_homes/show_recipe/#{@recipe.id}"
+	.header-link.left.active= link_to "#{@recipe.other.username.upcase}", "/tutor_homes/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.h1= "Customer: "+@recipe.others.username
+		.h1 MY RECEIPT
+		%br
+		.h2
+			%b Customer requested:
+			= @recipe.other.username
+		.h2
+			%b Subject:
+			= @recipe.customer_post.subject
+		.h2
+			%b Receipt created at:
+			= @recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
+		.h2
+			%b Receipt updated at:
+			= @recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
+		%br
 		- if @recipe.poster_confirmation.nil?
-			.h1= "Waiting for "+@recipe.others.username+ "'s confirmation ..."
+			= button_to_function "Waiting for confirmation ...", "$('.post-sample').toggle();"
 		- elsif @recipe.poster_confirmation
-			.h1= "Confirmed by "+@recipe.others.username
+			= button_to_function "Your request has been accepted", "$('.post-sample').toggle();"
 		-	else
-			.h1= "Denied by "+@recipe.others.username
-		.h1= "Receipt created at: "+@recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= "Receipt updated at: "+@recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		.h1= "You ("+@recipe.owner.username+") have accepted"+@recipe.others.username+"'s following post:"
-		.post_sampple
-			.h2= "Customer's Name: "+@recipe.customer_post.user.username
-			.h2= "Email: "+@recipe.customer_post.user.email
-			.h2= "Gender: "+@recipe.customer_post.user.gender.to_s
-			.h2= "Subject: "+@recipe.customer_post.subject
-			-if !@recipe.customer_post.experience.nil?
-				.h2= "Required Experience: "+@recipe.customer_post.experience
-			-if !@recipe.customer_post.tutor_fee.nil?
-				.h2= "Offered Salary: "+@recipe.customer_post.tutor_fee
-			.h2= "Address: "+@recipe.customer_post.address+", district: "+@recipe.customer_post.district+", city/crovince: "+@recipe.customer_post.city_province+"."
-			%br
-			%i.h2= @recipe.customer_post.content.truncate(250)
-		.h1.link.link_at_the_bottom= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}"
+			= button_to_function "Your request has been denied", "$('.post-sample').toggle();"
+		%br
+		- if @recipe.poster_confirmation.nil?
+			.post-sample
+				.waiting
+					.h2
+						%b Customer's Name:
+						= @recipe.customer_post.user.username
+					.h2
+						%b Email:
+						= @recipe.customer_post.user.email
+					.h2
+						%b Subject:
+						= @recipe.customer_post.subject
+					-if !@recipe.customer_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.customer_post.user.gender.to_s
+					-if !@recipe.customer_post.experience.nil?
+						.h2
+							%b Required Experience:
+							= @recipe.customer_post.experience
+					-if !@recipe.customer_post.tutor_fee.nil?
+						.h2
+							%b Offered Salary:
+							= @recipe.customer_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.customer_post.district
+					.h2
+						%b City/Province:
+						= @recipe.customer_post.city_province
+					%br
+					%i.h2
+						%b Brief description
+						%br
+						= @recipe.customer_post.content
+		- elsif @recipe.poster_confirmation
+			.post-sample
+				.accepted
+					.h2
+						%b Customer's Name:
+						= @recipe.customer_post.user.username
+					.h2
+						%b Email:
+						= @recipe.customer_post.user.email
+					.h2
+						%b Subject:
+						= @recipe.customer_post.subject
+					-if !@recipe.customer_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.customer_post.user.gender.to_s
+					-if !@recipe.customer_post.experience.nil?
+						.h2
+							%b Required Experience:
+							= @recipe.customer_post.experience
+					-if !@recipe.customer_post.tutor_fee.nil?
+						.h2
+							%b Offered Salary:
+							= @recipe.customer_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.customer_post.district
+					.h2
+						%b City/Province:
+						= @recipe.customer_post.city_province
+					%br
+					%i.h2
+						%b Brief description
+						%br
+						= @recipe.customer_post.content
+		- else
+			.post-sample
+				.denied
+					.h2
+						%b Customer's Name:
+						= @recipe.customer_post.user.username
+					.h2
+						%b Email:
+						= @recipe.customer_post.user.email
+					.h2
+						%b Subject:
+						= @recipe.customer_post.subject
+					-if !@recipe.customer_post.user.gender.nil?
+						.h2
+							%b Gender:
+							= @recipe.customer_post.user.gender.to_s
+					-if !@recipe.customer_post.experience.nil?
+						.h2
+							%b Required Experience:
+							= @recipe.customer_post.experience
+					-if !@recipe.customer_post.tutor_fee.nil?
+						.h2
+							%b Offered Salary:
+							= @recipe.customer_post.tutor_fee
+					.h2
+						%b District:
+						= @recipe.customer_post.district
+					.h2
+						%b City/Province:
+						= @recipe.customer_post.city_province
+					%br
+					%i.h2
+						%b Brief description
+						%br
+						= @recipe.customer_post.content
+		%br
+		.h2.link= link_to "Delete", "/tutor_homes/delete_recipe/#{@recipe.id}", :data => {:confirm => "Are you sure?"}

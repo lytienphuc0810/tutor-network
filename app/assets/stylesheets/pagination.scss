@@ -1,0 +1,60 @@
+.pagination {
+  cursor: default;
+  /* self-clearing method: */
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    font-size: 85%;
+    font-weight: bold;
+    color: #999999;
+  }
+  .current {
+    font-size: 85%;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+  }
+  a {
+    font-size: 85%;
+    font-weight: bold;
+    text-decoration: none;
+    color: #105cb6;
+    &:hover, &:focus {
+      font-style: italic;
+      background-color: #D0D0D0;
+    }
+  }
+  .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em;
+    }
+  }
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+* {
+  html .pagination {
+    height: 1%;
+  }
+  &:first-child + html .pagination {
+    overflow: hidden;
+  }
+}

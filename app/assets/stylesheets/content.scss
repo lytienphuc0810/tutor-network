@@ -1,11 +1,12 @@
+// TUTOR-NETWORK
 .big-content {
+	z-index: 1000;	
+	position: relative;
 	padding: 30px 50px 30px 50px;
 	.header-link {
 		margin-left: 15px;
 		font-weight: bold;
 		font-size: 22px;
-	}
-	.header-link {
 		a, a:visited{
 			font-style: italic;
 			text-decoration: none;
@@ -13,17 +14,76 @@
 	}
 
 	.content {
-		position: relative;
 		padding: 20px;
 		margin: 14px;
-		height: 500px;
+		height: auto;
 		background-color: #D3D3D3;
 		border-radius: 5px;
+
+		.tit {
+			font-size: 15px;
+			font-weight: bold;
+			padding:  10px 15px 3px 15px;
+		}
+
+		.cont {
+			font-size: 15px;
+			font-style: italic;
+			padding:  3px 15px 10px 15px;
+		}
+		a, a:visited{
+			float: right;
+		}
+		.text-content {
+			width: 500px;
+			padding: 0 30px;
+		}
+
+		.post-sample {
+			display: none;
+
+			.waiting{
+				color: #FF6600;
+				border-color: #FFFFCC;
+				background-color: #FFFFCC;
+				border-style: solid;
+		  }
+
+			.accepted{
+				color: #004C00;
+				border-color: #94FF70;
+				background-color: #94FF70;
+				border-style: solid;
+		  }
+
+			.denied{
+				border-color: #FFA6A6;
+				background-color: #FFA6A6;
+				border-style: solid;
+		  }
+			.denied, .accepted, .waiting {
+				border-width: 2px;
+				position: relative;
+				top: auto;
+				bottom: auto;
+				left: auto;
+				right: auto;
+				padding: 20px;
+				border-radius: 5px 5px 5px 5px;
+			}
+		}
 	}
 
 	.error {
 		color: red;
-		font-size: 12px;
+	}
+
+	.success {
+		color: green;
+	}
+
+	.waiting {
+		color: orange;
 	}
 
 	.form-content {
@@ -70,39 +130,30 @@
 			margin-top: 10px;
 			margin-right: 20px;
 			float: left;
-			//color: green;
 		}
 
-		#book_description {
-			height: 75px;
-			width: 208px;
-			margin-right: 2px;
-		}
-
-  	input, #book_description {
+  	input {
 		 	float: right;
 		 	margin-top: 8px;
-			//background-color : lightyellow;
-			//border: 1px solid #008000;
 			width: 230px;
 		}
 
-  	select, #book_description {
+  	select {
 		 	float: right;
 		 	margin-top: 8px;
-			//background-color : lightyellow;
-			//border: 1px solid #008000;
 			width: 235px;
 		}
 
 		.submit_btn {
 			float: right;
 			margin-top: 10px;
-			//border: 1px solid #008000;
-			width: auto;
+			width: 90px;
 		}
 		textarea{
-			float:right;
+			float: right;
+			margin-top: 8px;
+			height: 100px;
+			width: 228px;
 		}
 	}
 
@@ -117,8 +168,7 @@
 		font-weight: 15px;
 
 		.field_with_errors {
-			display: block;
-			height: auto;
+			display: inline;
 		}
 
 		.small-error #error_explanation{
@@ -190,7 +240,7 @@
 
 	.small-content {
 		width: 230px;
-		height: 90px;
+		height: 100px;
 		background-color: #D3D3D3;
 		border-radius: 5px;
 		padding: 10px;
@@ -233,7 +283,8 @@
 }
 
 .h1 {
-	font-size: 18px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .h2 {
@@ -269,132 +320,9 @@
 	}
 }
 
-.pagination {
-  cursor: default;
-  /* self-clearing method: */ }
-  .pagination a, .pagination span, .pagination em {
-    padding: 0.2em 0.5em;
-    display: block;
-    float: left;
-    margin-right: 1px; }
-  .pagination .disabled {
-  	font-size: 85%;
-    font-weight: bold;
-    color: #999999; }
-  .pagination .current {
-  	font-size: 85%;
-    font-weight: bold;
-    background: #2e6ab1;
-    color: white; }
-  .pagination a {
-  	font-size: 85%;
-    font-weight: bold;
-    text-decoration: none;
-    color: #105cb6; }
-    .pagination a:hover, .pagination a:focus {
-    	font-style: italic;
-      background-color: #D0D0D0; }
-  .pagination .page_info {
-    background: #2e6ab1;
-    color: white;
-    padding: 0.4em 0.6em;
-    width: 22em;
-    margin-bottom: 0.3em;
-    text-align: center; }
-    .pagination .page_info b {
-      color: #000033;
-      background: #6aa6ed;
-      padding: 0.1em 0.25em; }
-  .pagination:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html .pagination {
-    height: 1%; }
-  *:first-child + html .pagination {
-    overflow: hidden; 
-  }
-  /* Tu duoi nay la cua Tuan them vao */
-  .link_at_the_bottom {
-  	position: absolute;
-  	bottom: 20px;
-  } 
-
-  .float {
-  	float:left;
-  	margin-right: 5px;
-  }
-
-  .post_sampple{
-  	border-style: dashed;
-  	border-width: 2px;
-  	position: absolute;
-  	top: 230px;
-  	bottom: 50px;
-  	left: 150px;
-  	right: 150px;
-  	padding: 20px;
-  	border-radius: 5px 5px 5px 5px;
-  }
-
-  .s3{
-  	font-size: 18px;
-  	margin-right: 5px;
-  	font-weight: bold;
-  	color:  	#DC143C;
-  }
-
-  .s4{
-  	font-size: 25px;
-  	font-weight:  bold;
-  	color: #007FFF;
-  }
-
-  .s5{
-  	font-size: 18px;
-  	font-style:  italic;
-  	margin-right: 5px;
-  	color: #007FFF;
-  }
-
-  .m3{
-  	font-size: 12px;
-  	margin-right: 5px;
-  	font-weight: bold;
-  	color:  	#DC143C;
-  }
-
-  .m4{
-  	font-size: 18px;
-  	font-weight:  bold;
-  	color: #007FFF;
-  }
-
-  .m5{
-  	font-size: 12px;
-  	font-style:  italic;
-  	margin-right: 5px;
-  	color: #007FFF;
-  }
-	
-	.btn {
-			a {
-			font-family: Helvetica;
-			font-weight: bold;
-			font-size: 20px;
-			text-decoration: none;
-			color: #DC143C;
-			padding: 5px;
-			background-color: #76D3DE;
-			border-radius: 5px;	
-		}
-		}
-	.btn:hover {
-			a {
-			color: #FEF9F0;
-			background-color: #00BCD1;
-			border-radius: 5px;	
-			}
-		}
+.button{
+	padding: 5px 0px 10px 0px;
+	color: blue;
+	font-style: italic;
+	text-decoration: none;
+}

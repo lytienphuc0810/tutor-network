@@ -1,7 +1,7 @@
 .big-content
   .header-link.left.active= link_to "CUSTOMERS", "/tutor_homes/index_customer_post/1"
   .divider.left= "|"
-  .header-link.left.inactive= link_to "RECEIPTS", "/tutor_homes/index_recipe/1"
+  .header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_homes/index_recipe/1"
   .clearboth
   - @customer_posts.each do |customer_post|
     .post-content.left
@@ -11,11 +11,17 @@
         .h2= "District: "+customer_post.district
         .h2= "City(Province): "+customer_post.city_province
       .text-content-right.left
-        .h2= customer_post.content.truncate(250)
+        .h2= customer_post.content.truncate(750)
       .clearboth
-      - if customer_post.recipe.nil?
-        .h2.link= link_to "Accept", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
-      - else
-        .h2.link= link_to "Already accepted", "/tutor_homes/show_recipe/#{customer_post.recipe.id}"
+      .text-content-right.left
+        - if my_recipe = customer_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
+          - if my_recipe.poster_confirmation.nil?
+            .h2.waiting= "Already requested"
+          - elsif my_recipe.poster_confirmation
+            .h2.success= "Already requested"
+          - else
+            .h2.error= "Already requested"
+        - else
+          .h2.link= link_to "Request", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
   .clearboth
   .paginate.right= will_paginate @customer_posts

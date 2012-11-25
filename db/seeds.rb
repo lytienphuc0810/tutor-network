@@ -15,6 +15,7 @@ User.delete_all
 Location.delete_all
 CustomerPost.delete_all
 TutorPost.delete_all
+Recipe.delete_all
 
 #---------------------------------------------------------------------------
 #create data

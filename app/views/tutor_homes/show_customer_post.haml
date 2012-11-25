@@ -6,15 +6,37 @@
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_homes/index_recipe/1"
 	.clearboth
 	.content
-		.h1= "Customer's Name: "+@customer_post.user.username
-		.h1= "Email: "+@customer_post.user.email
-		.h1= "Gender: "+@customer_post.user.gender.to_s
-		.h1= "Subject: "+@customer_post.subject
-		-if !@customer_post.experience.nil?
-			.h1= "Required Experience: "+@customer_post.experience
-		-if !@customer_post.tutor_fee.nil?
-			.h1= "Offered Salary: "+@customer_post.tutor_fee
-		.h1= "Address: "+@customer_post.address+", district: "+@customer_post.district+", city/drovince: "+@customer_post.city_province+"."
+		.h1= @customer_post.user.username.upcase
 		%br
-		%i.h1= @customer_post.content
-		.h1.link.link_at_the_bottom= link_to "Accept", "/tutor_homes/create_recipe/#{@customer_post.user.id}/#{@customer_post.id}", :method => "post"
+		.h2
+			%b Email:
+			= @customer_post.user.email
+		.h2
+			%b Gender:
+			= @customer_post.user.gender.to_s
+		.h2
+			%b Subject:
+			= "Subject: "+@customer_post.subject
+		-if !@customer_post.experience.nil?
+			.h2
+				%b Required Experience:
+				= @customer_post.experience
+		-if !@customer_post.tutor_fee.nil?
+			.h2
+				%b Offered Salary:
+				= @customer_post.tutor_fee
+		.h2
+			%b District:
+			= @customer_post.district
+		.h2
+			%b City/Province:
+			= @customer_post.city_province
+		%br
+		.h2
+			%b Brief introduction
+			%br
+			%i= @customer_post.content
+		- if my_recipe = @customer_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
+			.h2.link= link_to "View my receipt", "/tutor_homes/show_recipe/#{my_recipe.id}"
+		- else
+			.h2.link= link_to "Request", "/tutor_homes/create_recipe/#{@customer_post.user.id}/#{@customer_post.id}", :method => "post"

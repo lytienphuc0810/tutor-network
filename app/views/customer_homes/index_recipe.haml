@@ -6,15 +6,18 @@
   - @recipes.each do |recipe|
     .small-content.left
       .text-content-left.left
-        .h1.link= link_to "#{recipe.others.username.upcase}", "/customer_homes/show_recipe/#{recipe.id}"
-        .h2= recipe.others.email
-        .h2= recipe.others.gender
+        .h1.link= link_to "#{recipe.other.username.upcase}", "/customer_homes/show_recipe/#{recipe.id}"
+        - if recipe.poster_confirmation
+          = ratings_for recipe.other, :remote_options => {:url => "/customer_homes/rate/#{recipe.other.id}"}, :show_user => true
+        - else
+          = ratings_for recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{recipe.other.id}"}, :show_user => true
+        .h2= recipe.other.email
         .h2= recipe.tutor_post.subject
         - if recipe.poster_confirmation.nil?
-          .h2 Waiting for confirmation ...
+          .h2.waiting Waiting for confirmation ...
         - elsif recipe.poster_confirmation
-          .h2= "Confirmed"
+          .h2.success Accepted
         - else
-          .h2= "Denied"
+          .h2.error Denied
   .clearboth
   .paginate.right= will_paginate @recipes

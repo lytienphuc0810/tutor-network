@@ -7,16 +7,22 @@
     .post-content.left
       .text-content-left.left
         .h1.link= link_to "#{tutor_post.user.username.upcase}", "/customer_homes/show_tutor_post/#{tutor_post.id}"
-        .h2= ratings_for tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{tutor_post.user.id}"}
+        = ratings_for tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{tutor_post.user.id}"}
         .h2= tutor_post.user.email
         .h2= "District: "+tutor_post.district
-        .h2= "City(Province): "+tutor_post.city_province
+        .h2= "City/Province: "+tutor_post.city_province
       .text-content-right.left
-        .h2= tutor_post.content.truncate(250)
+        .h2= tutor_post.content.truncate(750)
       .clearboth
-      - if tutor_post.recipe.nil?
-        .h2.link= link_to "Accept", "/customer_homes/create_recipe/#{tutor_post.user.id}/#{tutor_post.id}", :method => "post"
-      - else
-        .h2.link= link_to "Already accepted", "/customer_homes/show_recipe/#{tutor_post.recipe.id}"
+      .text-content-right.left
+        - if my_recipe = tutor_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
+          - if my_recipe.poster_confirmation.nil?
+            .h2.waiting= "Requested and waiting ..."
+          - elsif my_recipe.poster_confirmation
+            .h2.success= "Requested and accepted!"
+          - else
+            .h2.error= "Requested and denied"
+        - else
+          .h2.link= link_to "Request", "/customer_homes/create_recipe/#{tutor_post.user.id}/#{tutor_post.id}", :method => "post"
   .clearboth
   .paginate.right= will_paginate @tutor_posts

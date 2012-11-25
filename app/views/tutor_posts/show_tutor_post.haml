@@ -8,15 +8,37 @@
 	.header-link.left.inactive= link_to "PENDING RECEIPTS", "/tutor_posts/index_recipe/1"
 	.clearboth
 	.content
-		.h1 You have created a post with following infomations. It is being shown in public.
+		.h1= @tutor_post.user.username.upcase
+		= ratings_for @tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{@tutor_post.user.id}"}
 		%br
+		.h2
+			%b Email:
+			= @tutor_post.user.email
+		.h2
+			%b Gender:
+			= @tutor_post.user.gender.to_s
+		.h2
+			%b Subject:
+			= @tutor_post.subject
+		-if !@tutor_post.experience.nil?
+			.h2
+				%b Experience:
+				= @tutor_post.experience
+		-if !@tutor_post.tutor_fee.nil?
+			.h2
+				%b Expected Salary:
+				= @tutor_post.tutor_fee
+		.h2
+			%b District:
+			= @tutor_post.district
+		.h2
+			%b City/Province:
+			= @tutor_post.city_province
 		%br
-		.h1= "Subject: "+@tutor_post.subject
-		.h1= "Expected Salary: "+@tutor_post.tutor_fee
-		.h1= "Experience: "+@tutor_post.experience
-		.h1= "Address: "+@tutor_post.address+", district: "+@tutor_post.district+", city/province: "+@tutor_post.city_province+"."
+		.h2
+			%b Brief introduction
+			%br
+			%i= @tutor_post.content
+		.h2.link= link_to "Edit", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
 		%br
-		%i.h1= @tutor_post.content
-		.link_at_the_bottom
-			.h1.link.float= link_to "Edit", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
-			.h1.link.float= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
+		.h2.link= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
