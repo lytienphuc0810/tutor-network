@@ -12,6 +12,9 @@
 			%b Tutor requested:
 			= @recipe.other.username
 		.h2
+			%b Subject:
+			= @recipe.tutor_post.subject
+		.h2
 			%b Receipt created at:
 			= @recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h2

@@ -9,9 +9,11 @@
     .post-content.left
       .text-content-left.left
         .h1.link= link_to "#{tutor_post.user.username.upcase}", "/tutor_posts/show_tutor_post/#{tutor_post.id}"
+        = ratings_for tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{tutor_post.user.id}"}
+        .h2= tutor_post.user.email
         .h2= "District: "+tutor_post.district
         .h2= "City(Province): "+tutor_post.city_province
       .text-content-right.left
-        .h2= tutor_post.content.truncate(250)
+        .h2= tutor_post.content.truncate(750)
   .clearboth
   .paginate.right= will_paginate @tutor_posts

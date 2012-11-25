@@ -8,15 +8,15 @@
   - @recipes.each do |recipe|
     .small-content.left
       .text-content-left.left
-        .h1.link= link_to "#{recipe.owner.username}", "/tutor_posts/show_recipe/#{recipe.id}"
+        .h1.link= link_to "#{recipe.owner.username.upcase}", "/tutor_posts/show_recipe/#{recipe.id}"
+        .h2 =================================
         .h2= recipe.owner.email
-        .h2= recipe.owner.gender
         .h2= recipe.tutor_post.subject
         - if recipe.poster_confirmation.nil?
-          .h2 Waiting for your confirmation ...
+          .h2.waiting Waiting for your confirmation ...
         - elsif recipe.poster_confirmation
-          .h2= "Confirmed"
+          .h2.success You've accepted this receipt!
         - else
-          .h2= "Denied"
+          .h2.error You've denied this receipt
   .clearboth
   .paginate.right= will_paginate @recipes
