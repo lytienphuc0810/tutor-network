@@ -1,11 +1,11 @@
 .big-content {
+	z-index: 1000;	
+	position: relative;
 	padding: 30px 50px 30px 50px;
 	.header-link {
 		margin-left: 15px;
 		font-weight: bold;
 		font-size: 22px;
-	}
-	.header-link {
 		a, a:visited{
 			font-style: italic;
 			text-decoration: none;
