@@ -50,8 +50,8 @@
 					.h1 HERE IS YOUR POST
 				.body-block-denied
 					= render "shared/post_tutor"
-
+		%br
 		- if @recipe.poster_confirmation.nil?
-			.h2.link= link_to "Accept", "/tutor_posts/accept_recipe/#{@recipe.id}"
-			%br
-			.h2.link= link_to "Deny", "/tutor_posts/deny_recipe/#{@recipe.id}"
+			.h2.right.link= link_to "Accept", "/tutor_posts/accept_recipe/#{@recipe.id}"
+			.clearboth
+			.h2.right.link= link_to "Deny", "/tutor_posts/deny_recipe/#{@recipe.id}"
