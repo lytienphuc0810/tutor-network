@@ -6,17 +6,16 @@
 	.header-link.left.inactive= link_to "TUTOR POSTS", "/mods/index_tutor_post/1"
 	.clearboth
 	.content
-		.h1= @customer_post.user.username.upcase
-		%br
+		.h3= @customer_post.user.username.upcase
 		.h2
 			%b Email:
 			= @customer_post.user.email
 		.h2
 			%b Gender:
-			= @customer_post.user.gender.to_s
+			= @customer_post.user.gender
 		.h2
 			%b Subject:
-			= @customer_post.subject
+			= @customer_post.subject.capitalize
 		-if !@customer_post.experience.nil?
 			.h2
 				%b Required Experience:
@@ -31,12 +30,11 @@
 		.h2
 			%b City/Province:
 			= @customer_post.city_province
-		%br
 		.h2
-			%b Brief introduction
-			%br
+			%b Brief introduction:
 			%i= @customer_post.content
+		%br
 		- if @customer_post.published
-			.h2.link= link_to "Refuse it", "/mods/refuse_customer_post/#{@customer_post.id}"
+			.h2.right.link= link_to "Refuse it", "/mods/refuse_customer_post/#{@customer_post.id}"
 		- else
-			.h2.link= link_to "Publish it", "/mods/publish_customer_post/#{@customer_post.id}"
+			.h2.right.link= link_to "Publish it", "/mods/publish_customer_post/#{@customer_post.id}"

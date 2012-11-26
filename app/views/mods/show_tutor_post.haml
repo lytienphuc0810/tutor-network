@@ -6,14 +6,13 @@
 	.header-link.left.active= link_to "#{@tutor_post.user.username.upcase}", "/mods/show_tutor_post/#{@tutor_post.id}"
 	.clearboth
 	.content
-		.h1= @tutor_post.user.username.upcase
-		%br
+		.h3= @tutor_post.user.username.upcase
 		.h2
 			%b Email:
 			= @tutor_post.user.email
 		.h2
 			%b Gender:
-			= @tutor_post.user.gender.to_s
+			= @tutor_post.user.gender
 		.h2
 			%b Subject:
 			= @tutor_post.subject.capitalize
@@ -31,12 +30,11 @@
 		.h2
 			%b City/Province:
 			= @tutor_post.city_province
-		%br
 		.h2
-			%b Brief introduction
-			%br
+			%b Brief introduction:
 			%i= @tutor_post.content
+		%br
 		- if @tutor_post.published
-			.h2.link= link_to "Refuse it", "/mods/refuse_tutor_post/#{@tutor_post.id}"
+			.h2.right.link= link_to "Refuse it", "/mods/refuse_tutor_post/#{@tutor_post.id}"
 		- else
-			.h2.link= link_to "Publish it", "/mods/publish_tutor_post/#{@tutor_post.id}"
+			.h2.right.link= link_to "Publish it", "/mods/publish_tutor_post/#{@tutor_post.id}"
