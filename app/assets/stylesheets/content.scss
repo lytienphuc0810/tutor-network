@@ -211,23 +211,26 @@
 		}
 
 		.remember-checkbox {
+			width: auto;
 			float: left;
 			margin-top: 11px;
 		}
 
-		#user_role {
-			width: 215px;
+		select {
+			width: 235px;
 			height: 22px;
-			float: right;
 			margin-top: 8px;
+			float: right;
 		}
 
 		input {
+			width: 230px;
 			margin-top: 8px;
 			float: right;
 		}
 
 		.submit {
+			width: auto;
 			height: 28px;
 			margin-top: 10px;
 		}
