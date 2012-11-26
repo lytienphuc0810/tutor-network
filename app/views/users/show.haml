@@ -6,8 +6,11 @@
 	.header-link.left.active= link_to "#{@user.username.truncate(20).upcase}", "/users/show/#{@user.id}"
 	.clearboth
 	.content
-		.h1= @user.username
-		.h2= @user.email
-		.h2= @user.role.capitalize
-		.h2.link= link_to "Edit this user", "/users/edit/#{@user.id}"
-		.h2.link= link_to "Delete this user", "/users/delete/#{@user.id}", :method => "post", :data => {:confirm => "Are you sure?"}
+		.h3= @user.username
+		- User::ATTRS.drop_while { |e| e == :username }.each do |attribute| 
+			.h2
+				%b= attribute.to_s.capitalize + ": "
+				= @user.send(attribute).nil? ? "Unfilled" : @user.send(attribute) 
+		.h2.link.right= link_to "Edit this user", "/users/edit/#{@user.id}"
+		.clearboth
+		.h2.link.right= link_to "Delete this user", "/users/delete/#{@user.id}", :method => "post"

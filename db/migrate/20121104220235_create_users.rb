@@ -2,7 +2,7 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
     	t.string 		:username
-    	t.boolean  	:gender
+    	t.string  	:gender
     	t.string		:address
     	t.string		:ward
     	t.string		:district

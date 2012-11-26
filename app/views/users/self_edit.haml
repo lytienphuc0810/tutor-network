@@ -6,18 +6,11 @@
         = f.label :email
         = f.email_field :email
       .clearboth
-      %div
-        = f.label :address
-        = f.text_field :address
-      .clearboth
-      %div
-        = f.label :district
-        = f.text_field :district
-      .clearboth
-      %div
-        = f.label :city_province
-        = f.text_field :city_province
-      .clearboth
+      - User::ATTRS.drop_while { |e| e == :email }.each do |attribute|
+        %div
+          = f.label attribute
+          = f.text_field attribute
+        .clearboth
       %div= f.submit "Update"
       .clearboth
     .links-block
