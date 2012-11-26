@@ -16,11 +16,11 @@
       .text-content-right.left
         - if my_recipe = customer_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
           - if my_recipe.poster_confirmation.nil?
-            .h2.waiting= "Already requested"
+            .h2.waiting= "Requested and waiting ..."
           - elsif my_recipe.poster_confirmation
-            .h2.success= "Already requested"
+            .h2.success= "Requested and accepted!"
           - else
-            .h2.error= "Already requested"
+            .h2.error= "Requested and denied"
         - else
           .h2.link= link_to "Request", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
   .clearboth

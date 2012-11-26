@@ -63,10 +63,10 @@
 						%b City/Province: 
 						= @recipe.tutor_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief description
 						%br
-						= @recipe.tutor_post.content
+						%i= @recipe.tutor_post.content
 		- elsif @recipe.poster_confirmation
 			.post-sample
 				.accepted
@@ -100,10 +100,10 @@
 						%b City/Province:
 						= @recipe.tutor_post.city_province+"."
 					%br
-					%i.h2
+					.h2
 						%b Brief introduction
 						%br
-						= @recipe.tutor_post.content
+						%i= @recipe.tutor_post.content
 		- else
 			.post-sample
 				.denied
@@ -137,10 +137,10 @@
 						%b City/Province:
 						= @recipe.tutor_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief introduction
 						%br
-						= @recipe.tutor_post.content
+						%i= @recipe.tutor_post.content
 		%br
 		.h2 Your current rating
 		= ratings_for @recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}
