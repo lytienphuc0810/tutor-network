@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20121121042827) do
 
   create_table "users", :force => true do |t|
     t.string   "username"
-    t.boolean  "gender"
+    t.string   "gender"
     t.string   "address"
     t.string   "ward"
     t.string   "district"
