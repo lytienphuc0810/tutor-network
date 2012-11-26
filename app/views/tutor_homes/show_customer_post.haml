@@ -6,8 +6,7 @@
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_homes/index_recipe/1"
 	.clearboth
 	.content
-		.h1= @customer_post.user.username.upcase
-		%br
+		.h3= @customer_post.user.username.upcase
 		.h2
 			%b Email:
 			= @customer_post.user.email
@@ -31,12 +30,11 @@
 		.h2
 			%b City/Province:
 			= @customer_post.city_province
-		%br
 		.h2
-			%b Brief introduction
-			%br
+			%b Brief introduction:
 			%i= @customer_post.content
+		%br
 		- if my_recipe = @customer_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
-			.h2.link= link_to "View my receipt", "/tutor_homes/show_recipe/#{my_recipe.id}"
+			.h2.link.right= link_to "View my receipt", "/tutor_homes/show_recipe/#{my_recipe.id}"
 		- else
-			.h2.link= link_to "Request", "/tutor_homes/create_recipe/#{@customer_post.user.id}/#{@customer_post.id}", :method => "post"
+			.h2.link.right= link_to "Request", "/tutor_homes/create_recipe/#{@customer_post.user.id}/#{@customer_post.id}", :method => "post"

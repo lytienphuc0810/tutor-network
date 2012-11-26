@@ -1,0 +1,32 @@
+.h2
+	%b Customer's Name:
+	= @recipe.customer_post.user.username
+.h2
+	%b Email:
+	= @recipe.customer_post.user.email
+.h2
+	%b Subject:
+	= @recipe.customer_post.subject
+-if !@recipe.customer_post.user.gender.nil?
+	.h2
+		%b Gender:
+		= @recipe.customer_post.user.gender.to_s
+-if !@recipe.customer_post.experience.nil?
+	.h2
+		%b Required Experience:
+		= @recipe.customer_post.experience
+-if !@recipe.customer_post.tutor_fee.nil?
+	.h2
+		%b Offered Salary:
+		= @recipe.customer_post.tutor_fee
+.h2
+	%b District:
+	= @recipe.customer_post.district
+.h2
+	%b City/Province:
+	= @recipe.customer_post.city_province
+%br
+.h2
+	%b Brief description
+	%br
+	%i= @recipe.customer_post.content	

@@ -7,9 +7,9 @@
     .small-content.left
       .text-content-left.left
         .h1.link= link_to "#{recipe.other.username.upcase}", "/tutor_homes/show_recipe/#{recipe.id}"
-        .h2 =============================
+        %hr
         .h2= recipe.other.email
-        .h2= recipe.customer_post.subject
+        .h2= recipe.customer_post.subject.capitalize
         - if recipe.poster_confirmation.nil?
           .h2.waiting Waiting for confirmation ...
         - elsif recipe.poster_confirmation

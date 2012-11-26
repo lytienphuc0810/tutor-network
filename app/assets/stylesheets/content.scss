@@ -302,7 +302,7 @@
 
 .h2 {
 	font-size: 13px;
-	line-height: 15px;
+	line-height: 17px;
 }
 
 .h3 {
@@ -344,4 +344,15 @@
 	color: blue;
 	font-style: italic;
 	text-decoration: none;
+}
+
+b {
+	margin-right: 2px;
+}
+
+.star {
+	margin: 2px 0 5px 0; 
+	.h2 {
+		margin-top: 5px;
+	}
 }

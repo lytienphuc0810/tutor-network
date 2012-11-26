@@ -8,8 +8,14 @@
       .text-content-left.left
         .h1.link= link_to "#{customer_post.user.username.upcase}", "/tutor_homes/show_customer_post/#{customer_post.id}"
         .h2= customer_post.user.email
-        .h2= "District: "+customer_post.district
-        .h2= "City(Province): "+customer_post.city_province
+        .h2
+          %b 
+            District: 
+          = customer_post.district
+        .h2
+          %b 
+            City/Province: 
+          = customer_post.city_province
       .text-content-right.left
         .h2= customer_post.content.truncate(750)
       .clearboth

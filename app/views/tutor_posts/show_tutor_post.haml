@@ -8,9 +8,8 @@
 	.header-link.left.inactive= link_to "PENDING RECEIPTS", "/tutor_posts/index_recipe/1"
 	.clearboth
 	.content
-		.h1= @tutor_post.user.username.upcase
+		.h3= @tutor_post.user.username.upcase
 		= ratings_for @tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{@tutor_post.user.id}"}
-		%br
 		.h2
 			%b Email:
 			= @tutor_post.user.email
@@ -19,7 +18,7 @@
 			= @tutor_post.user.gender.to_s
 		.h2
 			%b Subject:
-			= @tutor_post.subject
+			= @tutor_post.subject.capitalize
 		-if !@tutor_post.experience.nil?
 			.h2
 				%b Experience:
@@ -34,11 +33,9 @@
 		.h2
 			%b City/Province:
 			= @tutor_post.city_province
-		%br
 		.h2
 			%b Brief introduction
-			%br
 			%i= @tutor_post.content
-		.h2.link= link_to "Edit", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
-		%br
-		.h2.link= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
+		.h2.right.link= link_to "Edit", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
+		.clearboth
+		.h2.right.link= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}"

@@ -17,7 +17,7 @@
 			= @tutor_post.user.gender.to_s
 		.h2
 			%b Subject:
-			= @tutor_post.subject
+			= @tutor_post.subject.capitalize
 		-if !@tutor_post.experience.nil?
 			.h2
 				%b Experience:
