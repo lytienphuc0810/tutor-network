@@ -3,7 +3,7 @@
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "TUTOR POSTS", "/mods/index_tutor_post/1"
 	.divider.left= ">>"
-	.header-link.left.active= link_to "#{@tutor_post.user.username.upcase}", "/mods/show_tutor_post/#{@tutor_post.id}"\
+	.header-link.left.active= link_to "#{@tutor_post.user.username.upcase}", "/mods/show_tutor_post/#{@tutor_post.id}"
 	.clearboth
 	.content
 		.h1= @tutor_post.user.username.upcase
