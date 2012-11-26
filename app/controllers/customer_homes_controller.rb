@@ -60,8 +60,7 @@ class CustomerHomesController < ApplicationController
     @user = User.find(params[:tutor_id])
     @user.rate(params[:stars], current_user, params[:dimension])
     render :update do |page|
-      page.replace_html @user.wrapper_dom_id(params), ratings_for(@user, params.merge(:wrap => false))
-      page.visual_effect :highlight, @user.wrapper_dom_id(params)
+      page.replace_html @user.wrapper_dom_id(params), ratings_for(@user, :remote_options => {:url => "/customer_homes/rate/#{params[:tutor_id]}"}, :show_user => true)
     end
   end
 end

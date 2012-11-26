@@ -22,15 +22,17 @@
 			= @recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
 		%br
 		- if @recipe.poster_confirmation.nil?
-			= button_to_function "Waiting for confirmation ...", "$('.post-sample').toggle();"
+			= button_to_function "Waiting for confirmation ...", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
 		- elsif @recipe.poster_confirmation
-			= button_to_function "Your request has been accepted", "$('.post-sample').toggle();"
+			= button_to_function "Your request has been accepted", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
 		-	else
-			= button_to_function "Your request has been denied", "$('.post-sample').toggle();"
+			= button_to_function "Your request has been denied", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
 		%br
 		- if @recipe.poster_confirmation.nil?
 			.post-sample
 				.waiting
+					.h1 HERE IS THE POST
+					%br
 					.h2
 						%b Tutor's Name:
 						= @recipe.tutor_post.user.username
@@ -59,13 +61,15 @@
 						%b City/Province: 
 						= @recipe.tutor_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief description
 						%br
-						= @recipe.tutor_post.content
+						%i= @recipe.tutor_post.content
 		- elsif @recipe.poster_confirmation
 			.post-sample
 				.accepted
+					.h1 HERE IS THE POST
+					%br
 					.h2
 						%b Tutor's Name:
 						= @recipe.tutor_post.user.username
@@ -94,13 +98,15 @@
 						%b City/Province:
 						= @recipe.tutor_post.city_province+"."
 					%br
-					%i.h2
+					.h2
 						%b Brief introduction
 						%br
-						= @recipe.tutor_post.content
+						%i= @recipe.tutor_post.content
 		- else
 			.post-sample
 				.denied
+					.h1 HERE IS THE POST
+					%br
 					.h2
 						%b Tutor's Name:
 						= @recipe.tutor_post.user.username
@@ -129,10 +135,10 @@
 						%b City/Province:
 						= @recipe.tutor_post.city_province
 					%br
-					%i.h2
+					.h2
 						%b Brief introduction
 						%br
-						= @recipe.tutor_post.content
+						%i= @recipe.tutor_post.content
 		%br
 		- if @recipe.poster_confirmation
 			.h2 Rate this tutor

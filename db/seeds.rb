@@ -15,7 +15,6 @@ User.delete_all
 Location.delete_all
 CustomerPost.delete_all
 TutorPost.delete_all
-Recipe.delete_all
 
 #---------------------------------------------------------------------------
 #create data
@@ -64,9 +63,9 @@ user3 = User.create( :email => "customer@gmail.com",
 					 )
 user4 = User.create( :email => "customer2@gmail.com", 
 					 :password => "123456", 
-					 :username => "", 
+					 :username => "Đinh Văn Hùng", 
 					 :gender => true, 
-					 :role => "Đinh Văn Hùng",
+					 :role => "customer",
 					 :confirmed_at => Time.now,
 					 :address => "249 Phạm Ngũ Lão",
 					 :ward => "1", 
