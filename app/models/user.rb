@@ -26,7 +26,8 @@ class User < ActiveRecord::Base
   ROLES = [
     ADMIN = "admin",
     CUSTOMER = "customer",
-    TUTOR = "tutor"
+    TUTOR = "tutor",
+    MOD = "mod"
   ]
 
   validates :role, :inclusion => {:in => ROLES}

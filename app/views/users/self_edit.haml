@@ -20,6 +20,8 @@
       .clearboth
       %div= f.submit "Update"
       .clearboth
+    .links-block
+      %span= link_to "Change your password", edit_registration_path(current_user)
     -if @user.errors.any?
       #error_explanation
         %h2.errors= pluralize(@user.errors.count, "error") + " prohibited this user from being updated:"

@@ -1,0 +1,41 @@
+.big-content
+  .title SIGN UP
+  .devise-content
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      = f.label :username
+      = f.text_field :username
+      .clearboth
+      = f.label :email, :class => " email-label"
+      = f.email_field :email, :class => " email-field"
+      .clearboth
+      = f.label :password, :class => " password-label"
+      = f.password_field :password, :class => " password-field"
+      .clearboth
+      = f.label :password_confirmation, "Re-enter Password", :class => "password-label"
+      = f.password_field :password_confirmation, :class => " password-field"
+      .clearboth
+      = f.label "Address"
+      = f.text_field :address, :id => "address", :placeholder => "Input address", :autocomplete => "off"
+      .clearboth
+      = f.label "Ward"
+      = f.text_field :ward, :id => "ward", :placeholder => "Input ward", :autocomplete => "off"
+      .clearboth
+      = f.label "District"
+      = f.text_field :district, :id => "district", :placeholder => "Input district", :autocomplete => "off"
+      .clearboth
+      = f.label "City/Province"
+      = f.text_field :city_province, :id => "city_province", :placeholder => "Input City/Province", :autocomplete => "off"
+      .clearboth
+      = f.label :role, "Sign up as", :class => "role-label"
+      = f.select :role, options_for_select([['Customer', 'customer'], ['Tutor', 'tutor']]), :class => "select-role"
+      .clearboth
+      = f.submit "Sign Up", :class => "submit"
+      .clearboth
+      .links-block
+        %span= link_to "Sign in", new_session_path(resource_name), :class => ""
+        %span |
+        %span= link_to "Forgot password?", new_password_path(resource_name), :class => ""
+        %span |
+        %span= link_to "Resend confirmation email", new_confirmation_path(resource_name), :class => ""
+      .clearboth
+      = devise_error_messages!
