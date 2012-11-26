@@ -6,11 +6,14 @@
         = f.label :email
         = f.email_field :email
       .clearboth
-      - User::ATTRS.drop_while { |e| e == :email }.each do |attribute|
+      - (User::ATTRS - [:gender, :email]).each do |attribute|
         %div
           = f.label attribute
           = f.text_field attribute
         .clearboth
+      = f.label :gender, "Gender", :class => "gender-label"
+      = f.select :gender, options_for_select([['Male', 'Male'], ['Female', 'Female']], @user.gender), :class => "select-role"
+      .clearboth
       %div= f.submit "Update"
       .clearboth
     .links-block

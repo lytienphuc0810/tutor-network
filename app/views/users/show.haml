@@ -8,7 +8,7 @@
 		.clearboth
 	.content
 		.h3= @user.username.upcase
-		- User::ATTRS.drop_while { |e| e == :username }.each do |attribute| 
+		- (User::ATTRS - [:username]).each do |attribute| 
 			.h2
 				%b= attribute.to_s.gsub("_", "/").capitalize + ": "
 				= @user.send(attribute).nil? ? "Unfilled" : @user.send(attribute)

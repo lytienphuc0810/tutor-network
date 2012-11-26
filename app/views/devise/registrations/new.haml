@@ -26,6 +26,9 @@
       = f.label "City/Province"
       = f.text_field :city_province, :id => "city_province", :placeholder => "Input City/Province", :autocomplete => "off"
       .clearboth
+      = f.label :gender, "Gender", :class => "gender-label"
+      = f.select :gender, options_for_select([['Male', 'Male'], ['Female', 'Female']]), :class => "select-role"
+      .clearboth
       = f.label :role, "Sign up as", :class => "role-label"
       = f.select :role, options_for_select([['Customer', 'customer'], ['Tutor', 'tutor']]), :class => "select-role"
       .clearboth
