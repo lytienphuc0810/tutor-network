@@ -33,6 +33,8 @@
 								#menu-link.left= link_to "SEARCH", "/searches/tutor"
 							- if current_user.admin?
 								#menu-link.left= link_to "USERS", "/users/index/1"
+							- if current_user.mod?
+								#menu-link.left= link_to "POSTS", "/mods/index_customer_post/1"
 						#menu-link.left= link_to "FAQ", "/faq"
 						#menu-link.left= link_to "CONTACT", "/contact"
 			#main{:class => controller_name}

@@ -2,7 +2,7 @@
 	.header-link.left.inactive= link_to "CREATE A POST", "/tutor_posts/new_tutor_post"
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY POSTS", "/tutor_posts/index_tutor_post/1"
-	.divider.left= ">>"
+	.divider.left= "|"
 	.header-link.left.active= link_to "#{@tutor_post.subject.upcase}", "/tutor_posts/show_tutor_post/#{@tutor_post.id}"
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "PENDING RECEIPTS", "/tutor_posts/index_recipe/1"

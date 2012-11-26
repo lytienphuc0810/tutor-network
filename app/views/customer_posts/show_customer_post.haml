@@ -2,7 +2,7 @@
 	.header-link.left.inactive= link_to "CREATE A POST", "/customer_posts/new_customer_post"
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY POSTS", "/customer_posts/index_customer_post/1"
-	.divider.left= ">>"
+	.divider.left= "|"
 	.header-link.left.active= link_to "#{@customer_post.subject.upcase}", "/customer_posts/show_customer_post/#{@customer_post.id}"
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "PENDING RECEIPTS", "/customer_posts/index_recipe/1"
