@@ -9,7 +9,7 @@
 		.h3= @user.username
 		- User::ATTRS.drop_while { |e| e == :username }.each do |attribute| 
 			.h2
-				%b= attribute.to_s.capitalize + ": "
+				%b= attribute.to_s.gsub("_", "/").capitalize + ": "
 				= @user.send(attribute).nil? ? "Unfilled" : @user.send(attribute) 
 		.h2.link.right= link_to "Edit this user", "/users/edit/#{@user.id}"
 		.clearboth
