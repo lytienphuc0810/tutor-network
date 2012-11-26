@@ -1,3 +1,4 @@
+#encoding: UTF-8
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -8,68 +9,70 @@
 #---------------------------------------------------------------------------
 #Delete all
 #---------------------------------------------------------------------------
+
+
 User.delete_all
 Location.delete_all
 CustomerPost.delete_all
 TutorPost.delete_all
-Recipe.delete_all
 
 #---------------------------------------------------------------------------
 #create data
 #---------------------------------------------------------------------------
 user0 = User.create( :email => "admin@gmail.com", 
 					 :password => "123456",
-					 :username => "tuan", 
+					 :username => "admin", 
 					 :gender => true, 
 					 :role => "admin", 
 					 :confirmed_at => Time.now,
-					 :address => "123 Ly Thuong Kiet", 
-					 :ward => "10", 
+					 :address => "142 Lý Thường Kiệt", 
+					 :ward => "5", 
 					 :district => "10",
-					 :city_province => "Ho Chi Minh")
+					 :city_province => "Hồ Chí Minh")
 user1 =	User.create( :email => "tutor@gmail.com", 
 					 :password => "123456",
-					 :username => "tutor1", 
+					 :username => "Lê Thị Hồng Nhung", 
 					 :gender => false, 
 					 :role => "tutor",
 					 :confirmed_at => Time.now,
-					 :address => "123 Ly Thuong Kiet", 
-					 :ward => "10", 
-					 :district => "10",
-					 :city_province => "Ho Chi Minh")
-user2 =	User.create( :email => "tutoragain@example.com", 
+					 :address => "10 Nguyễn Trãi", 
+					 :ward => "2", 
+					 :district => "3",
+					 :city_province => "Đà Nẵng")
+user2 =	User.create( :email => "tutor2@gmail.com", 
 					 :password => "123456",
-					 :username => "tutor2", 
+					 :username => "Nguyễn Văn Minh", 
 					 :gender => true, 
 					 :role => "tutor",
 					 :confirmed_at => Time.now,
-					 :address => "123 Ly Thuong Kiet", 
-					 :ward => "10", 
-					 :district => "10",
-					 :city_province => "Ho Chi Minh"
+					 :address => "210 Lê Hồng Phong", 
+					 :ward => "6", 
+					 :district => "5",
+					 :city_province => "Hồ Chí Minh"
 					 )
 user3 = User.create( :email => "customer@gmail.com", 
 					 :password => "123456", 
-					 :username => "customer", 
+					 :username => "Trần Thị Kim Chi", 
 					 :gender => false, 
 					 :role => "customer",
 					 :confirmed_at => Time.now,
-					 :address => "123 Ly Thuong Kiet",
-					 :ward => "10", 
-					 :district => "10",
-					 :city_province => "Ho Chi Minh"
+					 :address => "56 Huỳnh Văn Bánh",
+					 :ward => "9", 
+					 :district => "Tân Bình",
+					 :city_province => "Hồ Chí Minh"
 					 )
 user4 = User.create( :email => "customer2@gmail.com", 
 					 :password => "123456", 
-					 :username => "customer2", 
-					 :gender => false, 
+					 :username => "Đinh Văn Hùng", 
+					 :gender => true, 
 					 :role => "customer",
 					 :confirmed_at => Time.now,
-					 :address => "123 Ly Thuong Kiet",
-					 :ward => "10", 
-					 :district => "10",
-					 :city_province => "Ho Chi Minh"
+					 :address => "249 Phạm Ngũ Lão",
+					 :ward => "1", 
+					 :district => "1",
+					 :city_province => "Hà Nội"
 					 )
+
 =begin
 
 loc0 =  Location.create( :address => "123 Ly Thuong Kiet", 
@@ -95,18 +98,18 @@ loc3 =	Location.create( :address => "89 Nguyen Thi Thap",
 
 
 cpost0 = CustomerPost.create(
-					 :district => "1",
-					 :city_province => "Ho Chi Minh",:tutor_fee => "300000", :experience => "5 nam", :content => "Phuc thot dang can tim nguoi day cho con de cua anh ay", :subject => "Toan")
+					 :district => "Tân Bình",
+					 :city_province => "Hồ Chí Minh",:tutor_fee => "300 000/tháng", :experience => "2 năm", :content => "Con gái tui hiện đang học Lớp 9, kiến thức môn Lý của nó hơi ko vững, cần một gia sư nữ kèm cặp cho em có nền tảng vững vàng lại, để em có thể yên tâm thi cuối cấp. Lương ở trên có thể bàn bạc lại", :subject => "physics")
 cpost1 = CustomerPost.create(
-					 :district => "10",
-					 :city_province => "Ha Noi",:tutor_fee => "200000", :experience => "4 nam", :content => "Phuc thot dang can tim nguoi day cho asdasdas sdasd ruyiou oiuasoduouowej oiuoasd uoijlkwej oiausdo joqiwheoiqulasdjqoiwd oidaossdhjwjefhsjdh wifh sjdhff sjdhfioweufh isd ksdjhf aisfehawpioefh sadihf kasdf hpeiwrh wpeoifsdovih we fshdpfoisudf  oif pasdoiifh wklef apsdoifuaweoi f h aosdffkjhsd gggggcon de cua anh ay", :subject => "Toan")
+					 :district => "1",
+					 :city_province => "Hà Nội",:tutor_fee => "250 000/tháng", :experience => "nữa năm hoặc hơn", :content => "Cháu trai tui năm nay học nớp 5 trường Tiểu Học Nương Định Của, đang cần người kèm cặp môn toán để cháu nó thi chuyển cấp, vào được trường tốt. Vãi cái xã hội hiện tại, dân chúng cứ bắt con em đi học sáng tối như nàm ruộng, thiệt dã man, không có thời gian để chúng nó nghĩ ngơi, hưởng thụ cái gọi nà \"tuổi thơ\" của chúng nó. Bây giờ không cho nó học thì nại không bằng người ta, mà cho nó học, thì nó nại nàm con trâu quần quật , xã hội ôi nà xã hội, cháu ơi nà cháu(dm viết dài coi thử truncate nó có chạy không, ai đọc cái này làm ơn đừng nghĩ quá sâu, mô phật)", :subject => "math")
 
 tpost0 = TutorPost.create(
 					 :district => "5",
-					 :city_province => "Hue",:tutor_fee => "500000", :experience => "2 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2", :subject => "DOTA")
+					 :city_province => "Hồ Chí Minh",:tutor_fee => "400 000/tháng", :experience => "3 năm", :content => "Tôi là Nguyễn Văn Minh, hiện là sinh viên năm 4 trường đại học Bách Khóa TPHCM, khoa Hóa, chuyên ngành Dầu Khí. Tôi tốt nghiệp trường THPT chuyên Lê Hồng Phong, chuyên Hóa. Tôi đã làm gia sư được 3 năm, hiện tại tôi vẫn muốn tiếp tục dạy thêm để có thể duy trì, trau dồi những kiến thức từ thời Phổ Thông. Cần nhận học viên trong khu vực Quận 5.", :subject => "chemistry")
 tpost1 = TutorPost.create(
 					 :district => "3",
-					 :city_province => "Ho Chi Minh",:tutor_fee => "400000", :experience => "1 nam", :content => "Quy su phu dang can tim de tu de truyen nghe Kamezoko No.2 dsfjsd jfklsdjfsdklfjkld dfnjsdkf jsdkfjksdfklsdlf jsdl fjlsd jfsdjklfjsdkljfsdjf sdjflksdjfsdkl jflsdjfkljsdklf sd jfklsd jfksdfksl fjsjd fklsdklf jlsdflsdkfsdklfjsjdk lf sdlfjkl", :subject => "Toan")
+					 :city_province => "Đà Nẵng",:tutor_fee => "Thương lượng", :experience => "chưa có", :content => "Chào mợi người, em là Nhung, hiện tại là sinh viên năm nhất trường Đại Học Khoa Học Xã Hội và Nhân Văn Đà Nẵng. Không chỉ có mỗi lý, em cũng có thể dạy thêm các môn khác như toán, anh, v.v... Là lính mới, nên em còn chưa có kinh nghiệm, mong mọi người chiếu cố, cám ơn ^.^", :subject => "physics")
 
 
 #==========================================================================================
@@ -122,4 +125,5 @@ user3.location = loc3
 
 user2.tutor_posts = [tpost0]
 user1.tutor_posts = [tpost1]
-user3.customer_posts = [cpost0, cpost1]
+user3.customer_posts = [cpost0]
+user4.customer_posts = [cpost1]

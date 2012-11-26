@@ -5,23 +5,24 @@
   .clearboth
   - @customer_posts.each do |customer_post|
     .post-content.left
-      .text-content-left.left
-        .h1.link= link_to "#{customer_post.user.username.upcase}", "/tutor_homes/show_customer_post/#{customer_post.id}"
-        .h2= customer_post.user.email
-        .h2= "District: "+customer_post.district
-        .h2= "City(Province): "+customer_post.city_province
-      .text-content-right.left
-        .h2= customer_post.content.truncate(750)
-      .clearboth
-      .text-content-right.left
-        - if my_recipe = customer_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
-          - if my_recipe.poster_confirmation.nil?
-            .h2.waiting= "Already requested"
-          - elsif my_recipe.poster_confirmation
-            .h2.success= "Already requested"
+      - if !customer_post.user.nil?
+        .text-content-left.left
+          .h1.link= link_to "#{customer_post.user.username.upcase}", "/tutor_homes/show_customer_post/#{customer_post.id}"
+          .h2= customer_post.user.email
+          .h2= "District: "+customer_post.district
+          .h2= "City(Province): "+customer_post.city_province
+        .text-content-right.left
+          .h2= customer_post.content.truncate(750)
+        .clearboth
+        .text-content-right.left
+          - if my_recipe = customer_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
+            - if my_recipe.poster_confirmation.nil?
+              .h2.waiting= "Already requested"
+            - elsif my_recipe.poster_confirmation
+              .h2.success= "Already requested"
+            - else
+              .h2.error= "Already requested"
           - else
-            .h2.error= "Already requested"
-        - else
-          .h2.link= link_to "Request", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
+            .h2.link= link_to "Request", "/tutor_homes/create_recipe/#{customer_post.user.id}/#{customer_post.id}", :method => "post"
   .clearboth
   .paginate.right= will_paginate @customer_posts
