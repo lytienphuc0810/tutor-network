@@ -9,7 +9,7 @@
     .small-content.left
       .text-content-left.left
         .h1.link= link_to "#{recipe.owner.username.upcase}", "/tutor_posts/show_recipe/#{recipe.id}"
-        .h2 =================================
+        .h2 =============================
         .h2= recipe.owner.email
         .h2= recipe.tutor_post.subject
         - if recipe.poster_confirmation.nil?
