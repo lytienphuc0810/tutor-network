@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 				"/tutor_homes/index_customer_post/1"
 			when "customer"
 				"/customer_homes/index_tutor_post/1"
+			when "mod"
+				"/mods/index_customer_post/1"
 		end
 	end
 end

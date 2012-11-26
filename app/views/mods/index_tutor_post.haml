@@ -1,0 +1,17 @@
+.big-content
+  .header-link.left.inactive= link_to "CUSTOMER POSTS", "/mods/index_customer_post/1"
+  .divider.left= "|"
+  .header-link.left.active= link_to "TUTOR POSTS", "/mods/index_tutor_post/1"
+  .clearboth
+  - @tutor_posts.each do |tutor_post|
+    .post-content.left
+      .text-content-left.left
+        .h1.link= link_to "#{tutor_post.user.username.upcase}", "/mods/show_tutor_post/#{tutor_post.id}"
+        .h2= tutor_post.user.email
+        .h2= "District: "+tutor_post.district
+        .h2= "City(Province): "+tutor_post.city_province
+      .text-content-right.left
+        .h2= tutor_post.content.truncate(750)
+      .clearboth
+  .clearboth
+  .paginate.right= will_paginate @tutor_posts

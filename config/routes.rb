@@ -19,13 +19,6 @@ TutorNetwork::Application.routes.draw do
   get "customer_posts/accept_recipe/:recipe_id" => "customer_posts#accept_recipe"
   get "customer_posts/deny_recipe/:recipe_id" => "customer_posts#deny_recipe"
 
-  # get "customer_homes_controller/create_recipe" => ""
-
-  # get "customer_homes_controller/delete_recipe" => ""
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
   get "tutor_homes/index_customer_post/:page" => "tutor_homes#index_customer_post"
   get "tutor_homes/index_recipe/:page" => "tutor_homes#index_recipe"
   get "tutor_homes/show_customer_post/:customer_post_id" => "tutor_homes#show_customer_post"
@@ -44,6 +37,11 @@ TutorNetwork::Application.routes.draw do
   get "tutor_posts/show_recipe/:recipe_id" => "tutor_posts#show_recipe"
   get "tutor_posts/accept_recipe/:recipe_id" => "tutor_posts#accept_recipe"
   get "tutor_posts/deny_recipe/:recipe_id" => "tutor_posts#deny_recipe"
+
+  get "mods/index_customer_post/:page" => "mods#index_customer_post"
+  get "mods/show_customer_post/:customer_post_id" => "mods#show_customer_post"
+  get "mods/index_tutor_post/:page" => "mods#index_tutor_post"
+  get "mods/show_tutor_post/:tutor_post_id" => "mods#show_tutor_post"
 
   get "users/index/:page" => "users#index"
   get "users/show/:user_id" => "users#show"

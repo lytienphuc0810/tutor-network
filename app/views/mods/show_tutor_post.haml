@@ -1,0 +1,39 @@
+.big-content
+	.header-link.left.inactive= link_to "CUSTOMER POSTS", "/mods/index_customer_post/1"
+	.divider.left= ">>"
+	.header-link.left.active= link_to "#{@customer_post.subject.upcase}", "/mods/show_customer_post/#{@customer_post.id}"\
+	.clearboth
+	.content
+		.h1= @customer_post.user.username.upcase
+		%br
+		.h2
+			%b Email:
+			= @customer_post.user.email
+		.h2
+			%b Gender:
+			= @customer_post.user.gender.to_s
+		.h2
+			%b Subject:
+			= "Subject: "+@customer_post.subject
+		-if !@customer_post.experience.nil?
+			.h2
+				%b Required Experience:
+				= @customer_post.experience
+		-if !@customer_post.tutor_fee.nil?
+			.h2
+				%b Offered Salary:
+				= @customer_post.tutor_fee
+		.h2
+			%b District:
+			= @customer_post.district
+		.h2
+			%b City/Province:
+			= @customer_post.city_province
+		%br
+		.h2
+			%b Brief introduction
+			%br
+			%i= @customer_post.content
+		.h2.link= link_to "Edit", "/customer_posts/edit_customer_post/#{@customer_post.id}"
+		%br
+		.h2.link= link_to "Delete", "/customer_posts/delete_customer_post/#{@customer_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}

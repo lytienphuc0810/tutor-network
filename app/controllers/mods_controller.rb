@@ -9,6 +9,14 @@ class ModsController < ApplicationController
 		@customer_posts=CustomerPost.paginate(:page => params[:page])
 	end
 
+	def show_customer_post
+		#get method
+		@customer_post=CustomerPost.find_by_id(params[:customer_post_id])
+		if @customer_post.nil?
+			redirect_to "/mods/index_customer_post/1"
+		end
+	end
+
 	def publish_customer_post
 		customer_post = CustomerPost.find params[:post_id]
 		customer_post.published = true
@@ -23,8 +31,16 @@ class ModsController < ApplicationController
 		render "customer_posts"
 	end
 
-	def index_tutor_pos
-		@tutor_post=TutorPost.paginate(:page => params[:page])
+	def index_tutor_post
+		@tutor_posts=TutorPost.paginate(:page => params[:page])
+	end
+
+	def show_tutor_post
+		#get method
+		@tutor_post=CustomerPost.find_by_id(params[:tutor_post_id])
+		if @tutor_post.nil?
+			redirect_to "/mods/index_customer_post/1"
+		end
 	end
 
 	def publish_tutor_post
