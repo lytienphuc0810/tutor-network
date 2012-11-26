@@ -17,6 +17,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'progress_bar'
 gem 'ajaxful_rating', '3.0.0.beta8'
+gem "prototype-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.
