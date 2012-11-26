@@ -1,36 +1,42 @@
-class AdminsController < ApplicationController
-	def customer_posts 
+class ModsController < ApplicationController
+	before_filter :authorized_user?
+
+	def authorized_user?
+		redirect_to(root_path) unless current_user && current_user.mod?
+	end
+
+	def index_customer_post 
 		@customer_posts=CustomerPost.paginate(:page => params[:page])
 	end
 
-	def customer_posts_allow
+	def publish_customer_post
 		customer_post = CustomerPost.find params[:post_id]
-		customer_post.allow = true
+		customer_post.published = true
 		customer_post.save
 		render "customer_posts"
 	end
 
-	def customer_posts_refuse
+	def refuse_customer_post
 		customer_post = CustomerPost.find params[:post_id]
-		customer_post.allow = false
+		customer_post.published = false
 		customer_post.save
 		render "customer_posts"
 	end
 
-	def tutor_posts
+	def index_tutor_pos
 		@tutor_post=TutorPost.paginate(:page => params[:page])
 	end
 
-	def tutor_posts_allow
+	def publish_tutor_post
 		tutor_post = TutorPost.find params[:post_id]
-		tutor_post.allow = true
+		tutor_post.published = true
 		tutor_post.save
 		render "tutor_posts"
 	end
 
-	def tutor_posts_refuse
+	def refuse_tutor_post
 		tutor_post = TutorPost.find params[:post_id]
-		tutor_post.allow = false
+		tutor_post.published = false
 		tutor_post.save
 		render "tutor_posts"
 	end

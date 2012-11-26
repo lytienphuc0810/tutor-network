@@ -20,11 +20,27 @@
 				.clearboth
 
 				= f.label "Email"
-				= f.text_field :email, :id => "email", :placeholder => "Input email"
+				= f.email_field :email, :id => "email", :placeholder => "Input email"
+				.clearboth
+
+				= f.label "Address"
+				= f.text_field :address, :id => "address", :placeholder => "Input address", :autocomplete => "off"
+				.clearboth
+
+				= f.label "Ward"
+				= f.text_field :ward, :id => "ward", :placeholder => "Input ward", :autocomplete => "off"
+				.clearboth
+
+				= f.label "District"
+				= f.text_field :district, :id => "district", :placeholder => "Input district", :autocomplete => "off"
+				.clearboth
+
+				= f.label "City/Province"
+				= f.text_field :city_province, :id => "city_province", :placeholder => "Input City/Province", :autocomplete => "off"
 				.clearboth
 
 				= f.label "Role"
-				= f.select :role, [['Customer','customer'],['Tutor','tutor'],['Admin','admin']], :id => "role"
+				= f.select :role, [['Customer','customer'],['Tutor','tutor'],['Admin','admin'],['Mod','mod']], :id => "role"
 				.clearboth
 
 				= f.submit "Submit", :id => "submit_btn", :class => "submit_btn"
