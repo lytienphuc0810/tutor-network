@@ -1,24 +1,9 @@
 #encoding: UTF-8
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-#---------------------------------------------------------------------------
-#Delete all
-#---------------------------------------------------------------------------
-
-
 User.delete_all
 Location.delete_all
 CustomerPost.delete_all
 TutorPost.delete_all
 
-#---------------------------------------------------------------------------
-#create data
-#---------------------------------------------------------------------------
 user0 = User.create( :email => "admin@gmail.com", 
 					 :password => "123456",
 					 :username => "admin", 
@@ -73,30 +58,6 @@ user4 = User.create( :email => "customer2@gmail.com",
 					 :city_province => "Hà Nội"
 					 )
 
-=begin
-
-loc0 =  Location.create( :address => "123 Ly Thuong Kiet", 
-			             :ward => "10", 
-			             :district => "10",
-			             :city_province => "Ho Chi Minh")
-
-loc1 =	Location.create( :address => "1 Nguyen Trai", 
-			             :ward => "5", 
-			             :district => "5",
-			             :city_province => "Ho Chi Minh")
-
-loc2 =	Location.create( :address => "57 Tran Hung Dao", 
-			             :ward => "6", 
-			             :district => "1",
-			             :city_province => "Ho Chi Minh")
-
-loc3 =	Location.create( :address => "89 Nguyen Thi Thap", 
-			             :ward => "Tan Phong", 
-			             :district => "7",
-			             :city_province => "Ho Chi Minh")
-=end
-
-
 cpost0 = CustomerPost.create(
 					 :district => "Tân Bình",
 					 :city_province => "Hồ Chí Minh",:tutor_fee => "300 000/tháng", :experience => "2 năm", :content => "Con gái tui hiện đang học Lớp 9, kiến thức môn Lý của nó hơi ko vững, cần một gia sư nữ kèm cặp cho em có nền tảng vững vàng lại, để em có thể yên tâm thi cuối cấp. Lương ở trên có thể bàn bạc lại", :subject => "physics")
@@ -110,18 +71,6 @@ tpost0 = TutorPost.create(
 tpost1 = TutorPost.create(
 					 :district => "3",
 					 :city_province => "Đà Nẵng",:tutor_fee => "Thương lượng", :experience => "chưa có", :content => "Chào mợi người, em là Nhung, hiện tại là sinh viên năm nhất trường Đại Học Khoa Học Xã Hội và Nhân Văn Đà Nẵng. Không chỉ có mỗi lý, em cũng có thể dạy thêm các môn khác như toán, anh, v.v... Là lính mới, nên em còn chưa có kinh nghiệm, mong mọi người chiếu cố, cám ơn ^.^", :subject => "physics")
-
-
-#==========================================================================================
-#Associations
-#==========================================================================================
-=begin
-
-user0.location = loc0
-user1.location = loc1
-user2.location = loc2
-user3.location = loc3
-=end
 
 user2.tutor_posts = [tpost0]
 user1.tutor_posts = [tpost1]
