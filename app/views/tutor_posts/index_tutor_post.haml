@@ -15,5 +15,11 @@
         .h2= "City(Province): "+tutor_post.city_province
       .text-content-right.left
         .h2= tutor_post.content.truncate(750)
+      .clearboth
+      .text-content-right.left
+        - if tutor_post.published
+          .h2.success= "This post has already been published"
+        - else
+          .h2.error= "This post has been refused"
   .clearboth
   .paginate.right= will_paginate @tutor_posts
