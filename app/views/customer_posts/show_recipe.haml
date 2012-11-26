@@ -34,7 +34,7 @@
 			.post-sample
 				.waiting
 					.h1 HERE IS YOUR POST
-					%br
+				.body-block-waiting
 					.h2
 						%b Customer's Name:
 						= @recipe.customer_post.user.username
@@ -71,7 +71,7 @@
 			.post-sample
 				.accepted
 					.h1 HERE IS YOUR POST
-					%br
+				.body-block-accepted
 					.h2
 						%b Customer's Name:
 						= @recipe.customer_post.user.username
@@ -108,7 +108,7 @@
 			.post-sample
 				.denied
 					.h1 HERE IS YOUR POST
-					%br
+				.body-block-denied
 					.h2
 						%b Customer's Name:
 						= @recipe.customer_post.user.username

@@ -42,34 +42,46 @@
 		.post-sample {
 			display: none;
 
+			.body-block-waiting {
+				border-color: #FFFFCC;
+			}
+
+			.body-block-accepted {
+				border-color: #94FF70;
+			}
+
+			.body-block-denied {
+				border-color: #FFA6A6;
+			}
+
 			.waiting{
 				color: #FF6600;
-				border-color: #FFFFCC;
 				background-color: #FFFFCC;
-				border-style: solid;
 		  }
 
 			.accepted{
 				color: #004C00;
-				border-color: #94FF70;
 				background-color: #94FF70;
-				border-style: solid;
 		  }
 
 			.denied{
-				border-color: #FFA6A6;
+				color: #FF0000;
 				background-color: #FFA6A6;
-				border-style: solid;
 		  }
+		  .body-block-accepted, .body-block-waiting, .body-block-denied {
+				background-color: white;
+				padding: 15px 20px 15px 20px;
+				border-radius: 0px 0px 5px 5px;
+				border-style:solid;
+				border-bottom-style: solid;
+				border-right-style: solid;
+				border-left-style: solid;
+				border-width: 3px;
+		  }
+
 			.denied, .accepted, .waiting {
-				border-width: 2px;
-				position: relative;
-				top: auto;
-				bottom: auto;
-				left: auto;
-				right: auto;
-				padding: 20px;
-				border-radius: 5px 5px 5px 5px;
+				padding: 15px 20px 15px 20px;
+				border-radius: 5px 5px 0px 0px;
 			}
 		}
 	}
