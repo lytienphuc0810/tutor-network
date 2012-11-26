@@ -44,7 +44,7 @@ class CustomerPostsController < ApplicationController
 		#post method
     @customer_post = CustomerPost.new(params[:customer_post])
     @customer_post.user = current_user
-    @customer_post.published = nil
+    @customer_post.published = true
     if(@customer_post.save)
       redirect_to "/customer_posts/show_customer_post/#{@customer_post.id}"
     else

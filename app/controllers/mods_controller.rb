@@ -21,14 +21,14 @@ class ModsController < ApplicationController
 		customer_post = CustomerPost.find params[:post_id]
 		customer_post.published = true
 		customer_post.save
-		render "customer_posts"
+		redirect_to "/mods/index_customer_post/1"
 	end
 
 	def refuse_customer_post
 		customer_post = CustomerPost.find params[:post_id]
 		customer_post.published = false
 		customer_post.save
-		render "customer_posts"
+		redirect_to "/mods/index_customer_post/1"
 	end
 
 	def index_tutor_post
@@ -37,9 +37,9 @@ class ModsController < ApplicationController
 
 	def show_tutor_post
 		#get method
-		@tutor_post=CustomerPost.find_by_id(params[:tutor_post_id])
+		@tutor_post=TutorPost.find_by_id(params[:tutor_post_id])
 		if @tutor_post.nil?
-			redirect_to "/mods/index_customer_post/1"
+			redirect_to "/mods/index_tutor_post/1"
 		end
 	end
 
@@ -47,14 +47,14 @@ class ModsController < ApplicationController
 		tutor_post = TutorPost.find params[:post_id]
 		tutor_post.published = true
 		tutor_post.save
-		render "tutor_posts"
+		redirect_to "/mods/index_tutor_post/1"
 	end
 
 	def refuse_tutor_post
 		tutor_post = TutorPost.find params[:post_id]
 		tutor_post.published = false
 		tutor_post.save
-		render "tutor_posts"
+		redirect_to "/mods/index_tutor_post/1"
 	end
 end
 	

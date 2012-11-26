@@ -1,7 +1,9 @@
 .big-content
 	.header-link.left.inactive= link_to "CUSTOMER POSTS", "/mods/index_customer_post/1"
+	.divider.left= ">>"
+	.header-link.left.active= link_to "#{@customer_post.user.username.upcase}", "/mods/show_customer_post/#{@customer_post.id}"
 	.divider.left= "|"
-	.header-link.left.active= link_to "#{@customer_post.subject.upcase}", "/mods/show_customer_post/#{@customer_post.id}"
+	.header-link.left.inactive= link_to "TUTOR POSTS", "/mods/index_tutor_post/1"
 	.clearboth
 	.content
 		.h1= @customer_post.user.username.upcase
@@ -14,7 +16,7 @@
 			= @customer_post.user.gender.to_s
 		.h2
 			%b Subject:
-			= "Subject: "+@customer_post.subject
+			= @customer_post.subject
 		-if !@customer_post.experience.nil?
 			.h2
 				%b Required Experience:
@@ -34,6 +36,7 @@
 			%b Brief introduction
 			%br
 			%i= @customer_post.content
-		.h2.link= link_to "Edit", "/customer_posts/edit_customer_post/#{@customer_post.id}"
-		%br
-		.h2.link= link_to "Delete", "/customer_posts/delete_customer_post/#{@customer_post.id}", :method => "post"
+		- if @customer_post.published
+			.h2.link= link_to "Refuse it", "/mods/refuse_customer_post/#{@customer_post.id}"
+		- else
+			.h2.link= link_to "Publish it", "/mods/publish_customer_post/#{@customer_post.id}"

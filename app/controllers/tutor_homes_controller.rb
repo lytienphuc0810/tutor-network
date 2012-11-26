@@ -7,7 +7,7 @@ class TutorHomesController < ApplicationController
 	
 	def index_customer_post
 		#get method
-		@customer_posts=CustomerPost.paginate(:page => params[:page])
+		@customer_posts=CustomerPost.paginate(:page => params[:page]).find_all_by_published(true)
 	end
 
 	def show_customer_post

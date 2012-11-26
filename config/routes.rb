@@ -42,6 +42,11 @@ TutorNetwork::Application.routes.draw do
   get "mods/show_customer_post/:customer_post_id" => "mods#show_customer_post"
   get "mods/index_tutor_post/:page" => "mods#index_tutor_post"
   get "mods/show_tutor_post/:tutor_post_id" => "mods#show_tutor_post"
+  get "mods/publish_customer_post/:post_id" => "mods#publish_customer_post"
+  get "mods/refuse_customer_post/:post_id" => "mods#refuse_customer_post"
+  get "mods/publish_tutor_post/:post_id" => "mods#publish_tutor_post"
+  get "mods/refuse_tutor_post/:post_id" => "mods#refuse_tutor_post"
+
 
   get "users/index/:page" => "users#index"
   get "users/show/:user_id" => "users#show"

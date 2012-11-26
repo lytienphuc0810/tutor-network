@@ -2,7 +2,7 @@
 	.header-link.left.inactive= link_to "CUSTOMERS", "/tutor_homes/index_customer_post/1"
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY RECEIPTS", "/tutor_homes/index_recipe/1"
-	.divider.left= "|"
+	.divider.left= ">>"
 	.header-link.left.active= link_to "#{@recipe.other.username.upcase}", "/tutor_homes/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
@@ -104,9 +104,9 @@
 						%i= @recipe.customer_post.content
 		- else
 			.post-sample
-				.body-block-denied
+				.denied
 					.h1 HERE IS THE POST
-					%br
+				.body-block-denied
 					.h2
 						%b Customer's Name:
 						= @recipe.customer_post.user.username
