@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :authorized_user?, :except => [:self_update, :self_edit]
+	before_filter :authorized_user?, :except => [:self_update, :self_edit, :show]
 
 	def authorized_user?
 		redirect_to(root_path) unless current_user && current_user.admin?

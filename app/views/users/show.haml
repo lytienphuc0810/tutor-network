@@ -1,16 +1,18 @@
 .big-content
-	.header-link.left.inactive= link_to "CREATE", "/users/new"
-	.divider.left= "|"
-	.header-link.left.inactive= link_to "USERS", "/users/index/1"
-	.divider.left= "|"
-	.header-link.left.active= link_to "#{@user.username.truncate(20).upcase}", "/users/show/#{@user.id}"
-	.clearboth
+	- if current_user.admin?
+		.header-link.left.inactive= link_to "CREATE", "/users/new"
+		.divider.left= "|"
+		.header-link.left.inactive= link_to "USERS", "/users/index/1"
+		.divider.left= "|"
+		.header-link.left.active= link_to "#{@user.username.truncate(20).upcase}", "/users/show/#{@user.id}"
+		.clearboth
 	.content
 		.h3= @user.username.upcase
 		- User::ATTRS.drop_while { |e| e == :username }.each do |attribute| 
 			.h2
 				%b= attribute.to_s.gsub("_", "/").capitalize + ": "
-				= @user.send(attribute).nil? ? "Unfilled" : @user.send(attribute) 
-		.h2.link.right= link_to "Edit this user", "/users/edit/#{@user.id}"
-		.clearboth
-		.h2.link.right= link_to "Delete this user", "/users/delete/#{@user.id}", :method => "post"
+				= @user.send(attribute).nil? ? "Unfilled" : @user.send(attribute)
+		- if current_user.admin?
+			.h2.link.right= link_to "Edit this user", "/users/edit/#{@user.id}"
+			.clearboth
+			.h2.link.right= link_to "Delete this user", "/users/delete/#{@user.id}", :method => "post"
