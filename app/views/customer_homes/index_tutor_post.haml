@@ -1,29 +1,35 @@
 .big-content
-  .header-link.left.active= link_to "TUTORS", "/customer_homes/index_tutor_post/1"
-  .divider.left= "|"
-  .header-link.left.inactive= link_to "MY RECEIPTS", "/customer_homes/index_recipe/1"
-  .clearboth
-  - @tutor_posts.each do |tutor_post|
-    .post-content.left
-      - if !tutor_post.user.nil?
-        .text-content-left.left
-          .h1.link= link_to "#{tutor_post.user.username.upcase}", "/customer_homes/show_tutor_post/#{tutor_post.id}"
-          = ratings_for tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{tutor_post.user.id}"}
-          .h2= tutor_post.user.email
-          .h2= "District: "+tutor_post.district
-          .h2= "City/Province: "+tutor_post.city_province
-        .text-content-right.left
-          .h2= tutor_post.content.truncate(750)
-        .clearboth
-        .text-content-right.left
-          - if my_recipe = tutor_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
-            - if my_recipe.poster_confirmation.nil?
-              .h2.waiting= "Requested and waiting ..."
-            - elsif my_recipe.poster_confirmation
-              .h2.success= "Requested and accepted!"
-            - else
-              .h2.error= "Requested and denied"
-          - else
-            .h2.link= link_to "Request", "/customer_homes/create_recipe/#{tutor_post.user.id}/#{tutor_post.id}", :method => "post"
-  .clearboth
-  .paginate.right= will_paginate @tutor_posts
+	.header-link.left.active= link_to "TUTORS", "/customer_homes/index_tutor_post/1"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "MY RECEIPTS", "/customer_homes/index_recipe/1"
+	.clearboth
+	- @tutor_posts.each do |tutor_post|
+		.post-content.left
+			- if !tutor_post.user.nil?
+				.text-content-left.left
+					.h1.link= link_to "#{tutor_post.user.username.upcase}", "/customer_homes/show_tutor_post/#{tutor_post.id}"
+					= ratings_for tutor_post.user, :status, :remote_options => {:url => "/customer_homes/rate/#{tutor_post.user.id}"}
+					.h2= tutor_post.user.email
+					.h2
+						%b
+							District:
+						= tutor_post.district
+					.h2 
+						%b
+							City/Province:
+						= tutor_post.city_province
+				.text-content-right.left
+					.h2= tutor_post.content.truncate(750)
+				.clearboth
+				.text-content-right.left
+					- if my_recipe = tutor_post.recipes.find { |recipe| recipe.owner.id == current_user.id }
+						- if my_recipe.poster_confirmation.nil?
+							.h2.waiting= "Requested and waiting ..."
+						- elsif my_recipe.poster_confirmation
+							.h2.success= "Requested and accepted!"
+						- else
+							.h2.error= "Requested and denied"
+					- else
+						.h2.link= link_to "Request", "/customer_homes/create_recipe/#{tutor_post.user.id}/#{tutor_post.id}", :method => "post"
+	.clearboth
+	.paginate.right= will_paginate @tutor_posts

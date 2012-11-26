@@ -6,145 +6,52 @@
 	.header-link.left.active= link_to "#{@recipe.other.username.upcase}", "/customer_homes/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
-		.h1 MY RECEIPT
-		%br
+		.h3 MY RECEIPT
 		.h2
 			%b Tutor requested:
 			= @recipe.other.username
 		.h2
 			%b Subject:
-			= @recipe.tutor_post.subject
+			= @recipe.tutor_post.subject.capitalize
 		.h2
 			%b Receipt created at:
 			= @recipe.created_at.strftime("%H:%M %p on %d/%m/%Y")
 		.h2
 			%b Receipt updated at:
 			= @recipe.updated_at.strftime("%H:%M %p on %d/%m/%Y")
-		%br
+
+		.star
+			- if @recipe.poster_confirmation
+				%b.h2.left= "Rate this tutor"
+				= ratings_for @recipe.other, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
+			- else
+				%b.h2.left= "Tutor's rating"
+				= ratings_for @recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
+
 		- if @recipe.poster_confirmation.nil?
 			= button_to_function "Waiting for confirmation ...", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
 		- elsif @recipe.poster_confirmation
 			= button_to_function "Your request has been accepted", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
 		-	else
 			= button_to_function "Your request has been denied", "jQuery.noConflict((function($){$('.post-sample').toggle()})(jQuery))"
-		%br
+
 		- if @recipe.poster_confirmation.nil?
 			.post-sample
 				.waiting
 					.h1 HERE IS THE POST
 				.body-block-waiting
-					.h2
-						%b Tutor's Name:
-						= @recipe.tutor_post.user.username
-					.h2
-						%b Email:
-						= @recipe.tutor_post.user.email
-					.h2
-						%b Subject:
-						= @recipe.tutor_post.subject
-					-if !@recipe.tutor_post.user.gender.nil?
-						.h2
-							%b Gender:
-							= @recipe.tutor_post.user.gender.to_s
-					-if !@recipe.tutor_post.experience.nil?
-						.h2
-							%b Experience:
-							= @recipe.tutor_post.experience
-					-if !@recipe.tutor_post.tutor_fee.nil?
-						.h2
-							%b Expected Salary:
-							= @recipe.tutor_post.tutor_fee
-					.h2
-						%b District:
-						= @recipe.tutor_post.district
-					.h2
-						%b City/Province: 
-						= @recipe.tutor_post.city_province
-					%br
-					.h2
-						%b Brief description
-						%br
-						%i= @recipe.tutor_post.content
+					= render "shared/post_tutor"
 		- elsif @recipe.poster_confirmation
 			.post-sample
 				.accepted
 					.h1 HERE IS THE POST
 				.body-block-accepted
-					.h2
-						%b Tutor's Name:
-						= @recipe.tutor_post.user.username
-					.h2
-						%b Email:
-						= @recipe.tutor_post.user.email
-					.h2
-						%b Subject:
-						= @recipe.tutor_post.subject
-					-if !@recipe.tutor_post.user.gender.nil?
-						.h2
-							%b Gender:
-							= @recipe.tutor_post.user.gender.to_s
-					-if !@recipe.tutor_post.experience.nil?
-						.h2
-							%b Experience:
-							= @recipe.tutor_post.experience
-					-if !@recipe.tutor_post.tutor_fee.nil?
-						.h2
-							%b Expected Salary:
-							= @recipe.tutor_post.tutor_fee
-					.h2
-						%b District:
-						= @recipe.tutor_post.district
-					.h2
-						%b City/Province:
-						= @recipe.tutor_post.city_province+"."
-					%br
-					.h2
-						%b Brief introduction
-						%br
-						%i= @recipe.tutor_post.content
+					= render "shared/post_tutor"
 		- else
 			.post-sample
 				.denied
 					.h1 HERE IS THE POST
 				.body-block-denied
-					.h2
-						%b Tutor's Name:
-						= @recipe.tutor_post.user.username
-					.h2
-						%b Email:
-						= @recipe.tutor_post.user.email
-					.h2
-						%b Subject:
-						= @recipe.tutor_post.subject
-					-if !@recipe.tutor_post.user.gender.nil?
-						.h2
-							%b Gender:
-							= @recipe.tutor_post.user.gender.to_s
-					-if !@recipe.tutor_post.experience.nil?
-						.h2
-							%b Experience:
-							= @recipe.tutor_post.experience
-					-if !@recipe.tutor_post.tutor_fee.nil?
-						.h2
-							%b Expected Salary:
-							= @recipe.tutor_post.tutor_fee
-					.h2
-						%b District:
-						= @recipe.tutor_post.district
-					.h2
-						%b City/Province:
-						= @recipe.tutor_post.city_province
-					%br
-					.h2
-						%b Brief introduction
-						%br
-						%i= @recipe.tutor_post.content
+					= render "shared/post_tutor"
 		%br
-		- if @recipe.poster_confirmation
-			.h2 Rate this tutor
-			= ratings_for @recipe.other, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
-		- else
-			.h2 Tutor's rating
-			= ratings_for @recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{@recipe.other.id}"}, :show_user => true
-		%br
-		.h2.link= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}", :data => {:confirm => "Are you sure?"}
+		.h2.right.link= link_to "Delete", "/customer_homes/delete_recipe/#{@recipe.id}"

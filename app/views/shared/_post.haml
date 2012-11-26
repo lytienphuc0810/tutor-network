@@ -6,7 +6,7 @@
 	= @recipe.customer_post.user.email
 .h2
 	%b Subject:
-	= @recipe.customer_post.subject
+	= @recipe.customer_post.subject.capitalize
 -if !@recipe.customer_post.user.gender.nil?
 	.h2
 		%b Gender:
