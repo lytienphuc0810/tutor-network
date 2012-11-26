@@ -1,39 +1,42 @@
 .big-content
 	.header-link.left.inactive= link_to "CUSTOMER POSTS", "/mods/index_customer_post/1"
+	.divider.left= "|"
+	.header-link.left.inactive= link_to "TUTOR POSTS", "/mods/index_tutor_post/1"
 	.divider.left= ">>"
-	.header-link.left.active= link_to "#{@customer_post.subject.upcase}", "/mods/show_customer_post/#{@customer_post.id}"\
+	.header-link.left.active= link_to "#{@tutor_post.user.username.upcase}", "/mods/show_tutor_post/#{@tutor_post.id}"\
 	.clearboth
 	.content
-		.h1= @customer_post.user.username.upcase
+		.h1= @tutor_post.user.username.upcase
 		%br
 		.h2
 			%b Email:
-			= @customer_post.user.email
+			= @tutor_post.user.email
 		.h2
 			%b Gender:
-			= @customer_post.user.gender.to_s
+			= @tutor_post.user.gender.to_s
 		.h2
 			%b Subject:
-			= "Subject: "+@customer_post.subject
-		-if !@customer_post.experience.nil?
+			= @tutor_post.subject
+		-if !@tutor_post.experience.nil?
 			.h2
-				%b Required Experience:
-				= @customer_post.experience
-		-if !@customer_post.tutor_fee.nil?
+				%b Experience:
+				= @tutor_post.experience
+		-if !@tutor_post.tutor_fee.nil?
 			.h2
-				%b Offered Salary:
-				= @customer_post.tutor_fee
+				%b Expected Salary:
+				= @tutor_post.tutor_fee
 		.h2
 			%b District:
-			= @customer_post.district
+			= @tutor_post.district
 		.h2
 			%b City/Province:
-			= @customer_post.city_province
+			= @tutor_post.city_province
 		%br
 		.h2
 			%b Brief introduction
 			%br
-			%i= @customer_post.content
-		.h2.link= link_to "Edit", "/customer_posts/edit_customer_post/#{@customer_post.id}"
-		%br
-		.h2.link= link_to "Delete", "/customer_posts/delete_customer_post/#{@customer_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
+			%i= @tutor_post.content
+		- if @tutor_post.published
+			.h2.link= link_to "Refuse it", "/mods/refuse_tutor_post/#{@tutor_post.id}"
+		- else
+			.h2.link= link_to "Publish it", "/mods/publish_tutor_post/#{@tutor_post.id}"

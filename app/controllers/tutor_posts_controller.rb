@@ -41,7 +41,7 @@ class TutorPostsController < ApplicationController
 		#post method
     @tutor_post = TutorPost.new(params[:tutor_post])
     @tutor_post.user = current_user
-    @tutor_post.published = nil
+    @tutor_post.published = true
     if(@tutor_post.save)
       redirect_to "/tutor_posts/show_tutor_post/#{@tutor_post.id}"
     else
