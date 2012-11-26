@@ -17,8 +17,8 @@
       .clearboth
       .text-content-right.left
         - if customer_post.published
-          .h2.success= "This post has already been published"
+          .h2.success= "Your post is now published"
         - else
-          .h2.error= "This post has been refused"
+          .h2.error= "Your post is not published"
   .clearboth
   .paginate.right= will_paginate @customer_posts

@@ -104,9 +104,9 @@
 						%i= @recipe.customer_post.content
 		- else
 			.post-sample
-				.body-block-denied
+				.denied
 					.h1 HERE IS THE POST
-					%br
+				.body-block-denied
 					.h2
 						%b Customer's Name:
 						= @recipe.customer_post.user.username

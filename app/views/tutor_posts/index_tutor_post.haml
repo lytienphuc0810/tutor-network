@@ -18,8 +18,8 @@
       .clearboth
       .text-content-right.left
         - if tutor_post.published
-          .h2.success= "This post has already been published"
+          .h2.success= "Your post is now publised"
         - else
-          .h2.error= "This post has been refused"
+          .h2.error= "Your post is not publised"
   .clearboth
   .paginate.right= will_paginate @tutor_posts
