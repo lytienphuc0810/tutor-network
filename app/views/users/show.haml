@@ -6,7 +6,7 @@
 	.header-link.left.active= link_to "#{@user.username.truncate(20).upcase}", "/users/show/#{@user.id}"
 	.clearboth
 	.content
-		.h3= @user.username
+		.h3= @user.username.upcase
 		- User::ATTRS.drop_while { |e| e == :username }.each do |attribute| 
 			.h2
 				%b= attribute.to_s.gsub("_", "/").capitalize + ": "
