@@ -38,4 +38,4 @@
 			%i= @tutor_post.content
 		.h2.right.link= link_to "Edit", "/tutor_posts/edit_tutor_post/#{@tutor_post.id}"
 		.clearboth
-		.h2.right.link= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}"
+		.h2.right.link= link_to "Delete", "/tutor_posts/delete_tutor_post/#{@tutor_post.id}", :method => "post", :data => {:confirm => "Are you sure?"}
