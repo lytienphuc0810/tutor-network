@@ -5,7 +5,7 @@
 	.divider.left= "|"
 	.header-link.left.active= link_to "#{@tutor_post.subject.upcase}", "/tutor_posts/show_tutor_post/#{@tutor_post.id}"
 	.divider.left= ">>"
-	.header-link.left.inactive= link_to "PENDING RECEIPTS", "/tutor_posts/index_recipe/1"
+	.header-link.left.inactive= link_to "CUSTOMERS' RECEIPTS", "/tutor_posts/index_recipe/1"
 	.clearboth
 	.content
 		.h3= @tutor_post.user.username.upcase
