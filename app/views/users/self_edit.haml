@@ -14,7 +14,7 @@
       = f.label :gender, "Gender", :class => "gender-label"
       = f.select :gender, options_for_select([['Male', 'Male'], ['Female', 'Female']], @user.gender), :class => "select-role"
       .clearboth
-      %div= f.submit "Update"
+      %div= f.submit "Update", :class => "submit"
       .clearboth
     .links-block
       %span= link_to "Change your password", edit_registration_path(current_user)

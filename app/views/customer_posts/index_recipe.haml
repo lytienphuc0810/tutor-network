@@ -14,7 +14,7 @@
         - else
           = ratings_for recipe.other, :static, :remote_options => {:url => "/customer_homes/rate/#{recipe.other.id}"}, :show_user => true
         .h2= recipe.owner.email
-        .h2= recipe.customer_post.subject
+        .h2= recipe.customer_post.subject.capitalize
         - if recipe.poster_confirmation.nil?
           .h2.waiting Waiting for your confirmation ...
         - elsif recipe.poster_confirmation
