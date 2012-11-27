@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
   has_one :rate
   belongs_to :rate
   has_one :user, :through => :rate
-  has_many :tutor_posts
-  has_many :customer_posts
+  has_many :tutor_posts, :dependent => :destroy
+  has_many :customer_posts, :dependent => :destroy
   has_many :owner_recipes, :class_name => "Recipe", :foreign_key => :owner_id
   has_many :other_recipes, :class_name => "Recipe", :foreign_key => :other_id
   has_one :user, :through => :recipe
