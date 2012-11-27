@@ -3,9 +3,9 @@
 	.divider.left= "|"
 	.header-link.left.inactive= link_to "MY POSTS", "/customer_posts/index_customer_post/1"
 	.divider.left= "|"
-	.header-link.left.inactive= link_to "PENDING RECEIPTS", "/customer_posts/index_recipe/1"
+	.header-link.left.inactive= link_to "TUTORS' RECEIPTS", "/customer_posts/index_recipe/1"
 	.divider.left= ">>"
-	.header-link.left.active= link_to "#{@recipe.owner.username.truncate(15).upcase}", "/customer_posts/show_recipe/#{@recipe.id}"
+	.header-link.left.active= link_to "#{@recipe.owner.username.truncate(14).upcase}", "/customer_posts/show_recipe/#{@recipe.id}"
 	.clearboth
 	.content
 		.h3 REQUEST
