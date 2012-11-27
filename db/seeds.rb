@@ -54,7 +54,7 @@ cpost0 = CustomerPost.create(
 					 :city_province => "Hồ Chí Minh",:tutor_fee => "300 000/tháng", :experience => "2 năm", :content => "Con gái tui hiện đang học Lớp 9, kiến thức môn Lý của nó hơi ko vững, cần một gia sư nữ kèm cặp cho em có nền tảng vững vàng lại, để em có thể yên tâm thi cuối cấp. Lương ở trên có thể bàn bạc lại", :subject => "physics")
 cpost1 = CustomerPost.create(
 					 :district => "1",
-					 :city_province => "Hà Nội",:tutor_fee => "250 000/tháng", :experience => "nữa năm hoặc hơn", :content => "Cháu trai tui năm nay học nớp 5 trường Tiểu Học Nương Định Của, đang cần người kèm cặp môn toán để cháu nó thi chuyển cấp, vào được trường tốt. Vãi cái xã hội hiện tại, dân chúng cứ bắt con em đi học sáng tối như nàm ruộng, thiệt dã man, không có thời gian để chúng nó nghĩ ngơi, hưởng thụ cái gọi nà \"tuổi thơ\" của chúng nó. Bây giờ không cho nó học thì nại không bằng người ta, mà cho nó học, thì nó nại nàm con trâu quần quật , xã hội ôi nà xã hội, cháu ơi nà cháu(dm viết dài coi thử truncate nó có chạy không, ai đọc cái này làm ơn đừng nghĩ quá sâu, mô phật)", :subject => "math")
+					 :city_province => "Hà Nội",:tutor_fee => "250 000/tháng", :experience => "nữa năm hoặc hơn", :content => "Cháu trai tui năm nay học lớp 5, đang cần người kèm cặp môn toán để cháu nó thi chuyển cấp, vào được trường tốt.", :subject => "math")
 
 tpost0 = TutorPost.create(
 					 :district => "5",
